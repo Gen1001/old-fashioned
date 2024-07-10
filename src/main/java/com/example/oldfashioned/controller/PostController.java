@@ -2,6 +2,7 @@ package com.example.oldfashioned.controller;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort.Direction;
@@ -50,6 +51,10 @@ public class PostController {
 	private final LikeRepository likeRepository;
 	private final KeepRepository keepRepository;
 	private final FollowRepository followRepository;
+	@Value("${google.maps.api.key}")
+	private String apiKey;
+	@Value("${google.maps.map.id}")
+	private String mapId;
 	
 	public PostController(PostRepository postRepository, CategoryRepository categoryRepository, StoreRepository storeRepository, StoreService storeService, PostService postService, UserRepository userRepositpry, LikeRepository likeRepository, KeepRepository keepRepository, FollowRepository followRepository) {
 		this.postRepository = postRepository;
@@ -133,6 +138,8 @@ public class PostController {
 		
 		model.addAttribute("post", post);
 		model.addAttribute("user", user);
+		model.addAttribute("apiKey", apiKey);
+		model.addAttribute("mapId", mapId);
 		
 		return "posts/show";
 	}
@@ -158,6 +165,8 @@ public class PostController {
 		
 		model.addAttribute("postPage", postPage);
 		model.addAttribute("store", store);
+		model.addAttribute("apiKey", apiKey);
+		model.addAttribute("mapId", mapId);
 		
 		return "posts/storePage";
 	}
@@ -182,6 +191,7 @@ public class PostController {
 		
 		model.addAttribute("postPage", postPage);
 		model.addAttribute("user", user);
+		
 		
 		return "posts/otherPage";
 	}
