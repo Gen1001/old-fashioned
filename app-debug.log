@@ -8136,3 +8136,31 @@ com.example.oldfashioned.controller.HomeController#index() mapped.
 2024-07-10T23:34:46.886+09:00  INFO 23932 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
 2024-07-10T23:34:46.891+09:00  INFO 23932 --- [restartedMain] c.e.o.OldfashionedApplication            : Started OldfashionedApplication in 0.86 seconds (process running for 9782.251)
 2024-07-10T23:34:46.893+09:00  INFO 23932 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2024-07-10T23:40:57.140+09:00  INFO 23932 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-07-10T23:40:57.176+09:00  INFO 23932 --- [Thread-46] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-07-10T23:40:57.176+09:00  INFO 23932 --- [Thread-46] com.zaxxer.hikari.HikariDataSource       : HikariPool-12 - Shutdown initiated...
+2024-07-10T23:40:57.178+09:00  INFO 23932 --- [Thread-46] com.zaxxer.hikari.HikariDataSource       : HikariPool-12 - Shutdown completed.
+2024-07-10T23:40:57.244+09:00  INFO 23932 --- [restartedMain] c.e.o.OldfashionedApplication            : Starting OldfashionedApplication using Java 17.0.10 with PID 23932 (C:\Pleiades All in One\old_fashioned\oldfashioned\target\classes started by PC_User in C:\Pleiades All in One\old_fashioned\oldfashioned)
+2024-07-10T23:40:57.244+09:00  INFO 23932 --- [restartedMain] c.e.o.OldfashionedApplication            : The following 1 profile is active: "development"
+2024-07-10T23:40:57.374+09:00  INFO 23932 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-07-10T23:40:57.392+09:00  INFO 23932 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 17 ms. Found 10 JPA repository interfaces.
+2024-07-10T23:40:57.508+09:00  INFO 23932 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-07-10T23:40:57.509+09:00  INFO 23932 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-07-10T23:40:57.509+09:00  INFO 23932 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.25]
+2024-07-10T23:40:57.524+09:00  INFO 23932 --- [restartedMain] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2024-07-10T23:40:57.524+09:00  INFO 23932 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 278 ms
+2024-07-10T23:40:57.562+09:00  INFO 23932 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-13 - Starting...
+2024-07-10T23:40:57.571+09:00  INFO 23932 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-13 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4b580a5a
+2024-07-10T23:40:57.571+09:00  INFO 23932 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-13 - Start completed.
+2024-07-10T23:40:57.604+09:00  INFO 23932 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-07-10T23:40:57.606+09:00  INFO 23932 --- [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-07-10T23:40:57.612+09:00  INFO 23932 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-07-10T23:40:57.703+09:00  INFO 23932 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-07-10T23:40:57.703+09:00  INFO 23932 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-07-10T23:40:57.931+09:00  WARN 23932 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-07-10T23:40:57.942+09:00  INFO 23932 --- [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name userDetailsServiceImpl
+2024-07-10T23:40:57.952+09:00  INFO 23932 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2024-07-10T23:40:58.150+09:00  INFO 23932 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-07-10T23:40:58.160+09:00  INFO 23932 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2024-07-10T23:40:58.164+09:00  INFO 23932 --- [restartedMain] c.e.o.OldfashionedApplication            : Started OldfashionedApplication in 0.935 seconds (process running for 10153.525)
+2024-07-10T23:40:58.164+09:00  INFO 23932 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged

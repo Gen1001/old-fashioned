@@ -45,8 +45,8 @@ public class HomeController {
 		model.addAttribute("postPage", postPage);
 		model.addAttribute("category", category);
 		model.addAttribute("store", store);
-//		model.addAttribute("apiKey", apiKey);
-//		model.addAttribute("mapId", mapId);
+		model.addAttribute("apiKey", apiKey);
+		model.addAttribute("mapId", mapId);
 		
 		
 		return "index";
