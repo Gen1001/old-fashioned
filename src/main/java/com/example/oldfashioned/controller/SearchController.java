@@ -47,7 +47,7 @@ public class SearchController {
 		model.addAttribute("user", user);
 		model.addAttribute("userPage", userPage);
 		
-		return "/search/user";
+		return "search/user";
 	}
 	
 	@GetMapping("/store")
@@ -58,6 +58,6 @@ public class SearchController {
 		model.addAttribute("category", category);
 		model.addAttribute("store", store);
 		
-		return "/index";
+		return "index";
 	}
 }

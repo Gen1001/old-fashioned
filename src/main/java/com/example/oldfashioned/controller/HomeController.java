@@ -2,6 +2,7 @@ package com.example.oldfashioned.controller;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort.Direction;
@@ -23,6 +24,10 @@ public class HomeController {
 	private final PostRepository postRepository;
 	private final CategoryRepository categoryRepository;
 	private final StoreRepository storeRepository;
+	@Value("${google.maps.api.key}")
+	private String apiKey;
+	@Value("${google.maps.map.id}")
+	private String mapId;
 	
 	public HomeController(PostRepository postRepository, CategoryRepository categoryRepository, StoreRepository storeRepository) {
 		this.postRepository = postRepository;
@@ -30,17 +35,23 @@ public class HomeController {
 		this.storeRepository = storeRepository;
 	}
 	
+	
 	@GetMapping("")
 	public String index(Model model, @PageableDefault(page = 0, size = 10, sort = "id", direction = Direction.ASC) Pageable pageable) {
 		Page<Post> postPage;
 		List<Category> category = categoryRepository.findAll();
 		List<Store> store = storeRepository.findAll();
+		System.out.println(apiKey);
+		System.out.println(mapId);
 		
 		postPage = postRepository.findAllByOrderByCreatedAtDesc(pageable);
 		
 		model.addAttribute("postPage", postPage);
 		model.addAttribute("category", category);
 		model.addAttribute("store", store);
+		model.addAttribute("apiKey", apiKey);
+		model.addAttribute("mapId", mapId);
+		
 		
 		return "/index";
 	}
