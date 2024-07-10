@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">	<head>
+		<div th:replace="~{fragment :: meta}"></div>  
+
+		<div th:replace="~{fragment :: styles}"></div> 
+		
+		<title>マイページ</title>	
+	</head>
+	<body>
+		<div class="oldfashioned-wrapper">
+			<!-- ヘッダー -->
+			<div th:replace="~{fragment :: header}"></div>
+		
+			<main>
+				<div class="container pt-4 pb-5 oldfashioned-container">
+					<div class="row justify-content-center">
+						<div class="col">
+							<nav class="mb-4" style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+								<ol class="breadcrumb mb-0">
+									<li class="breadcrumb-item"><a th:href="@{/}">ホーム</a></li>
+									<li class="breadcrumb-item active" aria-current="page">マイページ</li>
+								</ol>
+							</nav>
+							
+							<img th:src="@{/profile/__${user.getUserPhoto()}__}" class="profile">
+								
+							<h1 class="text-center" th:text="${user.getNickname()}"></h1>
+								
+							<p class="text-center" th:text="${user.getIntroduction()}"></p>
+								
+							<div th:each="post : ${postPage}" class="col-md-4 md-4 justify-content-center">
+								 <a th:href="@{/posts/__${post.getId()}__}">
+																 <div class="card h-200 mb-5">
+								                                     <img th:src="@{/clothes/__${post.getPostPhoto()}__}" class="card-img-top oldfashioned-vertical-card-image">
+																	 <div class="card-body">
+																		 <h3 class="card-title" th:text="${post.getName()}"></h3>
+																		 <p class="catd-text">
+																			 <span th:text="${post.getContent()}" class="box-text"></span>
+																		 </p>
+																	 </div>
+																 </div>	
+								                              </a>
+								                          </div>
+							
+							<div th:if="${postPage.getTotalPages() > 1}" class="d-flex justify-content-center">
+								<nav aria-label="マイページ">
+									<ul class="pagination">
+										<li class="page-item">
+											<span th:if="${postPage.isFirst()}" class="page-link disabled">前</span>
+											<a th:unless="${postPage.isFirst()}" th:href="@{/posts/myPage(page = ${postPage.getNumber() -1})}" class="page-link oldfashioned-page-link">前</a>
+										</li>
+										<li th:each="i : ${#numbers.sequence(0, postPage.getTotalPages() -1)}" class="page-item">
+											<span th:if="${i == postPage.getNumber()}" class="page-link active oldfashioned-active" th:text="${i + 1}"></span>
+											<a th:unless="${i == postPage.getNumber()}" th:href="@{/posts/myPage(page = ${i})}" class="page-link oldfashioned-page-link" th:text="${i + 1}"></a>
+										</li>
+										<li class="page-item">
+											<span th:if="${postPage.isLast()}" class="page-link disabled">次</span>
+											<a th:unless="${postPage.isLast()}" th:href="@{/posts/myPage(page = ${postPage.getNumber() + 1})}" class="page-link oldfashioned-page-link">次</a>
+										</li>
+									</ul>
+								</nav>
+							</div> 
+							
+						</div>
+					</div>
+				</div>
+			</main>
+			
+			<div th:replace="~{fragment :: footer}"></div>
+			
+		</div>
+		
+		<div th:replace="~{fragment :: scripts}"></div>
+		
+	</body>
+</html>

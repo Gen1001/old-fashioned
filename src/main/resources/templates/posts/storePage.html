@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+		<div th:replace="~{fragment :: meta}"></div>  
+
+		<div th:replace="~{fragment :: styles}"></div> 
+		
+		<title>店舗情報</title>	
+	</head>
+	<body>
+		<div class="oldfashioned-wrapper">
+			<!-- ヘッダー -->
+			<div th:replace="~{fragment :: header}"></div>
+		
+			<main>
+				<div class="container pt-4 pb-5 oldfashioned-container">
+					<div class="row justify-content-center">
+						<div class="col">
+							<nav class="mb-4" style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+								<ol class="breadcrumb mb-0">
+									<li class="breadcrumb-item"><a th:href="@{/}">ホーム</a></li>
+									<li class="breadcrumb-item active" aria-current="page">店舗情報</li>
+								</ol>
+							</nav>
+							
+							<div th:if="${#authorization.expression('hasRole(''ROLE_GENERAL'')')}" class="text-align">
+								<div th:if="${keepDelete}">
+									<a th:href="@{/keeps/delete/__${store.getId()}__}">&#9829; 保存</a>
+								</div>
+								<div th:if="${keepRegister}">
+									<a th:href="@{/keeps/create/__${store.getId()}__}">&#9825; 保存</a>
+								</div>
+							</div>
+								
+							<h1 class="text-center" th:text="${store.getName()}"></h1>
+								
+	                           <div th:each="post : ${postPage}" class="col-md-4 md-4 justify-content-center">
+	                              <a th:href="@{/posts/__${post.getId()}__}">
+									 <div class="card h-200 mb-5">
+	                                     <img th:src="@{/clothes/__${post.getPostPhoto()}__}" class="card-img-top oldfashioned-vertical-card-image">
+										 <div class="card-body">
+											 <h3 class="card-title" th:text="${post.getName()}"></h3>
+											 <p class="catd-text">
+												 <span th:text="${post.getContent()}" class="box-text"></span>
+											 </p>
+										 </div>
+									 </div>	
+	                              </a>
+	                          </div>
+						   
+	                       <!-- ページネーション -->
+	                       <div th:if="${postPage.getTotalPages() > 1}" class="d-flex justify-content-center">
+                      		   <nav aria-label="店舗投稿一覧">
+		                           <ul class="pagination">
+	                                   <li class="page-item">
+	                                       <span th:if="${postPage.isFirst()}" class="page-link disabled">前</span>
+	                                       <a th:unless="${postPage.isFirst()}" th:href="@{/posts/storePage/__${store.getId()}__(page = ${postPage.getNumber() -1})}" class="page-link oldfashioned-page-link">前</a>
+	                                   </li>
+	                                   <li th:each="i : ${#numbers.sequence(0, postPage.getTotalPages() -1)}" class="page-item">
+	                                       <span th:if="${i == postPage.getNumber()}" class="page-link active oldfashioned-active" th:text="${i + 1}"></span>
+	                                       <a th:unless="${i == postPage.getNumber()}" th:href="@{/posts/storePage/__${store.getId()}__(page = ${i})}" class="page-link oldfashioned-page-link" th:text="${i + 1}"></a>
+	                                   </li>
+	                                   <li class="page-item">
+	                                       <span th:if="${postPage.isLast()}" class="page-link disabled">次</span>
+	                                       <a th:unless="${postPage.isLast()}" th:href="@{/posts/storePage/__${store.getId()}__(page = ${postPage.getNumber() + 1})}" class="page-link oldfashioned-page-link">次</a>
+	                                   </li>
+	                               </ul>
+	                           </nav>
+	 	                   </div> 
+						   <div id="map"></div>
+						   
+						   <div class="col container mb-4">
+							<div class="row pb-2 mb-2 border-bottom">
+								<div class="col-4">
+									<span class="fw-bold">店舗名</span>
+								</div>
+								<div class="col">
+									<span th:text="${store.getName()}"></span>
+								</div>
+							</div>
+							
+							<div class="row pb-2 mb-2 border-bottom">
+								<div class="col-4">
+									<span class="fw-bold">住所</span>
+								</div>
+								<div class="col">
+									<span th:text="${store.getAddress()}"></span>
+								</div>
+							</div>
+						   </div>
+							
+						   
+						</div>
+					</div>
+				</div>
+			</main>
+			
+			<div th:replace="~{fragment :: footer}"></div>
+			
+		</div>
+		
+		<div th:replace="~{fragment :: scripts}"></div>
+		<script type="text/javascript" th:inline="javascript">
+				/*<![CDTA[*/
+				(g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})({
+				    key: "${GOOGLE_MAPS_API_KEY}",
+				    v: "week",
+				});
+				
+				let map;
+				
+				async function initMap() {
+					const { Map } = await google.maps.importLibrary("maps");
+					const { AdvancedMarkerElement } = await google.maps.importLibrary("marker");
+				
+					var store = /*[[${store}]]*/ '[]';
+					store = /*[[${store}]]*/ [];
+					
+					console.log(store.name);
+				    //店舗の座標
+				    let coordinate = { lat: store.latitude, lng: store.longitude };
+						
+					//地図の描画
+					map = new Map(document.getElementById("map"), {
+				    center: coordinate,
+				    zoom: 8,
+				    mapId: "${GOOGLE_MAPS_MAP_ID}",
+				 	});
+						  
+					//店舗名を表示する
+				    const storeName = document.createElement("div");
+				    storeName.className = "store-name";
+				    storeName.textContent = store.name;
+					    
+				 	//マーカーの設置
+				 	let marker = new AdvancedMarkerElement({
+					map,
+					position: coordinate,
+					content: storeName,
+					title: store.name,
+					});
+						
+					}
+				
+				initMap();		
+				/*]]>*/
+			</script>
+	</body>
+</html>

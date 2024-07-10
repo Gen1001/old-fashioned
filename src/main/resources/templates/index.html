@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>投稿一覧</title>
+    <div th:replace="~{fragment :: meta}"></div>
+    <div th:replace="~{fragment :: styles}"></div>
+</head>
+<body>
+    <div class="oldfashioned-wrapper">
+        <div th:replace="~{fragment :: header}"></div>
+        <main>
+            <div class="container oldfashined-container">
+                <div class="row justify-content-center">
+                    <div class="col">
+                        <div class="container pt-4 pb-5">
+                            <div th:if="${param.loggedIn}" class="alert alert-info">ログインしました。</div>
+                            <div th:if="${successMessage}" class="alert alert-imfo">
+                                <span th:text="${successMessage}"></span>
+                            </div>
+                        </div>
+						
+						<div class="body-category d-flex">
+							<h1>投稿一覧</h1>
+							<a th:href="@{/search/store}">
+								<h1>マップ検索</h1>
+							</a>
+							<a th:href="@{/search/user}">
+								<h1>ユーザー検索</h1>
+							</a>
+						</div>
+                        <div class="category">
+                            <div th:each="category : ${category}">
+                                <a th:href="@{/__${category.getId()}__}" th:text="${category.getName()}" class="category-text"></a>
+                            </div>
+                        </div>
+<!--                        <div class="row">-->
+<!--                            <div th:each="post : ${postPage}" class="col-md-6 md-6 justify-content-center">-->
+<!--                                <a th:href="@{/posts/myPage/__${post.getId()}__}" class="square-image m-10">-->
+<!--                                    <img th:src="@{/clothes/__${post.getPostPhoto()}__}" class="post-view">-->
+<!--                                    <p class="image-text" th:text="${post.getName()}"></p>-->
+<!--                                </a>-->
+<!--                            </div>-->
+<!--                        </div>-->
+						<div th:each="post : ${postPage}" class="col-md-4 md-4 justify-content-center">
+	                         <a th:href="@{/posts/__${post.getId()}__}">
+					 			 <div class="card h-200 mb-5">
+	                                 <img th:src="@{/clothes/__${post.getPostPhoto()}__}" class="card-img-top oldfashioned-vertical-card-image">
+									 <div class="card-body">
+										 <h3 class="card-title" th:text="${post.getName()}"></h3>
+										 <p class="catd-text">
+											 <span th:text="${post.getContent()}" class="box-text"></span>
+										 </p>
+									 </div>
+								 </div>	
+	                         </a>
+                        </div>
+                        <!-- マップ -->
+                        <div id="map"></div>
+                        <!-- ページネーション -->
+                        <div th:if="${postPage.getTotalPages() > 1}" class="d-flex justify-content-center">
+                            <nav aria-label="投稿一覧">
+                                <ul class="pagination">
+                                    <li class="page-item">
+                                        <span th:if="${postPage.isFirst()}" class="page-link disabled">前</span>
+                                        <a th:unless="${postPage.isFirst()}" th:href="@{/(page = ${postPage.getNumber() -1})}" class="page-link oldfashioned-page-link">前</a>
+                                    </li>
+                                    <li th:each="i : ${#numbers.sequence(0, postPage.getTotalPages() -1)}" class="page-item">
+                                        <span th:if="${i == postPage.getNumber()}" class="page-link active oldfashioned-active" th:text="${i + 1}"></span>
+                                        <a th:unless="${i == postPage.getNumber()}" th:href="@{/(page = ${i})}" class="page-link oldfashioned-page-link" th:text="${i + 1}"></a>
+                                    </li>
+                                    <li class="page-item">
+                                        <span th:if="${postPage.isLast()}" class="page-link disabled">次</span>
+                                        <a th:unless="${postPage.isLast()}" th:href="@{/(page = ${postPage.getNumber() + 1})}" class="page-link oldfashioned-page-link">次</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div> 
+                    </div>
+                </div>
+            </div>
+        </main>
+        <div th:replace="~{fragment :: footer}"></div>
+    </div>
+    <div th:replace="~{fragment :: scripts}"></div>
+	<script type="text/javascript" th:inline="javascript">
+		/*<![CDTA[*/
+		(g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})({
+		    key: "${GOOGLE_MAPS_API_KEY}",
+		    v: "week",
+		});
+		
+		let map;
+		
+		async function initMap() {
+			const { Map } = await google.maps.importLibrary("maps");
+			const { AdvancedMarkerElement } = await google.maps.importLibrary("marker");
+		
+			//現在地を取得
+		    if (navigator.geolocation) {
+		        navigator.geolocation.getCurrentPosition(showPosition);
+		    } else {
+		        alert("Geolocation is not supported by this browser.");
+		    }
+			
+			function showPosition(position) {
+			    let coordinate = {
+			        lat: position.coords.latitude,
+			        lng: position.coords.longitude
+			    };
+				
+				
+			//地図の描画
+			map = new Map(document.getElementById("map"), {
+		    center: coordinate,
+		    zoom: 8,
+		    mapId: "${GOOGLE_MAPS_MAP_ID}",
+		 	});
+			
+			var stores = /*[[${store}]]*/ '[]';
+			stores = /*[[${store}]]*/ [];
+		 	
+		 	stores.forEach(function(store) {
+				//店舗の投稿ページへ遷移
+				const contentString =
+				        '<div class="">' +
+				        '<div class="mb5"><a href="/posts/storePage/' + store.id + '" class="btn btn-sm btn-default mb5">' +
+				        '店舗の投稿を見る' +
+				        '</a></div>' +
+				        '</div>';
+				  
+				const infowindow = new google.maps.InfoWindow({
+				    content: contentString,
+				  });
+				  
+				//店舗名を表示する
+			    const storeName = document.createElement("div");
+			    storeName.className = "store-name";
+			    storeName.textContent = store.name;
+			    
+			    //店舗の座標
+			    let storePosition = { lat: store.latitude, lng: store.longitude };
+				
+			 	//マーカーの設置
+			 	let marker = new AdvancedMarkerElement({
+				map,
+				position: storePosition,
+				content: storeName,
+				title: store.name,
+				});
+				
+				//クリック時の処理
+				marker.addListener("click", function() {
+					infowindow.open({
+						anchor: marker,
+						map,
+					})
+				})
+				
+			});
+			}
+		}
+		
+		initMap();		
+		/*]]>*/
+	</script>
+</body>
+</html>

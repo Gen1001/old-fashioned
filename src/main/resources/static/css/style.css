@@ -1,0 +1,264 @@
+html {
+	font-size: 14px;
+}
+
+body {
+	font-family: 'Noto Sans JP', sans-serif;
+    align-items: center;
+    height: 100vh;
+    background-color: beige;
+    margin: 0;
+}
+
+h1 {
+	font-size: 1.5rem;
+	color:black;
+}
+
+h2 {
+	font-size: 1.475rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+}
+
+a {
+	color: #FAB43C;
+	text-decoration: none !important;
+}
+
+a:hover {
+	color: #CFA255;
+}
+
+span {
+	color: black;
+}
+
+footer {
+	width: 100%;
+	height: 60px;
+	position: absolute;
+	bottom: 0;
+	background-color: #CFA255;
+}
+
+.oldfashioned-wrapper {
+	min-height: 100vh;
+	position: relative;
+	padding-bottom: 60px;
+	box-sizing: border-box;
+}
+
+.oldfashioned-navbar {
+	min-height: 60px;
+	max-height: 200px;
+	background-size: cover;
+	background-position: center;
+	background-image: url("/storage/restaurant04.jpg");
+	position: relative;
+	transition: background-image 1s ease-in-out;
+}
+
+.oldfashioned-logo {
+	height: 170px;
+	margin-bottom: 30px;
+}
+
+.oldfashioned-btn {
+	background-color: #CFA255 !important;
+	transition: 0.1s;
+	justify-content:  center;
+}
+
+.oldfashioned-btn:hover {
+	opacity: 0.8;
+}
+
+.oldfashioned-page-link {
+	color: #FAB43C;
+}
+
+.oldfashioned-page-link:hover {
+	color: #CFA255;
+}
+
+.oldfashioned-active {
+	background-color:  #CFA255 !important;
+	border-color: #CFA255 !important;
+}
+
+.oldfashioned-pre-wrap {
+	/*　開業文字で行を折り返す */
+	white-space: pre-wrap;
+}
+
+ .oldfashioned-link-danger {
+     color: #95AECF;
+ }
+ 
+ .oldfashioned-link-danger:hover {
+     color: #95AECF;
+ }
+ 
+ .oldfashioned-btn-danger {
+     background-color: #95AECF !important;
+     transition: 0.1s;
+ }
+ 
+ .oldfashioned-btn-danger:hover {
+   opacity: 0.8;   
+ }
+ 
+ .oldfashioned-dropdown-item:active {
+	background-color: #CFA255;
+ }
+ 
+ .oldfashioned-card-link {
+	transition: 0.3s;
+ }
+ 
+ .oldfashioned-card-link:hover {
+	opacity: 0.7;
+ }
+ 
+ .oldfashioned-horizontal-card-image {
+	width: 100%;
+	height: 240px;
+	object-fit: cover;
+ }
+ 
+ .oldfashioned-sort-box {
+	width:150px;
+ }
+ 
+ .oldfashioned-vertical-card-image {
+	width: 100%;
+	height: 150px;
+	object-fit: cover;
+ }
+ 
+ .oldfashioned-search-form {
+	max-width: 300px;
+ }
+
+
+#text-align-center {
+	text-align: center;
+}
+
+.breadcrumb >.active {
+	color:#3B372F;
+}
+.breadcrumb-item + .breadcrumb-item::before {
+    color: #3B372F;
+}
+
+.nav-link {
+	color:azure;
+} 
+
+.nav-item {
+	z-index: 100;
+}
+
+.category {
+	display:flex;
+	flex-wrap: wrap;
+}
+
+.category-middle {
+	margin-bottom: 10px;
+}
+
+.category-text {
+	border: solid 2px ;
+	border-radius: 2px; 
+	padding: 2px;
+	margin: 2px;
+	
+}
+
+.box-text {
+	color: black;
+}
+
+.square-image {
+	width:250px;
+	height:250px;
+	overflow: hidden;
+	position: relative;
+	display: inline-block;
+	text-align: center;
+}
+
+.post-view {
+	width:100%;
+	height: 100%;
+	margin: 10px;
+	display: block;
+	object-fit: cover;
+}
+
+.image-text {
+	position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 5px 10px;
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.2;
+}
+
+#imagePreview img {
+	height: 300px;
+}
+
+#map {
+height: 500px; 
+width: 100%; 
+}
+
+/*map装飾テスト*/
+.store-name {
+  background-color: #4285F4;
+  border-radius: 8px;
+  color: #FFFFFF;
+  font-size: 14px;
+  padding: 10px 15px;
+  position: relative;
+}
+
+.store-name::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  transform: translate(-50%, 0);
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 8px solid #4285F4;
+}
+
+[class$=api-load-alpha-banner] {
+  display: none;
+}
+
+/* プロフィール画像 */
+.profile {
+	width: 50%;
+	border-radius: 50%;
+	margin: 0 auto;
+	display: block;
+}
+
+@media screen and (min-width: 1400px) {
+	.oldfashioned-container {
+		max-width: 1200px;
+	}
+}
