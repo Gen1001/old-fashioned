@@ -6855,3 +6855,1284 @@ com.example.oldfashioned.controller.HomeController#index() mapped.
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1784) ~[spring-beans-6.1.10.jar:6.1.10]
 	... 73 common frames omitted
 
+2024-07-10T23:28:59.804+09:00  INFO 23932 --- [restartedMain] c.e.o.OldfashionedApplication            : Starting OldfashionedApplication using Java 17.0.10 with PID 23932 (C:\Pleiades All in One\old_fashioned\oldfashioned\target\classes started by PC_User in C:\Pleiades All in One\old_fashioned\oldfashioned)
+2024-07-10T23:28:59.804+09:00  INFO 23932 --- [restartedMain] c.e.o.OldfashionedApplication            : The following 1 profile is active: "development"
+2024-07-10T23:28:59.923+09:00  INFO 23932 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-07-10T23:28:59.936+09:00  INFO 23932 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 13 ms. Found 10 JPA repository interfaces.
+2024-07-10T23:29:00.016+09:00  INFO 23932 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-07-10T23:29:00.017+09:00  INFO 23932 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-07-10T23:29:00.017+09:00  INFO 23932 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.25]
+2024-07-10T23:29:00.031+09:00  INFO 23932 --- [restartedMain] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2024-07-10T23:29:00.031+09:00  INFO 23932 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 225 ms
+2024-07-10T23:29:00.063+09:00  INFO 23932 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-9 - Starting...
+2024-07-10T23:29:00.071+09:00  INFO 23932 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-9 - Added connection com.mysql.cj.jdbc.ConnectionImpl@322e6829
+2024-07-10T23:29:00.071+09:00  INFO 23932 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-9 - Start completed.
+2024-07-10T23:29:00.101+09:00  INFO 23932 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-07-10T23:29:00.103+09:00  INFO 23932 --- [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-07-10T23:29:00.108+09:00  INFO 23932 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-07-10T23:29:00.178+09:00  INFO 23932 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-07-10T23:29:00.178+09:00  INFO 23932 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-07-10T23:29:00.383+09:00  WARN 23932 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-07-10T23:29:00.391+09:00  INFO 23932 --- [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name userDetailsServiceImpl
+2024-07-10T23:29:00.400+09:00  INFO 23932 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2024-07-10T23:29:00.574+09:00  INFO 23932 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-07-10T23:29:00.591+09:00  INFO 23932 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2024-07-10T23:29:00.595+09:00  INFO 23932 --- [restartedMain] c.e.o.OldfashionedApplication            : Started OldfashionedApplication in 0.803 seconds (process running for 9435.956)
+2024-07-10T23:29:00.597+09:00  INFO 23932 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2024-07-10T23:29:43.847+09:00  INFO 23932 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-07-10T23:29:43.847+09:00  INFO 23932 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-07-10T23:29:43.848+09:00  INFO 23932 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-07-10T23:29:43.852+09:00 DEBUG 23932 --- [http-nio-8080-exec-1] org.thymeleaf.TemplateEngine             : [THYMELEAF] INITIALIZING TEMPLATE ENGINE
+2024-07-10T23:29:43.859+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.TemplateEngine.cache.TEMPLATE_CACHE  : [THYMELEAF][CACHE_INITIALIZE] Initializing cache TEMPLATE_CACHE. Max size: 200. Soft references are used.
+2024-07-10T23:29:43.862+09:00 TRACE 23932 --- [http-nio-8080-exec-1] org.thymeleaf.TemplateEngine.CONFIG      : Initializing Thymeleaf Template engine configuration...
+[THYMELEAF] TEMPLATE ENGINE CONFIGURATION:
+[THYMELEAF] * Thymeleaf version: 3.1.2.RELEASE (built 2023-07-30T19:25:50+0000)
+[THYMELEAF] * Cache Manager implementation: org.thymeleaf.cache.StandardCacheManager
+[THYMELEAF] * Template resolvers:
+[THYMELEAF]     * org.thymeleaf.spring6.templateresolver.SpringResourceTemplateResolver
+[THYMELEAF] * Message resolvers:
+[THYMELEAF]     * org.thymeleaf.spring6.messageresolver.SpringMessageResolver
+[THYMELEAF] * Link builders:
+[THYMELEAF]     * org.thymeleaf.linkbuilder.StandardLinkBuilder
+[THYMELEAF] * Dialect [1 of 2]: SpringStandard (org.thymeleaf.spring6.dialect.SpringStandardDialect)
+[THYMELEAF]     * Prefix: "th"
+[THYMELEAF]     * Processors for Template Mode: HTML
+[THYMELEAF]         * Element Tag Processors by [matching element and attribute name] [precedence]:
+[THYMELEAF]             * [* {th:include,data-th-include}] [100]: org.thymeleaf.standard.processor.StandardIncludeTagProcessor
+[THYMELEAF]             * [* {th:insert,data-th-insert}] [100]: org.thymeleaf.standard.processor.StandardInsertTagProcessor
+[THYMELEAF]             * [* {th:replace,data-th-replace}] [100]: org.thymeleaf.standard.processor.StandardReplaceTagProcessor
+[THYMELEAF]             * [* {th:each,data-th-each}] [200]: org.thymeleaf.standard.processor.StandardEachTagProcessor
+[THYMELEAF]             * [* {th:switch,data-th-switch}] [250]: org.thymeleaf.standard.processor.StandardSwitchTagProcessor
+[THYMELEAF]             * [* {th:case,data-th-case}] [275]: org.thymeleaf.standard.processor.StandardCaseTagProcessor
+[THYMELEAF]             * [* {th:if,data-th-if}] [300]: org.thymeleaf.standard.processor.StandardIfTagProcessor
+[THYMELEAF]             * [* {th:unless,data-th-unless}] [400]: org.thymeleaf.standard.processor.StandardUnlessTagProcessor
+[THYMELEAF]             * [* {th:object,data-th-object}] [500]: org.thymeleaf.spring6.processor.SpringObjectTagProcessor
+[THYMELEAF]             * [* {th:with,data-th-with}] [600]: org.thymeleaf.standard.processor.StandardWithTagProcessor
+[THYMELEAF]             * [* {th:attr,data-th-attr}] [700]: org.thymeleaf.standard.processor.StandardAttrTagProcessor
+[THYMELEAF]             * [* {th:attrprepend,data-th-attrprepend}] [800]: org.thymeleaf.standard.processor.StandardAttrprependTagProcessor
+[THYMELEAF]             * [* {th:attrappend,data-th-attrappend}] [900]: org.thymeleaf.standard.processor.StandardAttrappendTagProcessor
+[THYMELEAF]             * [* {th:method,data-th-method}] [990]: org.thymeleaf.spring6.processor.SpringMethodTagProcessor
+[THYMELEAF]             * [* {th:alt-title,data-th-alt-title}] [990]: org.thymeleaf.standard.processor.StandardAltTitleTagProcessor
+[THYMELEAF]             * [* {th:lang-xmllang,data-th-lang-xmllang}] [990]: org.thymeleaf.standard.processor.StandardLangXmlLangTagProcessor
+[THYMELEAF]             * [* {th:action,data-th-action}] [1000]: org.thymeleaf.spring6.processor.SpringActionTagProcessor
+[THYMELEAF]             * [* {th:href,data-th-href}] [1000]: org.thymeleaf.spring6.processor.SpringHrefTagProcessor
+[THYMELEAF]             * [* {th:src,data-th-src}] [1000]: org.thymeleaf.spring6.processor.SpringSrcTagProcessor
+[THYMELEAF]             * [* {th:scoped,data-th-scoped}] [1000]: org.thymeleaf.standard.processor.StandardConditionalFixedValueTagProcessor
+[THYMELEAF]             * [* {th:controls,data-th-controls}] [1000]: org.thymeleaf.standard.processor.StandardConditionalFixedValueTagProcessor
+[THYMELEAF]             * [* {th:multiple,data-th-multiple}] [1000]: org.thymeleaf.standard.processor.StandardConditionalFixedValueTagProcessor
+[THYMELEAF]             * [* {th:autoplay,data-th-autoplay}] [1000]: org.thymeleaf.standard.processor.StandardConditionalFixedValueTagProcessor
+[THYMELEAF]             * [* {th:async,data-th-async}] [1000]: org.thymeleaf.standard.processor.StandardConditionalFixedValueTagProcessor
+[THYMELEAF]             * [* {th:disabled,data-th-disabled}] [1000]: org.thymeleaf.standard.processor.StandardConditionalFixedValueTagProcessor
+[THYMELEAF]             * [* {th:selected,data-th-selected}] [1000]: org.thymeleaf.standard.processor.StandardConditionalFixedValueTagProcessor
+[THYMELEAF]             * [* {th:loop,data-th-loop}] [1000]: org.thymeleaf.standard.processor.StandardConditionalFixedValueTagProcessor
+[THYMELEAF]             * [* {th:required,data-th-required}] [1000]: org.thymeleaf.standard.processor.StandardConditionalFixedValueTagProcessor
+[THYMELEAF]             * [* {th:declare,data-th-declare}] [1000]: org.thymeleaf.standard.processor.StandardConditionalFixedValueTagProcessor
+[THYMELEAF]             * [* {th:default,data-th-default}] [1000]: org.thymeleaf.standard.processor.StandardConditionalFixedValueTagProcessor
+[THYMELEAF]             * [* {th:open,data-th-open}] [1000]: org.thymeleaf.standard.processor.StandardConditionalFixedValueTagProcessor
+[THYMELEAF]             * [* {th:reversed,data-th-reversed}] [1000]: org.thymeleaf.standard.processor.StandardConditionalFixedValueTagProcessor
+[THYMELEAF]             * [* {th:novalidate,data-th-novalidate}] [1000]: org.thymeleaf.standard.processor.StandardConditionalFixedValueTagProcessor
+[THYMELEAF]             * [* {th:checked,data-th-checked}] [1000]: org.thymeleaf.standard.processor.StandardConditionalFixedValueTagProcessor
+[THYMELEAF]             * [* {th:formnovalidate,data-th-formnovalidate}] [1000]: org.thymeleaf.standard.processor.StandardConditionalFixedValueTagProcessor
+[THYMELEAF]             * [* {th:ismap,data-th-ismap}] [1000]: org.thymeleaf.standard.processor.StandardConditionalFixedValueTagProcessor
+[THYMELEAF]             * [* {th:defer,data-th-defer}] [1000]: org.thymeleaf.standard.processor.StandardConditionalFixedValueTagProcessor
+[THYMELEAF]             * [* {th:readonly,data-th-readonly}] [1000]: org.thymeleaf.standard.processor.StandardConditionalFixedValueTagProcessor
+[THYMELEAF]             * [* {th:pubdate,data-th-pubdate}] [1000]: org.thymeleaf.standard.processor.StandardConditionalFixedValueTagProcessor
+[THYMELEAF]             * [* {th:seamless,data-th-seamless}] [1000]: org.thymeleaf.standard.processor.StandardConditionalFixedValueTagProcessor
+[THYMELEAF]             * [* {th:hidden,data-th-hidden}] [1000]: org.thymeleaf.standard.processor.StandardConditionalFixedValueTagProcessor
+[THYMELEAF]             * [* {th:autofocus,data-th-autofocus}] [1000]: org.thymeleaf.standard.processor.StandardConditionalFixedValueTagProcessor
+[THYMELEAF]             * [* {th:nowrap,data-th-nowrap}] [1000]: org.thymeleaf.standard.processor.StandardConditionalFixedValueTagProcessor
+[THYMELEAF]             * [* {th:ondrop,data-th-ondrop}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:onwaiting,data-th-onwaiting}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:onbeforeprint,data-th-onbeforeprint}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:onredo,data-th-onredo}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:onplay,data-th-onplay}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:onscroll,data-th-onscroll}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:onreset,data-th-onreset}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:onstalled,data-th-onstalled}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:ondrag,data-th-ondrag}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:onratechange,data-th-onratechange}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:onselect,data-th-onselect}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:onmouseup,data-th-onmouseup}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:onsuspend,data-th-onsuspend}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:onformchange,data-th-onformchange}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:onmessage,data-th-onmessage}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:ondblclick,data-th-ondblclick}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:onbeforeunload,data-th-onbeforeunload}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:onkeyup,data-th-onkeyup}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:onoffline,data-th-onoffline}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:onsubmit,data-th-onsubmit}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:onchange,data-th-onchange}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:onabort,data-th-onabort}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:ononline,data-th-ononline}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:onmousedown,data-th-onmousedown}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:oninput,data-th-oninput}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:onseeked,data-th-onseeked}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:onunload,data-th-onunload}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:onshow,data-th-onshow}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:oncontextmenu,data-th-oncontextmenu}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:onhashchange,data-th-onhashchange}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:onmouseout,data-th-onmouseout}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:onvolumechange,data-th-onvolumechange}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:onloadedmetadata,data-th-onloadedmetadata}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:onfocus,data-th-onfocus}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:onended,data-th-onended}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:oncanplay,data-th-oncanplay}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:onpopstate,data-th-onpopstate}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:onerror,data-th-onerror}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:ondragstart,data-th-ondragstart}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:onreadystatechange,data-th-onreadystatechange}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:onseeking,data-th-onseeking}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:onclick,data-th-onclick}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:ontimeupdate,data-th-ontimeupdate}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:onloadstart,data-th-onloadstart}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:onblur,data-th-onblur}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:onkeydown,data-th-onkeydown}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:oncanplaythrough,data-th-oncanplaythrough}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:ondragleave,data-th-ondragleave}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:oninvalid,data-th-oninvalid}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:onloadeddata,data-th-onloadeddata}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:onemptied,data-th-onemptied}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:ondurationchange,data-th-ondurationchange}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:onmousewheel,data-th-onmousewheel}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:onprogress,data-th-onprogress}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:ondragend,data-th-ondragend}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:onresize,data-th-onresize}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:onkeypress,data-th-onkeypress}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:onpause,data-th-onpause}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:onload,data-th-onload}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:onafterprint,data-th-onafterprint}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:onplaying,data-th-onplaying}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:ondragover,data-th-ondragover}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:ondragenter,data-th-ondragenter}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:onmousemove,data-th-onmousemove}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:onundo,data-th-onundo}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:onstorage,data-th-onstorage}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:onmouseover,data-th-onmouseover}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:onforminput,data-th-onforminput}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:inline,data-th-inline}] [1000]: org.thymeleaf.standard.processor.StandardInlineHTMLTagProcessor
+[THYMELEAF]             * [* {th:type,data-th-type}] [1000]: org.thymeleaf.standard.processor.StandardNonRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:name,data-th-name}] [1000]: org.thymeleaf.standard.processor.StandardNonRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:standby,data-th-standby}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:radiogroup,data-th-radiogroup}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:headers,data-th-headers}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:poster,data-th-poster}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:datetime,data-th-datetime}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:form,data-th-form}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:accept,data-th-accept}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:scope,data-th-scope}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:dir,data-th-dir}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:accesskey,data-th-accesskey}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:challenge,data-th-challenge}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:rev,data-th-rev}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:bgcolor,data-th-bgcolor}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:start,data-th-start}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:srclang,data-th-srclang}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:rows,data-th-rows}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:pattern,data-th-pattern}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:content,data-th-content}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:enctype,data-th-enctype}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:marginwidth,data-th-marginwidth}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:align,data-th-align}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:target,data-th-target}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:title,data-th-title}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:codetype,data-th-codetype}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:http-equiv,data-th-http-equiv}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:lang,data-th-lang}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:contenteditable,data-th-contenteditable}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:cite,data-th-cite}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:height,data-th-height}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:summary,data-th-summary}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:preload,data-th-preload}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:id,data-th-id}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:cols,data-th-cols}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:rowspan,data-th-rowspan}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:list,data-th-list}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:data,data-th-data}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:axis,data-th-axis}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:alt,data-th-alt}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:charset,data-th-charset}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:sandbox,data-th-sandbox}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:contextmenu,data-th-contextmenu}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:min,data-th-min}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:audio,data-th-audio}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:kind,data-th-kind}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:cellpadding,data-th-cellpadding}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:autocomplete,data-th-autocomplete}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:formaction,data-th-formaction}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:dropzone,data-th-dropzone}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:scheme,data-th-scheme}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:max,data-th-max}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:width,data-th-width}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:span,data-th-span}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:class,data-th-class}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:draggable,data-th-draggable}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:longdesc,data-th-longdesc}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:vspace,data-th-vspace}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:frameborder,data-th-frameborder}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:hspace,data-th-hspace}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:low,data-th-low}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:high,data-th-high}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:keytype,data-th-keytype}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:for,data-th-for}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:border,data-th-border}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:label,data-th-label}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:colspan,data-th-colspan}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:frame,data-th-frame}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:tabindex,data-th-tabindex}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:spellcheck,data-th-spellcheck}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:rules,data-th-rules}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:classid,data-th-classid}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:rel,data-th-rel}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:optimum,data-th-optimum}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:background,data-th-background}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:placeholder,data-th-placeholder}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:sizes,data-th-sizes}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:manifest,data-th-manifest}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:abbr,data-th-abbr}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:compact,data-th-compact}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:media,data-th-media}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:hreflang,data-th-hreflang}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:accept-charset,data-th-accept-charset}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:formenctype,data-th-formenctype}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:formtarget,data-th-formtarget}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:step,data-th-step}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:style,data-th-style}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:scrolling,data-th-scrolling}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:cellspacing,data-th-cellspacing}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:icon,data-th-icon}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:usemap,data-th-usemap}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:formmethod,data-th-formmethod}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:wrap,data-th-wrap}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:codebase,data-th-codebase}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:valuetype,data-th-valuetype}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:maxlength,data-th-maxlength}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:marginheight,data-th-marginheight}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:archive,data-th-archive}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:size,data-th-size}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:xmlbase,data-th-xmlbase}] [1000]: org.thymeleaf.standard.processor.StandardXmlBaseTagProcessor
+[THYMELEAF]             * [* {th:xmllang,data-th-xmllang}] [1000]: org.thymeleaf.standard.processor.StandardXmlLangTagProcessor
+[THYMELEAF]             * [* {xmlns:th}] [1000]: org.thymeleaf.standard.processor.StandardXmlNsTagProcessor
+[THYMELEAF]             * [* {th:xmlspace,data-th-xmlspace}] [1000]: org.thymeleaf.standard.processor.StandardXmlSpaceTagProcessor
+[THYMELEAF]             * [{option} *] [1005]: org.thymeleaf.spring6.processor.SpringOptionInSelectFieldTagProcessor
+[THYMELEAF]             * [* {th:value,data-th-value}] [1010]: org.thymeleaf.spring6.processor.SpringValueTagProcessor
+[THYMELEAF]             * [* {th:classappend,data-th-classappend}] [1100]: org.thymeleaf.standard.processor.StandardClassappendTagProcessor
+[THYMELEAF]             * [* {th:styleappend,data-th-styleappend}] [1100]: org.thymeleaf.standard.processor.StandardStyleappendTagProcessor
+[THYMELEAF]             * [* {th:text,data-th-text}] [1300]: org.thymeleaf.standard.processor.StandardTextTagProcessor
+[THYMELEAF]             * [* {th:utext,data-th-utext}] [1400]: org.thymeleaf.standard.processor.StandardUtextTagProcessor
+[THYMELEAF]             * [* {th:fragment,data-th-fragment}] [1500]: org.thymeleaf.standard.processor.StandardFragmentTagProcessor
+[THYMELEAF]             * [* {th:assert,data-th-assert}] [1550]: org.thymeleaf.standard.processor.StandardAssertTagProcessor
+[THYMELEAF]             * [* {th:remove,data-th-remove}] [1600]: org.thymeleaf.standard.processor.StandardRemoveTagProcessor
+[THYMELEAF]             * [* {th:errors,data-th-errors}] [1700]: org.thymeleaf.spring6.processor.SpringErrorsTagProcessor
+[THYMELEAF]             * [{input} {th:field,data-th-field}] [1700]: org.thymeleaf.spring6.processor.SpringInputCheckboxFieldTagProcessor
+[THYMELEAF]             * [{input} {th:field,data-th-field}] [1700]: org.thymeleaf.spring6.processor.SpringInputFileFieldTagProcessor
+[THYMELEAF]             * [{input} {th:field,data-th-field}] [1700]: org.thymeleaf.spring6.processor.SpringInputGeneralFieldTagProcessor
+[THYMELEAF]             * [{input} {th:field,data-th-field}] [1700]: org.thymeleaf.spring6.processor.SpringInputPasswordFieldTagProcessor
+[THYMELEAF]             * [{input} {th:field,data-th-field}] [1700]: org.thymeleaf.spring6.processor.SpringInputRadioFieldTagProcessor
+[THYMELEAF]             * [{option} {th:field,data-th-field}] [1700]: org.thymeleaf.spring6.processor.SpringOptionFieldTagProcessor
+[THYMELEAF]             * [{select} {th:field,data-th-field}] [1700]: org.thymeleaf.spring6.processor.SpringSelectFieldTagProcessor
+[THYMELEAF]             * [{textarea} {th:field,data-th-field}] [1700]: org.thymeleaf.spring6.processor.SpringTextareaFieldTagProcessor
+[THYMELEAF]             * [* {th:uerrors,data-th-uerrors}] [1700]: org.thymeleaf.spring6.processor.SpringUErrorsTagProcessor
+[THYMELEAF]             * [* {th:errorclass,data-th-errorclass}] [1800]: org.thymeleaf.spring6.processor.SpringErrorClassTagProcessor
+[THYMELEAF]             * [* {th:ref,data-th-ref}] [10000]: org.thymeleaf.standard.processor.StandardRefAttributeTagProcessor
+[THYMELEAF]             * [{th:block,th-block} *] [100000]: org.thymeleaf.standard.processor.StandardBlockTagProcessor
+[THYMELEAF]             * [* th:*] [2147483647]: org.thymeleaf.standard.processor.StandardDefaultAttributesTagProcessor
+[THYMELEAF]         * Text Processors by [precedence]:
+[THYMELEAF]             * [1000]: org.thymeleaf.standard.processor.StandardInliningTextProcessor
+[THYMELEAF]         * DOCTYPE Processors by [precedence]:
+[THYMELEAF]             * [1000]: org.thymeleaf.standard.processor.StandardTranslationDocTypeProcessor
+[THYMELEAF]         * CDATA Section Processors by [precedence]:
+[THYMELEAF]             * [1000]: org.thymeleaf.standard.processor.StandardInliningCDATASectionProcessor
+[THYMELEAF]         * Comment Processors by [precedence]:
+[THYMELEAF]             * [1000]: org.thymeleaf.standard.processor.StandardInliningCommentProcessor
+[THYMELEAF]             * [1100]: org.thymeleaf.standard.processor.StandardConditionalCommentProcessor
+[THYMELEAF]     * Processors for Template Mode: XML
+[THYMELEAF]         * Element Tag Processors by [matching element and attribute name] [precedence]:
+[THYMELEAF]             * [* {th:include}] [100]: org.thymeleaf.standard.processor.StandardIncludeTagProcessor
+[THYMELEAF]             * [* {th:insert}] [100]: org.thymeleaf.standard.processor.StandardInsertTagProcessor
+[THYMELEAF]             * [* {th:replace}] [100]: org.thymeleaf.standard.processor.StandardReplaceTagProcessor
+[THYMELEAF]             * [* {th:each}] [200]: org.thymeleaf.standard.processor.StandardEachTagProcessor
+[THYMELEAF]             * [* {th:switch}] [250]: org.thymeleaf.standard.processor.StandardSwitchTagProcessor
+[THYMELEAF]             * [* {th:case}] [275]: org.thymeleaf.standard.processor.StandardCaseTagProcessor
+[THYMELEAF]             * [* {th:if}] [300]: org.thymeleaf.standard.processor.StandardIfTagProcessor
+[THYMELEAF]             * [* {th:unless}] [400]: org.thymeleaf.standard.processor.StandardUnlessTagProcessor
+[THYMELEAF]             * [* {th:object}] [500]: org.thymeleaf.standard.processor.StandardObjectTagProcessor
+[THYMELEAF]             * [* {th:with}] [600]: org.thymeleaf.standard.processor.StandardWithTagProcessor
+[THYMELEAF]             * [* {th:attr}] [700]: org.thymeleaf.standard.processor.StandardAttrTagProcessor
+[THYMELEAF]             * [* {th:attrprepend}] [800]: org.thymeleaf.standard.processor.StandardAttrprependTagProcessor
+[THYMELEAF]             * [* {th:attrappend}] [900]: org.thymeleaf.standard.processor.StandardAttrappendTagProcessor
+[THYMELEAF]             * [* {th:inline}] [1000]: org.thymeleaf.standard.processor.StandardInlineXMLTagProcessor
+[THYMELEAF]             * [* {xmlns:th}] [1000]: org.thymeleaf.standard.processor.StandardXmlNsTagProcessor
+[THYMELEAF]             * [* {th:text}] [1300]: org.thymeleaf.standard.processor.StandardTextTagProcessor
+[THYMELEAF]             * [* {th:utext}] [1400]: org.thymeleaf.standard.processor.StandardUtextTagProcessor
+[THYMELEAF]             * [* {th:fragment}] [1500]: org.thymeleaf.standard.processor.StandardFragmentTagProcessor
+[THYMELEAF]             * [* {th:assert}] [1550]: org.thymeleaf.standard.processor.StandardAssertTagProcessor
+[THYMELEAF]             * [* {th:remove}] [1600]: org.thymeleaf.standard.processor.StandardRemoveTagProcessor
+[THYMELEAF]             * [* {th:ref}] [10000]: org.thymeleaf.standard.processor.StandardRefAttributeTagProcessor
+[THYMELEAF]             * [{th:block} *] [100000]: org.thymeleaf.standard.processor.StandardBlockTagProcessor
+[THYMELEAF]             * [* th:*] [2147483647]: org.thymeleaf.standard.processor.StandardDefaultAttributesTagProcessor
+[THYMELEAF]         * Text Processors by [precedence]:
+[THYMELEAF]             * [1000]: org.thymeleaf.standard.processor.StandardInliningTextProcessor
+[THYMELEAF]         * CDATA Section Processors by [precedence]:
+[THYMELEAF]             * [1000]: org.thymeleaf.standard.processor.StandardInliningCDATASectionProcessor
+[THYMELEAF]         * Comment Processors by [precedence]:
+[THYMELEAF]             * [1000]: org.thymeleaf.standard.processor.StandardInliningCommentProcessor
+[THYMELEAF]     * Processors for Template Mode: TEXT
+[THYMELEAF]         * Element Tag Processors by [matching element and attribute name] [precedence]:
+[THYMELEAF]             * [* {th:insert}] [100]: org.thymeleaf.standard.processor.StandardInsertTagProcessor
+[THYMELEAF]             * [* {th:replace}] [100]: org.thymeleaf.standard.processor.StandardReplaceTagProcessor
+[THYMELEAF]             * [* {th:each}] [200]: org.thymeleaf.standard.processor.StandardEachTagProcessor
+[THYMELEAF]             * [* {th:switch}] [250]: org.thymeleaf.standard.processor.StandardSwitchTagProcessor
+[THYMELEAF]             * [* {th:case}] [275]: org.thymeleaf.standard.processor.StandardCaseTagProcessor
+[THYMELEAF]             * [* {th:if}] [300]: org.thymeleaf.standard.processor.StandardIfTagProcessor
+[THYMELEAF]             * [* {th:unless}] [400]: org.thymeleaf.standard.processor.StandardUnlessTagProcessor
+[THYMELEAF]             * [* {th:object}] [500]: org.thymeleaf.standard.processor.StandardObjectTagProcessor
+[THYMELEAF]             * [* {th:with}] [600]: org.thymeleaf.standard.processor.StandardWithTagProcessor
+[THYMELEAF]             * [* {th:inline}] [1000]: org.thymeleaf.standard.processor.StandardInlineTextualTagProcessor
+[THYMELEAF]             * [* {th:text}] [1300]: org.thymeleaf.standard.processor.StandardTextTagProcessor
+[THYMELEAF]             * [* {th:utext}] [1400]: org.thymeleaf.standard.processor.StandardUtextTagProcessor
+[THYMELEAF]             * [* {th:assert}] [1550]: org.thymeleaf.standard.processor.StandardAssertTagProcessor
+[THYMELEAF]             * [* {th:remove}] [1600]: org.thymeleaf.standard.processor.StandardRemoveTagProcessor
+[THYMELEAF]             * [* 100000] [org.thymeleaf.standard.processor.StandardBlockTagProcessor]: {}
+[THYMELEAF]             * [{th:block} *] [100000]: org.thymeleaf.standard.processor.StandardBlockTagProcessor
+[THYMELEAF]         * Text Processors by [precedence]:
+[THYMELEAF]             * [1000]: org.thymeleaf.standard.processor.StandardInliningTextProcessor
+[THYMELEAF]     * Processors for Template Mode: JAVASCRIPT
+[THYMELEAF]         * Element Tag Processors by [matching element and attribute name] [precedence]:
+[THYMELEAF]             * [* {th:insert}] [100]: org.thymeleaf.standard.processor.StandardInsertTagProcessor
+[THYMELEAF]             * [* {th:replace}] [100]: org.thymeleaf.standard.processor.StandardReplaceTagProcessor
+[THYMELEAF]             * [* {th:each}] [200]: org.thymeleaf.standard.processor.StandardEachTagProcessor
+[THYMELEAF]             * [* {th:switch}] [250]: org.thymeleaf.standard.processor.StandardSwitchTagProcessor
+[THYMELEAF]             * [* {th:case}] [275]: org.thymeleaf.standard.processor.StandardCaseTagProcessor
+[THYMELEAF]             * [* {th:if}] [300]: org.thymeleaf.standard.processor.StandardIfTagProcessor
+[THYMELEAF]             * [* {th:unless}] [400]: org.thymeleaf.standard.processor.StandardUnlessTagProcessor
+[THYMELEAF]             * [* {th:object}] [500]: org.thymeleaf.standard.processor.StandardObjectTagProcessor
+[THYMELEAF]             * [* {th:with}] [600]: org.thymeleaf.standard.processor.StandardWithTagProcessor
+[THYMELEAF]             * [* {th:inline}] [1000]: org.thymeleaf.standard.processor.StandardInlineTextualTagProcessor
+[THYMELEAF]             * [* {th:text}] [1300]: org.thymeleaf.standard.processor.StandardTextTagProcessor
+[THYMELEAF]             * [* {th:utext}] [1400]: org.thymeleaf.standard.processor.StandardUtextTagProcessor
+[THYMELEAF]             * [* {th:assert}] [1550]: org.thymeleaf.standard.processor.StandardAssertTagProcessor
+[THYMELEAF]             * [* {th:remove}] [1600]: org.thymeleaf.standard.processor.StandardRemoveTagProcessor
+[THYMELEAF]             * [* 100000] [org.thymeleaf.standard.processor.StandardBlockTagProcessor]: {}
+[THYMELEAF]             * [{th:block} *] [100000]: org.thymeleaf.standard.processor.StandardBlockTagProcessor
+[THYMELEAF]         * Text Processors by [precedence]:
+[THYMELEAF]             * [1000]: org.thymeleaf.standard.processor.StandardInliningTextProcessor
+[THYMELEAF]     * Processors for Template Mode: CSS
+[THYMELEAF]         * Element Tag Processors by [matching element and attribute name] [precedence]:
+[THYMELEAF]             * [* {th:insert}] [100]: org.thymeleaf.standard.processor.StandardInsertTagProcessor
+[THYMELEAF]             * [* {th:replace}] [100]: org.thymeleaf.standard.processor.StandardReplaceTagProcessor
+[THYMELEAF]             * [* {th:each}] [200]: org.thymeleaf.standard.processor.StandardEachTagProcessor
+[THYMELEAF]             * [* {th:switch}] [250]: org.thymeleaf.standard.processor.StandardSwitchTagProcessor
+[THYMELEAF]             * [* {th:case}] [275]: org.thymeleaf.standard.processor.StandardCaseTagProcessor
+[THYMELEAF]             * [* {th:if}] [300]: org.thymeleaf.standard.processor.StandardIfTagProcessor
+[THYMELEAF]             * [* {th:unless}] [400]: org.thymeleaf.standard.processor.StandardUnlessTagProcessor
+[THYMELEAF]             * [* {th:object}] [500]: org.thymeleaf.standard.processor.StandardObjectTagProcessor
+[THYMELEAF]             * [* {th:with}] [600]: org.thymeleaf.standard.processor.StandardWithTagProcessor
+[THYMELEAF]             * [* {th:inline}] [1000]: org.thymeleaf.standard.processor.StandardInlineTextualTagProcessor
+[THYMELEAF]             * [* {th:text}] [1300]: org.thymeleaf.standard.processor.StandardTextTagProcessor
+[THYMELEAF]             * [* {th:utext}] [1400]: org.thymeleaf.standard.processor.StandardUtextTagProcessor
+[THYMELEAF]             * [* {th:assert}] [1550]: org.thymeleaf.standard.processor.StandardAssertTagProcessor
+[THYMELEAF]             * [* {th:remove}] [1600]: org.thymeleaf.standard.processor.StandardRemoveTagProcessor
+[THYMELEAF]             * [{th:block} *] [100000]: org.thymeleaf.standard.processor.StandardBlockTagProcessor
+[THYMELEAF]             * [* 100000] [org.thymeleaf.standard.processor.StandardBlockTagProcessor]: {}
+[THYMELEAF]         * Text Processors by [precedence]:
+[THYMELEAF]             * [1000]: org.thymeleaf.standard.processor.StandardInliningTextProcessor
+[THYMELEAF]     * Expression Objects:
+[THYMELEAF]         * #ctx
+[THYMELEAF]         * #root
+[THYMELEAF]         * #vars
+[THYMELEAF]         * #object
+[THYMELEAF]         * #locale
+[THYMELEAF]         * #conversions
+[THYMELEAF]         * #uris
+[THYMELEAF]         * #temporals
+[THYMELEAF]         * #calendars
+[THYMELEAF]         * #dates
+[THYMELEAF]         * #bools
+[THYMELEAF]         * #numbers
+[THYMELEAF]         * #objects
+[THYMELEAF]         * #strings
+[THYMELEAF]         * #arrays
+[THYMELEAF]         * #lists
+[THYMELEAF]         * #sets
+[THYMELEAF]         * #maps
+[THYMELEAF]         * #aggregates
+[THYMELEAF]         * #messages
+[THYMELEAF]         * #ids
+[THYMELEAF]         * #execInfo
+[THYMELEAF]         * #request
+[THYMELEAF]         * #response
+[THYMELEAF]         * #session
+[THYMELEAF]         * #servletContext
+[THYMELEAF]         * #fields
+[THYMELEAF]         * #themes
+[THYMELEAF]         * #mvc
+[THYMELEAF]         * #requestdatavalues
+[THYMELEAF]     * Execution Attributes:
+[THYMELEAF]         * "StandardExpressionParser": Standard Expression Parser
+[THYMELEAF]         * "StandardJavaScriptSerializer": org.thymeleaf.standard.serializer.StandardJavaScriptSerializer@4788c4ce
+[THYMELEAF]         * "StandardCSSSerializer": org.thymeleaf.standard.serializer.StandardCSSSerializer@33890836
+[THYMELEAF]         * "EnableSpringELCompiler": false
+[THYMELEAF]         * "StandardVariableExpressionEvaluator": SpringEL
+[THYMELEAF]         * "StandardConversionService": org.thymeleaf.spring6.expression.SpringStandardConversionService@34107919
+[THYMELEAF] * Dialect [2 of 2]: SpringSecurity (org.thymeleaf.extras.springsecurity6.dialect.SpringSecurityDialect)
+[THYMELEAF]     * Prefix: "sec"
+[THYMELEAF]     * Processors for Template Mode: HTML
+[THYMELEAF]         * Element Tag Processors by [matching element and attribute name] [precedence]:
+[THYMELEAF]             * [* {sec:authorize-acl,data-sec-authorize-acl}] [300]: org.thymeleaf.extras.springsecurity6.dialect.processor.AuthorizeAclAttrProcessor
+[THYMELEAF]             * [* {sec:authorize-expr,data-sec-authorize-expr}] [300]: org.thymeleaf.extras.springsecurity6.dialect.processor.AuthorizeAttrProcessor
+[THYMELEAF]             * [* {sec:authorize,data-sec-authorize}] [300]: org.thymeleaf.extras.springsecurity6.dialect.processor.AuthorizeAttrProcessor
+[THYMELEAF]             * [* {sec:authorize-url,data-sec-authorize-url}] [300]: org.thymeleaf.extras.springsecurity6.dialect.processor.AuthorizeUrlAttrProcessor
+[THYMELEAF]             * [* {xmlns:sec}] [1000]: org.thymeleaf.standard.processor.StandardXmlNsTagProcessor
+[THYMELEAF]             * [* {sec:authentication,data-sec-authentication}] [1300]: org.thymeleaf.extras.springsecurity6.dialect.processor.AuthenticationAttrProcessor
+[THYMELEAF]     * Processors for Template Mode: XML
+[THYMELEAF]         * Element Tag Processors by [matching element and attribute name] [precedence]:
+[THYMELEAF]             * [* {sec:authorize-acl}] [300]: org.thymeleaf.extras.springsecurity6.dialect.processor.AuthorizeAclAttrProcessor
+[THYMELEAF]             * [* {sec:authorize-expr}] [300]: org.thymeleaf.extras.springsecurity6.dialect.processor.AuthorizeAttrProcessor
+[THYMELEAF]             * [* {sec:authorize}] [300]: org.thymeleaf.extras.springsecurity6.dialect.processor.AuthorizeAttrProcessor
+[THYMELEAF]             * [* {sec:authorize-url}] [300]: org.thymeleaf.extras.springsecurity6.dialect.processor.AuthorizeUrlAttrProcessor
+[THYMELEAF]             * [* {xmlns:sec}] [1000]: org.thymeleaf.standard.processor.StandardXmlNsTagProcessor
+[THYMELEAF]             * [* {sec:authentication}] [1300]: org.thymeleaf.extras.springsecurity6.dialect.processor.AuthenticationAttrProcessor
+[THYMELEAF]     * Processors for Template Mode: TEXT
+[THYMELEAF]         * Element Tag Processors by [matching element and attribute name] [precedence]:
+[THYMELEAF]             * [* {sec:authorize-acl}] [300]: org.thymeleaf.extras.springsecurity6.dialect.processor.AuthorizeAclAttrProcessor
+[THYMELEAF]             * [* {sec:authorize}] [300]: org.thymeleaf.extras.springsecurity6.dialect.processor.AuthorizeAttrProcessor
+[THYMELEAF]             * [* {sec:authorize-expr}] [300]: org.thymeleaf.extras.springsecurity6.dialect.processor.AuthorizeAttrProcessor
+[THYMELEAF]             * [* {sec:authorize-url}] [300]: org.thymeleaf.extras.springsecurity6.dialect.processor.AuthorizeUrlAttrProcessor
+[THYMELEAF]             * [* {xmlns:sec}] [1000]: org.thymeleaf.standard.processor.StandardXmlNsTagProcessor
+[THYMELEAF]             * [* {sec:authentication}] [1300]: org.thymeleaf.extras.springsecurity6.dialect.processor.AuthenticationAttrProcessor
+[THYMELEAF]     * Processors for Template Mode: JAVASCRIPT
+[THYMELEAF]         * Element Tag Processors by [matching element and attribute name] [precedence]:
+[THYMELEAF]             * [* {sec:authorize-acl}] [300]: org.thymeleaf.extras.springsecurity6.dialect.processor.AuthorizeAclAttrProcessor
+[THYMELEAF]             * [* {sec:authorize-expr}] [300]: org.thymeleaf.extras.springsecurity6.dialect.processor.AuthorizeAttrProcessor
+[THYMELEAF]             * [* {sec:authorize}] [300]: org.thymeleaf.extras.springsecurity6.dialect.processor.AuthorizeAttrProcessor
+[THYMELEAF]             * [* {sec:authorize-url}] [300]: org.thymeleaf.extras.springsecurity6.dialect.processor.AuthorizeUrlAttrProcessor
+[THYMELEAF]             * [* {xmlns:sec}] [1000]: org.thymeleaf.standard.processor.StandardXmlNsTagProcessor
+[THYMELEAF]             * [* {sec:authentication}] [1300]: org.thymeleaf.extras.springsecurity6.dialect.processor.AuthenticationAttrProcessor
+[THYMELEAF]     * Processors for Template Mode: CSS
+[THYMELEAF]         * Element Tag Processors by [matching element and attribute name] [precedence]:
+[THYMELEAF]             * [* {sec:authorize-acl}] [300]: org.thymeleaf.extras.springsecurity6.dialect.processor.AuthorizeAclAttrProcessor
+[THYMELEAF]             * [* {sec:authorize-expr}] [300]: org.thymeleaf.extras.springsecurity6.dialect.processor.AuthorizeAttrProcessor
+[THYMELEAF]             * [* {sec:authorize}] [300]: org.thymeleaf.extras.springsecurity6.dialect.processor.AuthorizeAttrProcessor
+[THYMELEAF]             * [* {sec:authorize-url}] [300]: org.thymeleaf.extras.springsecurity6.dialect.processor.AuthorizeUrlAttrProcessor
+[THYMELEAF]             * [* {xmlns:sec}] [1000]: org.thymeleaf.standard.processor.StandardXmlNsTagProcessor
+[THYMELEAF]             * [* {sec:authentication}] [1300]: org.thymeleaf.extras.springsecurity6.dialect.processor.AuthenticationAttrProcessor
+[THYMELEAF]     * Expression Objects:
+[THYMELEAF]         * #authentication
+[THYMELEAF]         * #authorization
+[THYMELEAF] TEMPLATE ENGINE CONFIGURED OK
+2024-07-10T23:29:43.863+09:00 DEBUG 23932 --- [http-nio-8080-exec-1] org.thymeleaf.TemplateEngine             : [THYMELEAF] TEMPLATE ENGINE INITIALIZED
+2024-07-10T23:29:43.864+09:00 TRACE 23932 --- [http-nio-8080-exec-1] org.thymeleaf.TemplateEngine             : [THYMELEAF][http-nio-8080-exec-1] STARTING PROCESS OF TEMPLATE "auth/login" WITH LOCALE ja
+2024-07-10T23:29:43.864+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.TemplateEngine.cache.TEMPLATE_CACHE  : [THYMELEAF][http-nio-8080-exec-1][TEMPLATE_CACHE][CACHE_MISS] Cache miss in cache "TEMPLATE_CACHE" for key "auth/login".
+2024-07-10T23:29:43.864+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][CACHE_INITIALIZE] Initializing cache EXPRESSION_CACHE. Max size: 500. Soft references are used.
+2024-07-10T23:29:43.864+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_MISS] Cache miss in cache "EXPRESSION_CACHE" for key "expr|~{fragment :: meta}".
+2024-07-10T23:29:43.865+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_ADD][1] Adding cache entry in cache "EXPRESSION_CACHE" for key "expr|~{fragment :: meta}". New size is 1.
+2024-07-10T23:29:43.865+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.TemplateEngine.cache.TEMPLATE_CACHE  : [THYMELEAF][http-nio-8080-exec-1][TEMPLATE_CACHE][CACHE_MISS] Cache miss in cache "TEMPLATE_CACHE" for key "fragment@(auth/login;0,0)::[meta]".
+2024-07-10T23:29:43.865+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_MISS] Cache miss in cache "EXPRESSION_CACHE" for key "fsig|meta".
+2024-07-10T23:29:43.865+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_ADD][2] Adding cache entry in cache "EXPRESSION_CACHE" for key "fsig|meta". New size is 2.
+2024-07-10T23:29:43.865+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_MISS] Cache miss in cache "EXPRESSION_CACHE" for key "expr|tag".
+2024-07-10T23:29:43.865+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_ADD][3] Adding cache entry in cache "EXPRESSION_CACHE" for key "expr|tag". New size is 3.
+2024-07-10T23:29:43.865+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_MISS] Cache miss in cache "EXPRESSION_CACHE" for key "expr|~{fragment :: styles}".
+2024-07-10T23:29:43.865+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_ADD][4] Adding cache entry in cache "EXPRESSION_CACHE" for key "expr|~{fragment :: styles}". New size is 4.
+2024-07-10T23:29:43.865+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.TemplateEngine.cache.TEMPLATE_CACHE  : [THYMELEAF][http-nio-8080-exec-1][TEMPLATE_CACHE][CACHE_MISS] Cache miss in cache "TEMPLATE_CACHE" for key "fragment@(auth/login;0,0)::[styles]".
+2024-07-10T23:29:43.865+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_MISS] Cache miss in cache "EXPRESSION_CACHE" for key "fsig|styles".
+2024-07-10T23:29:43.865+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_ADD][5] Adding cache entry in cache "EXPRESSION_CACHE" for key "fsig|styles". New size is 5.
+2024-07-10T23:29:43.865+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_HIT] Cache hit in cache "EXPRESSION_CACHE" for key "expr|tag".
+2024-07-10T23:29:43.865+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_MISS] Cache miss in cache "EXPRESSION_CACHE" for key "expr|@{/css/style.css}".
+2024-07-10T23:29:43.865+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_ADD][6] Adding cache entry in cache "EXPRESSION_CACHE" for key "expr|@{/css/style.css}". New size is 6.
+2024-07-10T23:29:43.866+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_MISS] Cache miss in cache "EXPRESSION_CACHE" for key "expr|~{fragment :: header}".
+2024-07-10T23:29:43.866+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_ADD][7] Adding cache entry in cache "EXPRESSION_CACHE" for key "expr|~{fragment :: header}". New size is 7.
+2024-07-10T23:29:43.866+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.TemplateEngine.cache.TEMPLATE_CACHE  : [THYMELEAF][http-nio-8080-exec-1][TEMPLATE_CACHE][CACHE_MISS] Cache miss in cache "TEMPLATE_CACHE" for key "fragment@(auth/login;0,0)::[header]".
+2024-07-10T23:29:43.866+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_MISS] Cache miss in cache "EXPRESSION_CACHE" for key "fsig|header".
+2024-07-10T23:29:43.866+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_ADD][8] Adding cache entry in cache "EXPRESSION_CACHE" for key "fsig|header". New size is 8.
+2024-07-10T23:29:43.867+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_HIT] Cache hit in cache "EXPRESSION_CACHE" for key "expr|tag".
+2024-07-10T23:29:43.867+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_MISS] Cache miss in cache "EXPRESSION_CACHE" for key "expr|${#authorization.expression('hasRole(''ROLE_ADMIN'')')}".
+2024-07-10T23:29:43.867+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_ADD][9] Adding cache entry in cache "EXPRESSION_CACHE" for key "expr|${#authorization.expression('hasRole(''ROLE_ADMIN'')')}". New size is 9.
+2024-07-10T23:29:43.867+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_MISS] Cache miss in cache "EXPRESSION_CACHE" for key "spel|#authorization.expression('hasRole(''ROLE_ADMIN'')')".
+2024-07-10T23:29:43.867+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_ADD][10] Adding cache entry in cache "EXPRESSION_CACHE" for key "spel|#authorization.expression('hasRole(''ROLE_ADMIN'')')". New size is 10.
+2024-07-10T23:29:43.868+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_MISS] Cache miss in cache "EXPRESSION_CACHE" for key "expr|${#authorization.expression('isAnonymous()') or #authorization.expression('hasRole(''ROLE_GENERAL'')')}".
+2024-07-10T23:29:43.868+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_ADD][11] Adding cache entry in cache "EXPRESSION_CACHE" for key "expr|${#authorization.expression('isAnonymous()') or #authorization.expression('hasRole(''ROLE_GENERAL'')')}". New size is 11.
+2024-07-10T23:29:43.868+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_MISS] Cache miss in cache "EXPRESSION_CACHE" for key "spel|#authorization.expression('isAnonymous()') or #authorization.expression('hasRole(''ROLE_GENERAL'')')".
+2024-07-10T23:29:43.868+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_ADD][12] Adding cache entry in cache "EXPRESSION_CACHE" for key "spel|#authorization.expression('isAnonymous()') or #authorization.expression('hasRole(''ROLE_GENERAL'')')". New size is 12.
+2024-07-10T23:29:43.868+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_MISS] Cache miss in cache "EXPRESSION_CACHE" for key "expr|@{/}".
+2024-07-10T23:29:43.868+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_ADD][13] Adding cache entry in cache "EXPRESSION_CACHE" for key "expr|@{/}". New size is 13.
+2024-07-10T23:29:43.868+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_MISS] Cache miss in cache "EXPRESSION_CACHE" for key "expr|@{/images/logo.png}".
+2024-07-10T23:29:43.868+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_ADD][14] Adding cache entry in cache "EXPRESSION_CACHE" for key "expr|@{/images/logo.png}". New size is 14.
+2024-07-10T23:29:43.869+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_MISS] Cache miss in cache "EXPRESSION_CACHE" for key "expr|@{/login}".
+2024-07-10T23:29:43.869+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_ADD][15] Adding cache entry in cache "EXPRESSION_CACHE" for key "expr|@{/login}". New size is 15.
+2024-07-10T23:29:43.869+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_MISS] Cache miss in cache "EXPRESSION_CACHE" for key "expr|@{/signup}".
+2024-07-10T23:29:43.869+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_ADD][16] Adding cache entry in cache "EXPRESSION_CACHE" for key "expr|@{/signup}". New size is 16.
+2024-07-10T23:29:43.869+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_MISS] Cache miss in cache "EXPRESSION_CACHE" for key "expr|${param.loggedOut}".
+2024-07-10T23:29:43.869+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_ADD][17] Adding cache entry in cache "EXPRESSION_CACHE" for key "expr|${param.loggedOut}". New size is 17.
+2024-07-10T23:29:43.869+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_MISS] Cache miss in cache "EXPRESSION_CACHE" for key "spel|param.loggedOut".
+2024-07-10T23:29:43.869+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_ADD][18] Adding cache entry in cache "EXPRESSION_CACHE" for key "spel|param.loggedOut". New size is 18.
+2024-07-10T23:29:43.869+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_MISS] Cache miss in cache "EXPRESSION_CACHE" for key "expr|${successMessage}".
+2024-07-10T23:29:43.869+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_ADD][19] Adding cache entry in cache "EXPRESSION_CACHE" for key "expr|${successMessage}". New size is 19.
+2024-07-10T23:29:43.869+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_MISS] Cache miss in cache "EXPRESSION_CACHE" for key "spel|successMessage".
+2024-07-10T23:29:43.869+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_ADD][20] Adding cache entry in cache "EXPRESSION_CACHE" for key "spel|successMessage". New size is 20.
+2024-07-10T23:29:43.869+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_MISS] Cache miss in cache "EXPRESSION_CACHE" for key "expr|${errorMessage}".
+2024-07-10T23:29:43.869+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_ADD][21] Adding cache entry in cache "EXPRESSION_CACHE" for key "expr|${errorMessage}". New size is 21.
+2024-07-10T23:29:43.869+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_MISS] Cache miss in cache "EXPRESSION_CACHE" for key "spel|errorMessage".
+2024-07-10T23:29:43.869+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_ADD][22] Adding cache entry in cache "EXPRESSION_CACHE" for key "spel|errorMessage". New size is 22.
+2024-07-10T23:29:43.869+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_MISS] Cache miss in cache "EXPRESSION_CACHE" for key "expr|${param.error}".
+2024-07-10T23:29:43.869+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_ADD][23] Adding cache entry in cache "EXPRESSION_CACHE" for key "expr|${param.error}". New size is 23.
+2024-07-10T23:29:43.869+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_MISS] Cache miss in cache "EXPRESSION_CACHE" for key "spel|param.error".
+2024-07-10T23:29:43.869+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_ADD][24] Adding cache entry in cache "EXPRESSION_CACHE" for key "spel|param.error". New size is 24.
+2024-07-10T23:29:43.869+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_HIT] Cache hit in cache "EXPRESSION_CACHE" for key "expr|@{/login}".
+2024-07-10T23:29:43.870+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_HIT] Cache hit in cache "EXPRESSION_CACHE" for key "expr|@{/signup}".
+2024-07-10T23:29:43.870+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_MISS] Cache miss in cache "EXPRESSION_CACHE" for key "expr|@{/forget}".
+2024-07-10T23:29:43.870+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_ADD][25] Adding cache entry in cache "EXPRESSION_CACHE" for key "expr|@{/forget}". New size is 25.
+2024-07-10T23:29:43.870+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_MISS] Cache miss in cache "EXPRESSION_CACHE" for key "expr|~{fragment :: footer}".
+2024-07-10T23:29:43.870+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_ADD][26] Adding cache entry in cache "EXPRESSION_CACHE" for key "expr|~{fragment :: footer}". New size is 26.
+2024-07-10T23:29:43.870+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.TemplateEngine.cache.TEMPLATE_CACHE  : [THYMELEAF][http-nio-8080-exec-1][TEMPLATE_CACHE][CACHE_MISS] Cache miss in cache "TEMPLATE_CACHE" for key "fragment@(auth/login;0,0)::[footer]".
+2024-07-10T23:29:43.871+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_MISS] Cache miss in cache "EXPRESSION_CACHE" for key "fsig|footer".
+2024-07-10T23:29:43.871+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_ADD][27] Adding cache entry in cache "EXPRESSION_CACHE" for key "fsig|footer". New size is 27.
+2024-07-10T23:29:43.871+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_HIT] Cache hit in cache "EXPRESSION_CACHE" for key "expr|tag".
+2024-07-10T23:29:43.871+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_MISS] Cache miss in cache "EXPRESSION_CACHE" for key "expr|~{fragment :: scripts}".
+2024-07-10T23:29:43.871+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_ADD][28] Adding cache entry in cache "EXPRESSION_CACHE" for key "expr|~{fragment :: scripts}". New size is 28.
+2024-07-10T23:29:43.871+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.TemplateEngine.cache.TEMPLATE_CACHE  : [THYMELEAF][http-nio-8080-exec-1][TEMPLATE_CACHE][CACHE_MISS] Cache miss in cache "TEMPLATE_CACHE" for key "fragment@(auth/login;0,0)::[scripts]".
+2024-07-10T23:29:43.871+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_MISS] Cache miss in cache "EXPRESSION_CACHE" for key "fsig|scripts".
+2024-07-10T23:29:43.871+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_ADD][29] Adding cache entry in cache "EXPRESSION_CACHE" for key "fsig|scripts". New size is 29.
+2024-07-10T23:29:43.871+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_HIT] Cache hit in cache "EXPRESSION_CACHE" for key "expr|tag".
+2024-07-10T23:29:43.872+09:00 TRACE 23932 --- [http-nio-8080-exec-1] org.thymeleaf.TemplateEngine             : [THYMELEAF][http-nio-8080-exec-1] FINISHED PROCESS AND OUTPUT OF TEMPLATE "auth/login" WITH LOCALE ja
+2024-07-10T23:29:43.872+09:00 TRACE 23932 --- [http-nio-8080-exec-1] org.thymeleaf.TemplateEngine.TIMER       : [THYMELEAF][http-nio-8080-exec-1][auth/login][ja][8443500][8] TEMPLATE "auth/login" WITH LOCALE ja PROCESSED IN 8443500 nanoseconds (approx. 8ms)
+2024-07-10T23:29:43.910+09:00  WARN 23932 --- [http-nio-8080-exec-4] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'java.lang.Integer'; For input string: "favicon.ico"]
+2024-07-10T23:34:10.687+09:00  INFO 23932 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-07-10T23:34:10.721+09:00  INFO 23932 --- [Thread-31] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-07-10T23:34:10.721+09:00  INFO 23932 --- [Thread-31] com.zaxxer.hikari.HikariDataSource       : HikariPool-9 - Shutdown initiated...
+2024-07-10T23:34:10.723+09:00  INFO 23932 --- [Thread-31] com.zaxxer.hikari.HikariDataSource       : HikariPool-9 - Shutdown completed.
+2024-07-10T23:34:10.787+09:00  INFO 23932 --- [restartedMain] c.e.o.OldfashionedApplication            : Starting OldfashionedApplication using Java 17.0.10 with PID 23932 (C:\Pleiades All in One\old_fashioned\oldfashioned\target\classes started by PC_User in C:\Pleiades All in One\old_fashioned\oldfashioned)
+2024-07-10T23:34:10.787+09:00  INFO 23932 --- [restartedMain] c.e.o.OldfashionedApplication            : The following 1 profile is active: "development"
+2024-07-10T23:34:10.915+09:00  INFO 23932 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-07-10T23:34:10.930+09:00  INFO 23932 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 14 ms. Found 10 JPA repository interfaces.
+2024-07-10T23:34:11.024+09:00  INFO 23932 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-07-10T23:34:11.026+09:00  INFO 23932 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-07-10T23:34:11.026+09:00  INFO 23932 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.25]
+2024-07-10T23:34:11.040+09:00  INFO 23932 --- [restartedMain] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2024-07-10T23:34:11.040+09:00  INFO 23932 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 252 ms
+2024-07-10T23:34:11.072+09:00  INFO 23932 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-10 - Starting...
+2024-07-10T23:34:11.081+09:00  INFO 23932 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-10 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1c09fafb
+2024-07-10T23:34:11.082+09:00  INFO 23932 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-10 - Start completed.
+2024-07-10T23:34:11.116+09:00  INFO 23932 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-07-10T23:34:11.118+09:00  INFO 23932 --- [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-07-10T23:34:11.123+09:00  INFO 23932 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-07-10T23:34:11.188+09:00  INFO 23932 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-07-10T23:34:11.188+09:00  INFO 23932 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-07-10T23:34:11.383+09:00  WARN 23932 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-07-10T23:34:11.397+09:00  INFO 23932 --- [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name userDetailsServiceImpl
+2024-07-10T23:34:11.407+09:00  INFO 23932 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2024-07-10T23:34:11.585+09:00  INFO 23932 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-07-10T23:34:11.596+09:00  INFO 23932 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2024-07-10T23:34:11.600+09:00  INFO 23932 --- [restartedMain] c.e.o.OldfashionedApplication            : Started OldfashionedApplication in 0.829 seconds (process running for 9746.96)
+2024-07-10T23:34:11.601+09:00  INFO 23932 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2024-07-10T23:34:27.285+09:00  INFO 23932 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-07-10T23:34:27.319+09:00  INFO 23932 --- [Thread-38] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-07-10T23:34:27.319+09:00  INFO 23932 --- [Thread-38] com.zaxxer.hikari.HikariDataSource       : HikariPool-10 - Shutdown initiated...
+2024-07-10T23:34:27.321+09:00  INFO 23932 --- [Thread-38] com.zaxxer.hikari.HikariDataSource       : HikariPool-10 - Shutdown completed.
+2024-07-10T23:34:27.389+09:00  INFO 23932 --- [restartedMain] c.e.o.OldfashionedApplication            : Starting OldfashionedApplication using Java 17.0.10 with PID 23932 (C:\Pleiades All in One\old_fashioned\oldfashioned\target\classes started by PC_User in C:\Pleiades All in One\old_fashioned\oldfashioned)
+2024-07-10T23:34:27.389+09:00  INFO 23932 --- [restartedMain] c.e.o.OldfashionedApplication            : The following 1 profile is active: "development"
+2024-07-10T23:34:27.534+09:00  INFO 23932 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-07-10T23:34:27.552+09:00  INFO 23932 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 17 ms. Found 10 JPA repository interfaces.
+2024-07-10T23:34:27.641+09:00  INFO 23932 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-07-10T23:34:27.641+09:00  INFO 23932 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-07-10T23:34:27.641+09:00  INFO 23932 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.25]
+2024-07-10T23:34:27.655+09:00  INFO 23932 --- [restartedMain] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2024-07-10T23:34:27.655+09:00  INFO 23932 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 265 ms
+2024-07-10T23:34:27.684+09:00  INFO 23932 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-11 - Starting...
+2024-07-10T23:34:27.692+09:00  INFO 23932 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-11 - Added connection com.mysql.cj.jdbc.ConnectionImpl@63e61465
+2024-07-10T23:34:27.692+09:00  INFO 23932 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-11 - Start completed.
+2024-07-10T23:34:27.718+09:00  INFO 23932 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-07-10T23:34:27.720+09:00  INFO 23932 --- [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-07-10T23:34:27.729+09:00  INFO 23932 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-07-10T23:34:27.803+09:00  INFO 23932 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-07-10T23:34:27.803+09:00  INFO 23932 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-07-10T23:34:27.997+09:00  WARN 23932 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-07-10T23:34:28.006+09:00  INFO 23932 --- [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name userDetailsServiceImpl
+2024-07-10T23:34:28.015+09:00  INFO 23932 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2024-07-10T23:34:28.193+09:00  INFO 23932 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-07-10T23:34:28.202+09:00  INFO 23932 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2024-07-10T23:34:28.207+09:00  INFO 23932 --- [restartedMain] c.e.o.OldfashionedApplication            : Started OldfashionedApplication in 0.835 seconds (process running for 9763.567)
+2024-07-10T23:34:28.208+09:00  INFO 23932 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2024-07-10T23:34:38.381+09:00  INFO 23932 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-07-10T23:34:38.381+09:00  INFO 23932 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-07-10T23:34:38.384+09:00  INFO 23932 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+2024-07-10T23:34:38.400+09:00 DEBUG 23932 --- [http-nio-8080-exec-1] org.thymeleaf.TemplateEngine             : [THYMELEAF] INITIALIZING TEMPLATE ENGINE
+2024-07-10T23:34:38.407+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.TemplateEngine.cache.TEMPLATE_CACHE  : [THYMELEAF][CACHE_INITIALIZE] Initializing cache TEMPLATE_CACHE. Max size: 200. Soft references are used.
+2024-07-10T23:34:38.410+09:00 TRACE 23932 --- [http-nio-8080-exec-1] org.thymeleaf.TemplateEngine.CONFIG      : Initializing Thymeleaf Template engine configuration...
+[THYMELEAF] TEMPLATE ENGINE CONFIGURATION:
+[THYMELEAF] * Thymeleaf version: 3.1.2.RELEASE (built 2023-07-30T19:25:50+0000)
+[THYMELEAF] * Cache Manager implementation: org.thymeleaf.cache.StandardCacheManager
+[THYMELEAF] * Template resolvers:
+[THYMELEAF]     * org.thymeleaf.spring6.templateresolver.SpringResourceTemplateResolver
+[THYMELEAF] * Message resolvers:
+[THYMELEAF]     * org.thymeleaf.spring6.messageresolver.SpringMessageResolver
+[THYMELEAF] * Link builders:
+[THYMELEAF]     * org.thymeleaf.linkbuilder.StandardLinkBuilder
+[THYMELEAF] * Dialect [1 of 2]: SpringStandard (org.thymeleaf.spring6.dialect.SpringStandardDialect)
+[THYMELEAF]     * Prefix: "th"
+[THYMELEAF]     * Processors for Template Mode: HTML
+[THYMELEAF]         * Element Tag Processors by [matching element and attribute name] [precedence]:
+[THYMELEAF]             * [* {th:include,data-th-include}] [100]: org.thymeleaf.standard.processor.StandardIncludeTagProcessor
+[THYMELEAF]             * [* {th:insert,data-th-insert}] [100]: org.thymeleaf.standard.processor.StandardInsertTagProcessor
+[THYMELEAF]             * [* {th:replace,data-th-replace}] [100]: org.thymeleaf.standard.processor.StandardReplaceTagProcessor
+[THYMELEAF]             * [* {th:each,data-th-each}] [200]: org.thymeleaf.standard.processor.StandardEachTagProcessor
+[THYMELEAF]             * [* {th:switch,data-th-switch}] [250]: org.thymeleaf.standard.processor.StandardSwitchTagProcessor
+[THYMELEAF]             * [* {th:case,data-th-case}] [275]: org.thymeleaf.standard.processor.StandardCaseTagProcessor
+[THYMELEAF]             * [* {th:if,data-th-if}] [300]: org.thymeleaf.standard.processor.StandardIfTagProcessor
+[THYMELEAF]             * [* {th:unless,data-th-unless}] [400]: org.thymeleaf.standard.processor.StandardUnlessTagProcessor
+[THYMELEAF]             * [* {th:object,data-th-object}] [500]: org.thymeleaf.spring6.processor.SpringObjectTagProcessor
+[THYMELEAF]             * [* {th:with,data-th-with}] [600]: org.thymeleaf.standard.processor.StandardWithTagProcessor
+[THYMELEAF]             * [* {th:attr,data-th-attr}] [700]: org.thymeleaf.standard.processor.StandardAttrTagProcessor
+[THYMELEAF]             * [* {th:attrprepend,data-th-attrprepend}] [800]: org.thymeleaf.standard.processor.StandardAttrprependTagProcessor
+[THYMELEAF]             * [* {th:attrappend,data-th-attrappend}] [900]: org.thymeleaf.standard.processor.StandardAttrappendTagProcessor
+[THYMELEAF]             * [* {th:method,data-th-method}] [990]: org.thymeleaf.spring6.processor.SpringMethodTagProcessor
+[THYMELEAF]             * [* {th:alt-title,data-th-alt-title}] [990]: org.thymeleaf.standard.processor.StandardAltTitleTagProcessor
+[THYMELEAF]             * [* {th:lang-xmllang,data-th-lang-xmllang}] [990]: org.thymeleaf.standard.processor.StandardLangXmlLangTagProcessor
+[THYMELEAF]             * [* {th:action,data-th-action}] [1000]: org.thymeleaf.spring6.processor.SpringActionTagProcessor
+[THYMELEAF]             * [* {th:href,data-th-href}] [1000]: org.thymeleaf.spring6.processor.SpringHrefTagProcessor
+[THYMELEAF]             * [* {th:src,data-th-src}] [1000]: org.thymeleaf.spring6.processor.SpringSrcTagProcessor
+[THYMELEAF]             * [* {th:pubdate,data-th-pubdate}] [1000]: org.thymeleaf.standard.processor.StandardConditionalFixedValueTagProcessor
+[THYMELEAF]             * [* {th:autoplay,data-th-autoplay}] [1000]: org.thymeleaf.standard.processor.StandardConditionalFixedValueTagProcessor
+[THYMELEAF]             * [* {th:declare,data-th-declare}] [1000]: org.thymeleaf.standard.processor.StandardConditionalFixedValueTagProcessor
+[THYMELEAF]             * [* {th:reversed,data-th-reversed}] [1000]: org.thymeleaf.standard.processor.StandardConditionalFixedValueTagProcessor
+[THYMELEAF]             * [* {th:novalidate,data-th-novalidate}] [1000]: org.thymeleaf.standard.processor.StandardConditionalFixedValueTagProcessor
+[THYMELEAF]             * [* {th:nowrap,data-th-nowrap}] [1000]: org.thymeleaf.standard.processor.StandardConditionalFixedValueTagProcessor
+[THYMELEAF]             * [* {th:ismap,data-th-ismap}] [1000]: org.thymeleaf.standard.processor.StandardConditionalFixedValueTagProcessor
+[THYMELEAF]             * [* {th:seamless,data-th-seamless}] [1000]: org.thymeleaf.standard.processor.StandardConditionalFixedValueTagProcessor
+[THYMELEAF]             * [* {th:default,data-th-default}] [1000]: org.thymeleaf.standard.processor.StandardConditionalFixedValueTagProcessor
+[THYMELEAF]             * [* {th:formnovalidate,data-th-formnovalidate}] [1000]: org.thymeleaf.standard.processor.StandardConditionalFixedValueTagProcessor
+[THYMELEAF]             * [* {th:hidden,data-th-hidden}] [1000]: org.thymeleaf.standard.processor.StandardConditionalFixedValueTagProcessor
+[THYMELEAF]             * [* {th:autofocus,data-th-autofocus}] [1000]: org.thymeleaf.standard.processor.StandardConditionalFixedValueTagProcessor
+[THYMELEAF]             * [* {th:scoped,data-th-scoped}] [1000]: org.thymeleaf.standard.processor.StandardConditionalFixedValueTagProcessor
+[THYMELEAF]             * [* {th:controls,data-th-controls}] [1000]: org.thymeleaf.standard.processor.StandardConditionalFixedValueTagProcessor
+[THYMELEAF]             * [* {th:async,data-th-async}] [1000]: org.thymeleaf.standard.processor.StandardConditionalFixedValueTagProcessor
+[THYMELEAF]             * [* {th:loop,data-th-loop}] [1000]: org.thymeleaf.standard.processor.StandardConditionalFixedValueTagProcessor
+[THYMELEAF]             * [* {th:selected,data-th-selected}] [1000]: org.thymeleaf.standard.processor.StandardConditionalFixedValueTagProcessor
+[THYMELEAF]             * [* {th:open,data-th-open}] [1000]: org.thymeleaf.standard.processor.StandardConditionalFixedValueTagProcessor
+[THYMELEAF]             * [* {th:required,data-th-required}] [1000]: org.thymeleaf.standard.processor.StandardConditionalFixedValueTagProcessor
+[THYMELEAF]             * [* {th:disabled,data-th-disabled}] [1000]: org.thymeleaf.standard.processor.StandardConditionalFixedValueTagProcessor
+[THYMELEAF]             * [* {th:multiple,data-th-multiple}] [1000]: org.thymeleaf.standard.processor.StandardConditionalFixedValueTagProcessor
+[THYMELEAF]             * [* {th:defer,data-th-defer}] [1000]: org.thymeleaf.standard.processor.StandardConditionalFixedValueTagProcessor
+[THYMELEAF]             * [* {th:checked,data-th-checked}] [1000]: org.thymeleaf.standard.processor.StandardConditionalFixedValueTagProcessor
+[THYMELEAF]             * [* {th:readonly,data-th-readonly}] [1000]: org.thymeleaf.standard.processor.StandardConditionalFixedValueTagProcessor
+[THYMELEAF]             * [* {th:onerror,data-th-onerror}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:onended,data-th-onended}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:onscroll,data-th-onscroll}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:ondragleave,data-th-ondragleave}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:onseeked,data-th-onseeked}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:onsubmit,data-th-onsubmit}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:onvolumechange,data-th-onvolumechange}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:onloadeddata,data-th-onloadeddata}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:onemptied,data-th-onemptied}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:onbeforeunload,data-th-onbeforeunload}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:ondragstart,data-th-ondragstart}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:onunload,data-th-onunload}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:onchange,data-th-onchange}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:onhashchange,data-th-onhashchange}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:onmousewheel,data-th-onmousewheel}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:onkeydown,data-th-onkeydown}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:ondragover,data-th-ondragover}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:onreadystatechange,data-th-onreadystatechange}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:onloadedmetadata,data-th-onloadedmetadata}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:onsuspend,data-th-onsuspend}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:onmouseout,data-th-onmouseout}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:onstorage,data-th-onstorage}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:onpause,data-th-onpause}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:onprogress,data-th-onprogress}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:ondragend,data-th-ondragend}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:oncanplay,data-th-oncanplay}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:ondblclick,data-th-ondblclick}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:ondragenter,data-th-ondragenter}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:onblur,data-th-onblur}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:onfocus,data-th-onfocus}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:ontimeupdate,data-th-ontimeupdate}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:onabort,data-th-onabort}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:oncontextmenu,data-th-oncontextmenu}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:onpopstate,data-th-onpopstate}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:onmouseover,data-th-onmouseover}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:oninvalid,data-th-oninvalid}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:oncanplaythrough,data-th-oncanplaythrough}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:ondrag,data-th-ondrag}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:onundo,data-th-onundo}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:ondrop,data-th-ondrop}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:onoffline,data-th-onoffline}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:onredo,data-th-onredo}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:onplay,data-th-onplay}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:onresize,data-th-onresize}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:onmessage,data-th-onmessage}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:oninput,data-th-oninput}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:onload,data-th-onload}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:onkeyup,data-th-onkeyup}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:onmouseup,data-th-onmouseup}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:onreset,data-th-onreset}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:onmousedown,data-th-onmousedown}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:ononline,data-th-ononline}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:onforminput,data-th-onforminput}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:onmousemove,data-th-onmousemove}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:onkeypress,data-th-onkeypress}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:onstalled,data-th-onstalled}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:onwaiting,data-th-onwaiting}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:onratechange,data-th-onratechange}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:onshow,data-th-onshow}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:onformchange,data-th-onformchange}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:onseeking,data-th-onseeking}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:onloadstart,data-th-onloadstart}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:onplaying,data-th-onplaying}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:onbeforeprint,data-th-onbeforeprint}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:onafterprint,data-th-onafterprint}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:ondurationchange,data-th-ondurationchange}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:onselect,data-th-onselect}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:onclick,data-th-onclick}] [1000]: org.thymeleaf.standard.processor.StandardDOMEventAttributeTagProcessor
+[THYMELEAF]             * [* {th:inline,data-th-inline}] [1000]: org.thymeleaf.standard.processor.StandardInlineHTMLTagProcessor
+[THYMELEAF]             * [* {th:type,data-th-type}] [1000]: org.thymeleaf.standard.processor.StandardNonRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:name,data-th-name}] [1000]: org.thymeleaf.standard.processor.StandardNonRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:axis,data-th-axis}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:cellspacing,data-th-cellspacing}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:scheme,data-th-scheme}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:icon,data-th-icon}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:background,data-th-background}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:http-equiv,data-th-http-equiv}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:width,data-th-width}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:lang,data-th-lang}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:rel,data-th-rel}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:rev,data-th-rev}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:formmethod,data-th-formmethod}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:max,data-th-max}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:codebase,data-th-codebase}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:bgcolor,data-th-bgcolor}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:content,data-th-content}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:colspan,data-th-colspan}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:draggable,data-th-draggable}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:autocomplete,data-th-autocomplete}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:compact,data-th-compact}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:form,data-th-form}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:alt,data-th-alt}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:cols,data-th-cols}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:tabindex,data-th-tabindex}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:rules,data-th-rules}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:manifest,data-th-manifest}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:high,data-th-high}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:dir,data-th-dir}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:scope,data-th-scope}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:marginheight,data-th-marginheight}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:frame,data-th-frame}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:dropzone,data-th-dropzone}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:hspace,data-th-hspace}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:media,data-th-media}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:srclang,data-th-srclang}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:headers,data-th-headers}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:marginwidth,data-th-marginwidth}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:classid,data-th-classid}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:summary,data-th-summary}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:cellpadding,data-th-cellpadding}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:enctype,data-th-enctype}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:valuetype,data-th-valuetype}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:class,data-th-class}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:accesskey,data-th-accesskey}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:formenctype,data-th-formenctype}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:step,data-th-step}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:data,data-th-data}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:contenteditable,data-th-contenteditable}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:placeholder,data-th-placeholder}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:spellcheck,data-th-spellcheck}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:standby,data-th-standby}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:low,data-th-low}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:challenge,data-th-challenge}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:align,data-th-align}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:hreflang,data-th-hreflang}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:for,data-th-for}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:sandbox,data-th-sandbox}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:min,data-th-min}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:formtarget,data-th-formtarget}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:abbr,data-th-abbr}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:formaction,data-th-formaction}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:audio,data-th-audio}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:longdesc,data-th-longdesc}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:start,data-th-start}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:style,data-th-style}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:size,data-th-size}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:scrolling,data-th-scrolling}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:accept,data-th-accept}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:contextmenu,data-th-contextmenu}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:cite,data-th-cite}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:id,data-th-id}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:span,data-th-span}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:datetime,data-th-datetime}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:preload,data-th-preload}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:frameborder,data-th-frameborder}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:optimum,data-th-optimum}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:wrap,data-th-wrap}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:accept-charset,data-th-accept-charset}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:sizes,data-th-sizes}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:list,data-th-list}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:title,data-th-title}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:border,data-th-border}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:maxlength,data-th-maxlength}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:rowspan,data-th-rowspan}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:poster,data-th-poster}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:target,data-th-target}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:charset,data-th-charset}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:label,data-th-label}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:height,data-th-height}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:radiogroup,data-th-radiogroup}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:keytype,data-th-keytype}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:usemap,data-th-usemap}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:codetype,data-th-codetype}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:kind,data-th-kind}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:archive,data-th-archive}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:rows,data-th-rows}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:pattern,data-th-pattern}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:vspace,data-th-vspace}] [1000]: org.thymeleaf.standard.processor.StandardRemovableAttributeTagProcessor
+[THYMELEAF]             * [* {th:xmlbase,data-th-xmlbase}] [1000]: org.thymeleaf.standard.processor.StandardXmlBaseTagProcessor
+[THYMELEAF]             * [* {th:xmllang,data-th-xmllang}] [1000]: org.thymeleaf.standard.processor.StandardXmlLangTagProcessor
+[THYMELEAF]             * [* {xmlns:th}] [1000]: org.thymeleaf.standard.processor.StandardXmlNsTagProcessor
+[THYMELEAF]             * [* {th:xmlspace,data-th-xmlspace}] [1000]: org.thymeleaf.standard.processor.StandardXmlSpaceTagProcessor
+[THYMELEAF]             * [{option} *] [1005]: org.thymeleaf.spring6.processor.SpringOptionInSelectFieldTagProcessor
+[THYMELEAF]             * [* {th:value,data-th-value}] [1010]: org.thymeleaf.spring6.processor.SpringValueTagProcessor
+[THYMELEAF]             * [* {th:classappend,data-th-classappend}] [1100]: org.thymeleaf.standard.processor.StandardClassappendTagProcessor
+[THYMELEAF]             * [* {th:styleappend,data-th-styleappend}] [1100]: org.thymeleaf.standard.processor.StandardStyleappendTagProcessor
+[THYMELEAF]             * [* {th:text,data-th-text}] [1300]: org.thymeleaf.standard.processor.StandardTextTagProcessor
+[THYMELEAF]             * [* {th:utext,data-th-utext}] [1400]: org.thymeleaf.standard.processor.StandardUtextTagProcessor
+[THYMELEAF]             * [* {th:fragment,data-th-fragment}] [1500]: org.thymeleaf.standard.processor.StandardFragmentTagProcessor
+[THYMELEAF]             * [* {th:assert,data-th-assert}] [1550]: org.thymeleaf.standard.processor.StandardAssertTagProcessor
+[THYMELEAF]             * [* {th:remove,data-th-remove}] [1600]: org.thymeleaf.standard.processor.StandardRemoveTagProcessor
+[THYMELEAF]             * [* {th:errors,data-th-errors}] [1700]: org.thymeleaf.spring6.processor.SpringErrorsTagProcessor
+[THYMELEAF]             * [{input} {th:field,data-th-field}] [1700]: org.thymeleaf.spring6.processor.SpringInputCheckboxFieldTagProcessor
+[THYMELEAF]             * [{input} {th:field,data-th-field}] [1700]: org.thymeleaf.spring6.processor.SpringInputFileFieldTagProcessor
+[THYMELEAF]             * [{input} {th:field,data-th-field}] [1700]: org.thymeleaf.spring6.processor.SpringInputGeneralFieldTagProcessor
+[THYMELEAF]             * [{input} {th:field,data-th-field}] [1700]: org.thymeleaf.spring6.processor.SpringInputPasswordFieldTagProcessor
+[THYMELEAF]             * [{input} {th:field,data-th-field}] [1700]: org.thymeleaf.spring6.processor.SpringInputRadioFieldTagProcessor
+[THYMELEAF]             * [{option} {th:field,data-th-field}] [1700]: org.thymeleaf.spring6.processor.SpringOptionFieldTagProcessor
+[THYMELEAF]             * [{select} {th:field,data-th-field}] [1700]: org.thymeleaf.spring6.processor.SpringSelectFieldTagProcessor
+[THYMELEAF]             * [{textarea} {th:field,data-th-field}] [1700]: org.thymeleaf.spring6.processor.SpringTextareaFieldTagProcessor
+[THYMELEAF]             * [* {th:uerrors,data-th-uerrors}] [1700]: org.thymeleaf.spring6.processor.SpringUErrorsTagProcessor
+[THYMELEAF]             * [* {th:errorclass,data-th-errorclass}] [1800]: org.thymeleaf.spring6.processor.SpringErrorClassTagProcessor
+[THYMELEAF]             * [* {th:ref,data-th-ref}] [10000]: org.thymeleaf.standard.processor.StandardRefAttributeTagProcessor
+[THYMELEAF]             * [{th:block,th-block} *] [100000]: org.thymeleaf.standard.processor.StandardBlockTagProcessor
+[THYMELEAF]             * [* th:*] [2147483647]: org.thymeleaf.standard.processor.StandardDefaultAttributesTagProcessor
+[THYMELEAF]         * Text Processors by [precedence]:
+[THYMELEAF]             * [1000]: org.thymeleaf.standard.processor.StandardInliningTextProcessor
+[THYMELEAF]         * DOCTYPE Processors by [precedence]:
+[THYMELEAF]             * [1000]: org.thymeleaf.standard.processor.StandardTranslationDocTypeProcessor
+[THYMELEAF]         * CDATA Section Processors by [precedence]:
+[THYMELEAF]             * [1000]: org.thymeleaf.standard.processor.StandardInliningCDATASectionProcessor
+[THYMELEAF]         * Comment Processors by [precedence]:
+[THYMELEAF]             * [1000]: org.thymeleaf.standard.processor.StandardInliningCommentProcessor
+[THYMELEAF]             * [1100]: org.thymeleaf.standard.processor.StandardConditionalCommentProcessor
+[THYMELEAF]     * Processors for Template Mode: XML
+[THYMELEAF]         * Element Tag Processors by [matching element and attribute name] [precedence]:
+[THYMELEAF]             * [* {th:include}] [100]: org.thymeleaf.standard.processor.StandardIncludeTagProcessor
+[THYMELEAF]             * [* {th:insert}] [100]: org.thymeleaf.standard.processor.StandardInsertTagProcessor
+[THYMELEAF]             * [* {th:replace}] [100]: org.thymeleaf.standard.processor.StandardReplaceTagProcessor
+[THYMELEAF]             * [* {th:each}] [200]: org.thymeleaf.standard.processor.StandardEachTagProcessor
+[THYMELEAF]             * [* {th:switch}] [250]: org.thymeleaf.standard.processor.StandardSwitchTagProcessor
+[THYMELEAF]             * [* {th:case}] [275]: org.thymeleaf.standard.processor.StandardCaseTagProcessor
+[THYMELEAF]             * [* {th:if}] [300]: org.thymeleaf.standard.processor.StandardIfTagProcessor
+[THYMELEAF]             * [* {th:unless}] [400]: org.thymeleaf.standard.processor.StandardUnlessTagProcessor
+[THYMELEAF]             * [* {th:object}] [500]: org.thymeleaf.standard.processor.StandardObjectTagProcessor
+[THYMELEAF]             * [* {th:with}] [600]: org.thymeleaf.standard.processor.StandardWithTagProcessor
+[THYMELEAF]             * [* {th:attr}] [700]: org.thymeleaf.standard.processor.StandardAttrTagProcessor
+[THYMELEAF]             * [* {th:attrprepend}] [800]: org.thymeleaf.standard.processor.StandardAttrprependTagProcessor
+[THYMELEAF]             * [* {th:attrappend}] [900]: org.thymeleaf.standard.processor.StandardAttrappendTagProcessor
+[THYMELEAF]             * [* {th:inline}] [1000]: org.thymeleaf.standard.processor.StandardInlineXMLTagProcessor
+[THYMELEAF]             * [* {xmlns:th}] [1000]: org.thymeleaf.standard.processor.StandardXmlNsTagProcessor
+[THYMELEAF]             * [* {th:text}] [1300]: org.thymeleaf.standard.processor.StandardTextTagProcessor
+[THYMELEAF]             * [* {th:utext}] [1400]: org.thymeleaf.standard.processor.StandardUtextTagProcessor
+[THYMELEAF]             * [* {th:fragment}] [1500]: org.thymeleaf.standard.processor.StandardFragmentTagProcessor
+[THYMELEAF]             * [* {th:assert}] [1550]: org.thymeleaf.standard.processor.StandardAssertTagProcessor
+[THYMELEAF]             * [* {th:remove}] [1600]: org.thymeleaf.standard.processor.StandardRemoveTagProcessor
+[THYMELEAF]             * [* {th:ref}] [10000]: org.thymeleaf.standard.processor.StandardRefAttributeTagProcessor
+[THYMELEAF]             * [{th:block} *] [100000]: org.thymeleaf.standard.processor.StandardBlockTagProcessor
+[THYMELEAF]             * [* th:*] [2147483647]: org.thymeleaf.standard.processor.StandardDefaultAttributesTagProcessor
+[THYMELEAF]         * Text Processors by [precedence]:
+[THYMELEAF]             * [1000]: org.thymeleaf.standard.processor.StandardInliningTextProcessor
+[THYMELEAF]         * CDATA Section Processors by [precedence]:
+[THYMELEAF]             * [1000]: org.thymeleaf.standard.processor.StandardInliningCDATASectionProcessor
+[THYMELEAF]         * Comment Processors by [precedence]:
+[THYMELEAF]             * [1000]: org.thymeleaf.standard.processor.StandardInliningCommentProcessor
+[THYMELEAF]     * Processors for Template Mode: TEXT
+[THYMELEAF]         * Element Tag Processors by [matching element and attribute name] [precedence]:
+[THYMELEAF]             * [* {th:insert}] [100]: org.thymeleaf.standard.processor.StandardInsertTagProcessor
+[THYMELEAF]             * [* {th:replace}] [100]: org.thymeleaf.standard.processor.StandardReplaceTagProcessor
+[THYMELEAF]             * [* {th:each}] [200]: org.thymeleaf.standard.processor.StandardEachTagProcessor
+[THYMELEAF]             * [* {th:switch}] [250]: org.thymeleaf.standard.processor.StandardSwitchTagProcessor
+[THYMELEAF]             * [* {th:case}] [275]: org.thymeleaf.standard.processor.StandardCaseTagProcessor
+[THYMELEAF]             * [* {th:if}] [300]: org.thymeleaf.standard.processor.StandardIfTagProcessor
+[THYMELEAF]             * [* {th:unless}] [400]: org.thymeleaf.standard.processor.StandardUnlessTagProcessor
+[THYMELEAF]             * [* {th:object}] [500]: org.thymeleaf.standard.processor.StandardObjectTagProcessor
+[THYMELEAF]             * [* {th:with}] [600]: org.thymeleaf.standard.processor.StandardWithTagProcessor
+[THYMELEAF]             * [* {th:inline}] [1000]: org.thymeleaf.standard.processor.StandardInlineTextualTagProcessor
+[THYMELEAF]             * [* {th:text}] [1300]: org.thymeleaf.standard.processor.StandardTextTagProcessor
+[THYMELEAF]             * [* {th:utext}] [1400]: org.thymeleaf.standard.processor.StandardUtextTagProcessor
+[THYMELEAF]             * [* {th:assert}] [1550]: org.thymeleaf.standard.processor.StandardAssertTagProcessor
+[THYMELEAF]             * [* {th:remove}] [1600]: org.thymeleaf.standard.processor.StandardRemoveTagProcessor
+[THYMELEAF]             * [{th:block} *] [100000]: org.thymeleaf.standard.processor.StandardBlockTagProcessor
+[THYMELEAF]             * [* 100000] [org.thymeleaf.standard.processor.StandardBlockTagProcessor]: {}
+[THYMELEAF]         * Text Processors by [precedence]:
+[THYMELEAF]             * [1000]: org.thymeleaf.standard.processor.StandardInliningTextProcessor
+[THYMELEAF]     * Processors for Template Mode: JAVASCRIPT
+[THYMELEAF]         * Element Tag Processors by [matching element and attribute name] [precedence]:
+[THYMELEAF]             * [* {th:insert}] [100]: org.thymeleaf.standard.processor.StandardInsertTagProcessor
+[THYMELEAF]             * [* {th:replace}] [100]: org.thymeleaf.standard.processor.StandardReplaceTagProcessor
+[THYMELEAF]             * [* {th:each}] [200]: org.thymeleaf.standard.processor.StandardEachTagProcessor
+[THYMELEAF]             * [* {th:switch}] [250]: org.thymeleaf.standard.processor.StandardSwitchTagProcessor
+[THYMELEAF]             * [* {th:case}] [275]: org.thymeleaf.standard.processor.StandardCaseTagProcessor
+[THYMELEAF]             * [* {th:if}] [300]: org.thymeleaf.standard.processor.StandardIfTagProcessor
+[THYMELEAF]             * [* {th:unless}] [400]: org.thymeleaf.standard.processor.StandardUnlessTagProcessor
+[THYMELEAF]             * [* {th:object}] [500]: org.thymeleaf.standard.processor.StandardObjectTagProcessor
+[THYMELEAF]             * [* {th:with}] [600]: org.thymeleaf.standard.processor.StandardWithTagProcessor
+[THYMELEAF]             * [* {th:inline}] [1000]: org.thymeleaf.standard.processor.StandardInlineTextualTagProcessor
+[THYMELEAF]             * [* {th:text}] [1300]: org.thymeleaf.standard.processor.StandardTextTagProcessor
+[THYMELEAF]             * [* {th:utext}] [1400]: org.thymeleaf.standard.processor.StandardUtextTagProcessor
+[THYMELEAF]             * [* {th:assert}] [1550]: org.thymeleaf.standard.processor.StandardAssertTagProcessor
+[THYMELEAF]             * [* {th:remove}] [1600]: org.thymeleaf.standard.processor.StandardRemoveTagProcessor
+[THYMELEAF]             * [{th:block} *] [100000]: org.thymeleaf.standard.processor.StandardBlockTagProcessor
+[THYMELEAF]             * [* 100000] [org.thymeleaf.standard.processor.StandardBlockTagProcessor]: {}
+[THYMELEAF]         * Text Processors by [precedence]:
+[THYMELEAF]             * [1000]: org.thymeleaf.standard.processor.StandardInliningTextProcessor
+[THYMELEAF]     * Processors for Template Mode: CSS
+[THYMELEAF]         * Element Tag Processors by [matching element and attribute name] [precedence]:
+[THYMELEAF]             * [* {th:insert}] [100]: org.thymeleaf.standard.processor.StandardInsertTagProcessor
+[THYMELEAF]             * [* {th:replace}] [100]: org.thymeleaf.standard.processor.StandardReplaceTagProcessor
+[THYMELEAF]             * [* {th:each}] [200]: org.thymeleaf.standard.processor.StandardEachTagProcessor
+[THYMELEAF]             * [* {th:switch}] [250]: org.thymeleaf.standard.processor.StandardSwitchTagProcessor
+[THYMELEAF]             * [* {th:case}] [275]: org.thymeleaf.standard.processor.StandardCaseTagProcessor
+[THYMELEAF]             * [* {th:if}] [300]: org.thymeleaf.standard.processor.StandardIfTagProcessor
+[THYMELEAF]             * [* {th:unless}] [400]: org.thymeleaf.standard.processor.StandardUnlessTagProcessor
+[THYMELEAF]             * [* {th:object}] [500]: org.thymeleaf.standard.processor.StandardObjectTagProcessor
+[THYMELEAF]             * [* {th:with}] [600]: org.thymeleaf.standard.processor.StandardWithTagProcessor
+[THYMELEAF]             * [* {th:inline}] [1000]: org.thymeleaf.standard.processor.StandardInlineTextualTagProcessor
+[THYMELEAF]             * [* {th:text}] [1300]: org.thymeleaf.standard.processor.StandardTextTagProcessor
+[THYMELEAF]             * [* {th:utext}] [1400]: org.thymeleaf.standard.processor.StandardUtextTagProcessor
+[THYMELEAF]             * [* {th:assert}] [1550]: org.thymeleaf.standard.processor.StandardAssertTagProcessor
+[THYMELEAF]             * [* {th:remove}] [1600]: org.thymeleaf.standard.processor.StandardRemoveTagProcessor
+[THYMELEAF]             * [{th:block} *] [100000]: org.thymeleaf.standard.processor.StandardBlockTagProcessor
+[THYMELEAF]             * [* 100000] [org.thymeleaf.standard.processor.StandardBlockTagProcessor]: {}
+[THYMELEAF]         * Text Processors by [precedence]:
+[THYMELEAF]             * [1000]: org.thymeleaf.standard.processor.StandardInliningTextProcessor
+[THYMELEAF]     * Expression Objects:
+[THYMELEAF]         * #ctx
+[THYMELEAF]         * #root
+[THYMELEAF]         * #vars
+[THYMELEAF]         * #object
+[THYMELEAF]         * #locale
+[THYMELEAF]         * #conversions
+[THYMELEAF]         * #uris
+[THYMELEAF]         * #temporals
+[THYMELEAF]         * #calendars
+[THYMELEAF]         * #dates
+[THYMELEAF]         * #bools
+[THYMELEAF]         * #numbers
+[THYMELEAF]         * #objects
+[THYMELEAF]         * #strings
+[THYMELEAF]         * #arrays
+[THYMELEAF]         * #lists
+[THYMELEAF]         * #sets
+[THYMELEAF]         * #maps
+[THYMELEAF]         * #aggregates
+[THYMELEAF]         * #messages
+[THYMELEAF]         * #ids
+[THYMELEAF]         * #execInfo
+[THYMELEAF]         * #request
+[THYMELEAF]         * #response
+[THYMELEAF]         * #session
+[THYMELEAF]         * #servletContext
+[THYMELEAF]         * #fields
+[THYMELEAF]         * #themes
+[THYMELEAF]         * #mvc
+[THYMELEAF]         * #requestdatavalues
+[THYMELEAF]     * Execution Attributes:
+[THYMELEAF]         * "StandardExpressionParser": Standard Expression Parser
+[THYMELEAF]         * "StandardJavaScriptSerializer": org.thymeleaf.standard.serializer.StandardJavaScriptSerializer@4788c4ce
+[THYMELEAF]         * "StandardCSSSerializer": org.thymeleaf.standard.serializer.StandardCSSSerializer@33890836
+[THYMELEAF]         * "EnableSpringELCompiler": false
+[THYMELEAF]         * "StandardVariableExpressionEvaluator": SpringEL
+[THYMELEAF]         * "StandardConversionService": org.thymeleaf.spring6.expression.SpringStandardConversionService@34107919
+[THYMELEAF] * Dialect [2 of 2]: SpringSecurity (org.thymeleaf.extras.springsecurity6.dialect.SpringSecurityDialect)
+[THYMELEAF]     * Prefix: "sec"
+[THYMELEAF]     * Processors for Template Mode: HTML
+[THYMELEAF]         * Element Tag Processors by [matching element and attribute name] [precedence]:
+[THYMELEAF]             * [* {sec:authorize-acl,data-sec-authorize-acl}] [300]: org.thymeleaf.extras.springsecurity6.dialect.processor.AuthorizeAclAttrProcessor
+[THYMELEAF]             * [* {sec:authorize-expr,data-sec-authorize-expr}] [300]: org.thymeleaf.extras.springsecurity6.dialect.processor.AuthorizeAttrProcessor
+[THYMELEAF]             * [* {sec:authorize,data-sec-authorize}] [300]: org.thymeleaf.extras.springsecurity6.dialect.processor.AuthorizeAttrProcessor
+[THYMELEAF]             * [* {sec:authorize-url,data-sec-authorize-url}] [300]: org.thymeleaf.extras.springsecurity6.dialect.processor.AuthorizeUrlAttrProcessor
+[THYMELEAF]             * [* {xmlns:sec}] [1000]: org.thymeleaf.standard.processor.StandardXmlNsTagProcessor
+[THYMELEAF]             * [* {sec:authentication,data-sec-authentication}] [1300]: org.thymeleaf.extras.springsecurity6.dialect.processor.AuthenticationAttrProcessor
+[THYMELEAF]     * Processors for Template Mode: XML
+[THYMELEAF]         * Element Tag Processors by [matching element and attribute name] [precedence]:
+[THYMELEAF]             * [* {sec:authorize-acl}] [300]: org.thymeleaf.extras.springsecurity6.dialect.processor.AuthorizeAclAttrProcessor
+[THYMELEAF]             * [* {sec:authorize}] [300]: org.thymeleaf.extras.springsecurity6.dialect.processor.AuthorizeAttrProcessor
+[THYMELEAF]             * [* {sec:authorize-expr}] [300]: org.thymeleaf.extras.springsecurity6.dialect.processor.AuthorizeAttrProcessor
+[THYMELEAF]             * [* {sec:authorize-url}] [300]: org.thymeleaf.extras.springsecurity6.dialect.processor.AuthorizeUrlAttrProcessor
+[THYMELEAF]             * [* {xmlns:sec}] [1000]: org.thymeleaf.standard.processor.StandardXmlNsTagProcessor
+[THYMELEAF]             * [* {sec:authentication}] [1300]: org.thymeleaf.extras.springsecurity6.dialect.processor.AuthenticationAttrProcessor
+[THYMELEAF]     * Processors for Template Mode: TEXT
+[THYMELEAF]         * Element Tag Processors by [matching element and attribute name] [precedence]:
+[THYMELEAF]             * [* {sec:authorize-acl}] [300]: org.thymeleaf.extras.springsecurity6.dialect.processor.AuthorizeAclAttrProcessor
+[THYMELEAF]             * [* {sec:authorize}] [300]: org.thymeleaf.extras.springsecurity6.dialect.processor.AuthorizeAttrProcessor
+[THYMELEAF]             * [* {sec:authorize-expr}] [300]: org.thymeleaf.extras.springsecurity6.dialect.processor.AuthorizeAttrProcessor
+[THYMELEAF]             * [* {sec:authorize-url}] [300]: org.thymeleaf.extras.springsecurity6.dialect.processor.AuthorizeUrlAttrProcessor
+[THYMELEAF]             * [* {xmlns:sec}] [1000]: org.thymeleaf.standard.processor.StandardXmlNsTagProcessor
+[THYMELEAF]             * [* {sec:authentication}] [1300]: org.thymeleaf.extras.springsecurity6.dialect.processor.AuthenticationAttrProcessor
+[THYMELEAF]     * Processors for Template Mode: JAVASCRIPT
+[THYMELEAF]         * Element Tag Processors by [matching element and attribute name] [precedence]:
+[THYMELEAF]             * [* {sec:authorize-acl}] [300]: org.thymeleaf.extras.springsecurity6.dialect.processor.AuthorizeAclAttrProcessor
+[THYMELEAF]             * [* {sec:authorize}] [300]: org.thymeleaf.extras.springsecurity6.dialect.processor.AuthorizeAttrProcessor
+[THYMELEAF]             * [* {sec:authorize-expr}] [300]: org.thymeleaf.extras.springsecurity6.dialect.processor.AuthorizeAttrProcessor
+[THYMELEAF]             * [* {sec:authorize-url}] [300]: org.thymeleaf.extras.springsecurity6.dialect.processor.AuthorizeUrlAttrProcessor
+[THYMELEAF]             * [* {xmlns:sec}] [1000]: org.thymeleaf.standard.processor.StandardXmlNsTagProcessor
+[THYMELEAF]             * [* {sec:authentication}] [1300]: org.thymeleaf.extras.springsecurity6.dialect.processor.AuthenticationAttrProcessor
+[THYMELEAF]     * Processors for Template Mode: CSS
+[THYMELEAF]         * Element Tag Processors by [matching element and attribute name] [precedence]:
+[THYMELEAF]             * [* {sec:authorize-acl}] [300]: org.thymeleaf.extras.springsecurity6.dialect.processor.AuthorizeAclAttrProcessor
+[THYMELEAF]             * [* {sec:authorize-expr}] [300]: org.thymeleaf.extras.springsecurity6.dialect.processor.AuthorizeAttrProcessor
+[THYMELEAF]             * [* {sec:authorize}] [300]: org.thymeleaf.extras.springsecurity6.dialect.processor.AuthorizeAttrProcessor
+[THYMELEAF]             * [* {sec:authorize-url}] [300]: org.thymeleaf.extras.springsecurity6.dialect.processor.AuthorizeUrlAttrProcessor
+[THYMELEAF]             * [* {xmlns:sec}] [1000]: org.thymeleaf.standard.processor.StandardXmlNsTagProcessor
+[THYMELEAF]             * [* {sec:authentication}] [1300]: org.thymeleaf.extras.springsecurity6.dialect.processor.AuthenticationAttrProcessor
+[THYMELEAF]     * Expression Objects:
+[THYMELEAF]         * #authentication
+[THYMELEAF]         * #authorization
+[THYMELEAF] TEMPLATE ENGINE CONFIGURED OK
+2024-07-10T23:34:38.414+09:00 DEBUG 23932 --- [http-nio-8080-exec-1] org.thymeleaf.TemplateEngine             : [THYMELEAF] TEMPLATE ENGINE INITIALIZED
+2024-07-10T23:34:38.415+09:00 TRACE 23932 --- [http-nio-8080-exec-1] org.thymeleaf.TemplateEngine             : [THYMELEAF][http-nio-8080-exec-1] STARTING PROCESS OF TEMPLATE "index" WITH LOCALE ja
+2024-07-10T23:34:38.415+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.TemplateEngine.cache.TEMPLATE_CACHE  : [THYMELEAF][http-nio-8080-exec-1][TEMPLATE_CACHE][CACHE_MISS] Cache miss in cache "TEMPLATE_CACHE" for key "index".
+2024-07-10T23:34:38.427+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][CACHE_INITIALIZE] Initializing cache EXPRESSION_CACHE. Max size: 500. Soft references are used.
+2024-07-10T23:34:38.427+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_MISS] Cache miss in cache "EXPRESSION_CACHE" for key "expr|~{fragment :: meta}".
+2024-07-10T23:34:38.427+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_ADD][1] Adding cache entry in cache "EXPRESSION_CACHE" for key "expr|~{fragment :: meta}". New size is 1.
+2024-07-10T23:34:38.427+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.TemplateEngine.cache.TEMPLATE_CACHE  : [THYMELEAF][http-nio-8080-exec-1][TEMPLATE_CACHE][CACHE_MISS] Cache miss in cache "TEMPLATE_CACHE" for key "fragment@(index;0,0)::[meta]".
+2024-07-10T23:34:38.429+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_MISS] Cache miss in cache "EXPRESSION_CACHE" for key "fsig|meta".
+2024-07-10T23:34:38.429+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_ADD][2] Adding cache entry in cache "EXPRESSION_CACHE" for key "fsig|meta". New size is 2.
+2024-07-10T23:34:38.429+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_MISS] Cache miss in cache "EXPRESSION_CACHE" for key "expr|tag".
+2024-07-10T23:34:38.429+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_ADD][3] Adding cache entry in cache "EXPRESSION_CACHE" for key "expr|tag". New size is 3.
+2024-07-10T23:34:38.429+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_MISS] Cache miss in cache "EXPRESSION_CACHE" for key "expr|~{fragment :: styles}".
+2024-07-10T23:34:38.429+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_ADD][4] Adding cache entry in cache "EXPRESSION_CACHE" for key "expr|~{fragment :: styles}". New size is 4.
+2024-07-10T23:34:38.429+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.TemplateEngine.cache.TEMPLATE_CACHE  : [THYMELEAF][http-nio-8080-exec-1][TEMPLATE_CACHE][CACHE_MISS] Cache miss in cache "TEMPLATE_CACHE" for key "fragment@(index;0,0)::[styles]".
+2024-07-10T23:34:38.430+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_MISS] Cache miss in cache "EXPRESSION_CACHE" for key "fsig|styles".
+2024-07-10T23:34:38.430+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_ADD][5] Adding cache entry in cache "EXPRESSION_CACHE" for key "fsig|styles". New size is 5.
+2024-07-10T23:34:38.430+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_HIT] Cache hit in cache "EXPRESSION_CACHE" for key "expr|tag".
+2024-07-10T23:34:38.430+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_MISS] Cache miss in cache "EXPRESSION_CACHE" for key "expr|@{/css/style.css}".
+2024-07-10T23:34:38.430+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_ADD][6] Adding cache entry in cache "EXPRESSION_CACHE" for key "expr|@{/css/style.css}". New size is 6.
+2024-07-10T23:34:38.430+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_MISS] Cache miss in cache "EXPRESSION_CACHE" for key "expr|~{fragment :: header}".
+2024-07-10T23:34:38.430+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_ADD][7] Adding cache entry in cache "EXPRESSION_CACHE" for key "expr|~{fragment :: header}". New size is 7.
+2024-07-10T23:34:38.430+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.TemplateEngine.cache.TEMPLATE_CACHE  : [THYMELEAF][http-nio-8080-exec-1][TEMPLATE_CACHE][CACHE_MISS] Cache miss in cache "TEMPLATE_CACHE" for key "fragment@(index;0,0)::[header]".
+2024-07-10T23:34:38.431+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_MISS] Cache miss in cache "EXPRESSION_CACHE" for key "fsig|header".
+2024-07-10T23:34:38.431+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_ADD][8] Adding cache entry in cache "EXPRESSION_CACHE" for key "fsig|header". New size is 8.
+2024-07-10T23:34:38.431+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_HIT] Cache hit in cache "EXPRESSION_CACHE" for key "expr|tag".
+2024-07-10T23:34:38.431+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_MISS] Cache miss in cache "EXPRESSION_CACHE" for key "expr|${#authorization.expression('hasRole(''ROLE_ADMIN'')')}".
+2024-07-10T23:34:38.431+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_ADD][9] Adding cache entry in cache "EXPRESSION_CACHE" for key "expr|${#authorization.expression('hasRole(''ROLE_ADMIN'')')}". New size is 9.
+2024-07-10T23:34:38.431+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_MISS] Cache miss in cache "EXPRESSION_CACHE" for key "spel|#authorization.expression('hasRole(''ROLE_ADMIN'')')".
+2024-07-10T23:34:38.431+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_ADD][10] Adding cache entry in cache "EXPRESSION_CACHE" for key "spel|#authorization.expression('hasRole(''ROLE_ADMIN'')')". New size is 10.
+2024-07-10T23:34:38.433+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_MISS] Cache miss in cache "EXPRESSION_CACHE" for key "expr|${#authorization.expression('isAnonymous()') or #authorization.expression('hasRole(''ROLE_GENERAL'')')}".
+2024-07-10T23:34:38.433+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_ADD][11] Adding cache entry in cache "EXPRESSION_CACHE" for key "expr|${#authorization.expression('isAnonymous()') or #authorization.expression('hasRole(''ROLE_GENERAL'')')}". New size is 11.
+2024-07-10T23:34:38.433+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_MISS] Cache miss in cache "EXPRESSION_CACHE" for key "spel|#authorization.expression('isAnonymous()') or #authorization.expression('hasRole(''ROLE_GENERAL'')')".
+2024-07-10T23:34:38.433+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_ADD][12] Adding cache entry in cache "EXPRESSION_CACHE" for key "spel|#authorization.expression('isAnonymous()') or #authorization.expression('hasRole(''ROLE_GENERAL'')')". New size is 12.
+2024-07-10T23:34:38.434+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_MISS] Cache miss in cache "EXPRESSION_CACHE" for key "expr|@{/}".
+2024-07-10T23:34:38.434+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_ADD][13] Adding cache entry in cache "EXPRESSION_CACHE" for key "expr|@{/}". New size is 13.
+2024-07-10T23:34:38.434+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_MISS] Cache miss in cache "EXPRESSION_CACHE" for key "expr|@{/images/logo.png}".
+2024-07-10T23:34:38.434+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_ADD][14] Adding cache entry in cache "EXPRESSION_CACHE" for key "expr|@{/images/logo.png}". New size is 14.
+2024-07-10T23:34:38.434+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_MISS] Cache miss in cache "EXPRESSION_CACHE" for key "expr|@{/login}".
+2024-07-10T23:34:38.434+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_ADD][15] Adding cache entry in cache "EXPRESSION_CACHE" for key "expr|@{/login}". New size is 15.
+2024-07-10T23:34:38.434+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_MISS] Cache miss in cache "EXPRESSION_CACHE" for key "expr|@{/signup}".
+2024-07-10T23:34:38.434+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_ADD][16] Adding cache entry in cache "EXPRESSION_CACHE" for key "expr|@{/signup}". New size is 16.
+2024-07-10T23:34:38.434+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_MISS] Cache miss in cache "EXPRESSION_CACHE" for key "expr|${param.loggedIn}".
+2024-07-10T23:34:38.434+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_ADD][17] Adding cache entry in cache "EXPRESSION_CACHE" for key "expr|${param.loggedIn}". New size is 17.
+2024-07-10T23:34:38.434+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_MISS] Cache miss in cache "EXPRESSION_CACHE" for key "spel|param.loggedIn".
+2024-07-10T23:34:38.434+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_ADD][18] Adding cache entry in cache "EXPRESSION_CACHE" for key "spel|param.loggedIn". New size is 18.
+2024-07-10T23:34:38.434+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_MISS] Cache miss in cache "EXPRESSION_CACHE" for key "expr|${successMessage}".
+2024-07-10T23:34:38.434+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_ADD][19] Adding cache entry in cache "EXPRESSION_CACHE" for key "expr|${successMessage}". New size is 19.
+2024-07-10T23:34:38.434+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_MISS] Cache miss in cache "EXPRESSION_CACHE" for key "spel|successMessage".
+2024-07-10T23:34:38.434+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_ADD][20] Adding cache entry in cache "EXPRESSION_CACHE" for key "spel|successMessage". New size is 20.
+2024-07-10T23:34:38.435+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_MISS] Cache miss in cache "EXPRESSION_CACHE" for key "expr|@{/search/store}".
+2024-07-10T23:34:38.435+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_ADD][21] Adding cache entry in cache "EXPRESSION_CACHE" for key "expr|@{/search/store}". New size is 21.
+2024-07-10T23:34:38.435+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_MISS] Cache miss in cache "EXPRESSION_CACHE" for key "expr|@{/search/user}".
+2024-07-10T23:34:38.435+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_ADD][22] Adding cache entry in cache "EXPRESSION_CACHE" for key "expr|@{/search/user}". New size is 22.
+2024-07-10T23:34:38.435+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_MISS] Cache miss in cache "EXPRESSION_CACHE" for key "each|category : ${category}".
+2024-07-10T23:34:38.435+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_ADD][23] Adding cache entry in cache "EXPRESSION_CACHE" for key "each|category : ${category}". New size is 23.
+2024-07-10T23:34:38.435+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_MISS] Cache miss in cache "EXPRESSION_CACHE" for key "spel|category".
+2024-07-10T23:34:38.435+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_ADD][24] Adding cache entry in cache "EXPRESSION_CACHE" for key "spel|category". New size is 24.
+2024-07-10T23:34:38.435+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_MISS] Cache miss in cache "EXPRESSION_CACHE" for key "expr|${category.getId()}".
+2024-07-10T23:34:38.435+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_ADD][25] Adding cache entry in cache "EXPRESSION_CACHE" for key "expr|${category.getId()}". New size is 25.
+2024-07-10T23:34:38.435+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_MISS] Cache miss in cache "EXPRESSION_CACHE" for key "spel|category.getId()".
+2024-07-10T23:34:38.435+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_ADD][26] Adding cache entry in cache "EXPRESSION_CACHE" for key "spel|category.getId()". New size is 26.
+2024-07-10T23:34:38.435+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_MISS] Cache miss in cache "EXPRESSION_CACHE" for key "expr|@{/1}".
+2024-07-10T23:34:38.435+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_ADD][27] Adding cache entry in cache "EXPRESSION_CACHE" for key "expr|@{/1}". New size is 27.
+2024-07-10T23:34:38.435+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_MISS] Cache miss in cache "EXPRESSION_CACHE" for key "expr|${category.getName()}".
+2024-07-10T23:34:38.435+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_ADD][28] Adding cache entry in cache "EXPRESSION_CACHE" for key "expr|${category.getName()}". New size is 28.
+2024-07-10T23:34:38.435+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_MISS] Cache miss in cache "EXPRESSION_CACHE" for key "spel|category.getName()".
+2024-07-10T23:34:38.435+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_ADD][29] Adding cache entry in cache "EXPRESSION_CACHE" for key "spel|category.getName()". New size is 29.
+2024-07-10T23:34:38.435+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_HIT] Cache hit in cache "EXPRESSION_CACHE" for key "expr|${category.getId()}".
+2024-07-10T23:34:38.435+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_MISS] Cache miss in cache "EXPRESSION_CACHE" for key "expr|@{/2}".
+2024-07-10T23:34:38.435+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_ADD][30] Adding cache entry in cache "EXPRESSION_CACHE" for key "expr|@{/2}". New size is 30.
+2024-07-10T23:34:38.435+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_HIT] Cache hit in cache "EXPRESSION_CACHE" for key "expr|${category.getId()}".
+2024-07-10T23:34:38.435+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_MISS] Cache miss in cache "EXPRESSION_CACHE" for key "expr|@{/3}".
+2024-07-10T23:34:38.435+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_ADD][31] Adding cache entry in cache "EXPRESSION_CACHE" for key "expr|@{/3}". New size is 31.
+2024-07-10T23:34:38.435+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_MISS] Cache miss in cache "EXPRESSION_CACHE" for key "each|post : ${postPage}".
+2024-07-10T23:34:38.435+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_ADD][32] Adding cache entry in cache "EXPRESSION_CACHE" for key "each|post : ${postPage}". New size is 32.
+2024-07-10T23:34:38.435+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_MISS] Cache miss in cache "EXPRESSION_CACHE" for key "spel|postPage".
+2024-07-10T23:34:38.435+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_ADD][33] Adding cache entry in cache "EXPRESSION_CACHE" for key "spel|postPage". New size is 33.
+2024-07-10T23:34:38.435+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_MISS] Cache miss in cache "EXPRESSION_CACHE" for key "expr|${post.getId()}".
+2024-07-10T23:34:38.435+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_ADD][34] Adding cache entry in cache "EXPRESSION_CACHE" for key "expr|${post.getId()}". New size is 34.
+2024-07-10T23:34:38.435+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_MISS] Cache miss in cache "EXPRESSION_CACHE" for key "spel|post.getId()".
+2024-07-10T23:34:38.435+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_ADD][35] Adding cache entry in cache "EXPRESSION_CACHE" for key "spel|post.getId()". New size is 35.
+2024-07-10T23:34:38.435+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_MISS] Cache miss in cache "EXPRESSION_CACHE" for key "expr|@{/posts/22}".
+2024-07-10T23:34:38.435+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_ADD][36] Adding cache entry in cache "EXPRESSION_CACHE" for key "expr|@{/posts/22}". New size is 36.
+2024-07-10T23:34:38.435+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_MISS] Cache miss in cache "EXPRESSION_CACHE" for key "expr|${post.getPostPhoto()}".
+2024-07-10T23:34:38.435+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_ADD][37] Adding cache entry in cache "EXPRESSION_CACHE" for key "expr|${post.getPostPhoto()}". New size is 37.
+2024-07-10T23:34:38.435+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_MISS] Cache miss in cache "EXPRESSION_CACHE" for key "spel|post.getPostPhoto()".
+2024-07-10T23:34:38.436+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_ADD][38] Adding cache entry in cache "EXPRESSION_CACHE" for key "spel|post.getPostPhoto()". New size is 38.
+2024-07-10T23:34:38.436+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_MISS] Cache miss in cache "EXPRESSION_CACHE" for key "expr|@{/clothes/e5915413-48a5-40f2-9bf6-d489c258a3e0.png}".
+2024-07-10T23:34:38.436+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_ADD][39] Adding cache entry in cache "EXPRESSION_CACHE" for key "expr|@{/clothes/e5915413-48a5-40f2-9bf6-d489c258a3e0.png}". New size is 39.
+2024-07-10T23:34:38.436+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_MISS] Cache miss in cache "EXPRESSION_CACHE" for key "expr|${post.getName()}".
+2024-07-10T23:34:38.436+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_ADD][40] Adding cache entry in cache "EXPRESSION_CACHE" for key "expr|${post.getName()}". New size is 40.
+2024-07-10T23:34:38.436+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_MISS] Cache miss in cache "EXPRESSION_CACHE" for key "spel|post.getName()".
+2024-07-10T23:34:38.436+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_ADD][41] Adding cache entry in cache "EXPRESSION_CACHE" for key "spel|post.getName()". New size is 41.
+2024-07-10T23:34:38.436+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_MISS] Cache miss in cache "EXPRESSION_CACHE" for key "expr|${post.getContent()}".
+2024-07-10T23:34:38.436+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_ADD][42] Adding cache entry in cache "EXPRESSION_CACHE" for key "expr|${post.getContent()}". New size is 42.
+2024-07-10T23:34:38.436+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_MISS] Cache miss in cache "EXPRESSION_CACHE" for key "spel|post.getContent()".
+2024-07-10T23:34:38.436+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_ADD][43] Adding cache entry in cache "EXPRESSION_CACHE" for key "spel|post.getContent()". New size is 43.
+2024-07-10T23:34:38.436+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_HIT] Cache hit in cache "EXPRESSION_CACHE" for key "expr|${post.getId()}".
+2024-07-10T23:34:38.436+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_MISS] Cache miss in cache "EXPRESSION_CACHE" for key "expr|@{/posts/21}".
+2024-07-10T23:34:38.436+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_ADD][44] Adding cache entry in cache "EXPRESSION_CACHE" for key "expr|@{/posts/21}". New size is 44.
+2024-07-10T23:34:38.436+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_HIT] Cache hit in cache "EXPRESSION_CACHE" for key "expr|${post.getPostPhoto()}".
+2024-07-10T23:34:38.436+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_MISS] Cache miss in cache "EXPRESSION_CACHE" for key "expr|@{/clothes/null}".
+2024-07-10T23:34:38.436+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_ADD][45] Adding cache entry in cache "EXPRESSION_CACHE" for key "expr|@{/clothes/null}". New size is 45.
+2024-07-10T23:34:38.436+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_HIT] Cache hit in cache "EXPRESSION_CACHE" for key "expr|${post.getId()}".
+2024-07-10T23:34:38.436+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_MISS] Cache miss in cache "EXPRESSION_CACHE" for key "expr|@{/posts/1}".
+2024-07-10T23:34:38.436+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_ADD][46] Adding cache entry in cache "EXPRESSION_CACHE" for key "expr|@{/posts/1}". New size is 46.
+2024-07-10T23:34:38.436+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_HIT] Cache hit in cache "EXPRESSION_CACHE" for key "expr|${post.getPostPhoto()}".
+2024-07-10T23:34:38.436+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_MISS] Cache miss in cache "EXPRESSION_CACHE" for key "expr|@{/clothes/cloth01.jpg}".
+2024-07-10T23:34:38.436+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_ADD][47] Adding cache entry in cache "EXPRESSION_CACHE" for key "expr|@{/clothes/cloth01.jpg}". New size is 47.
+2024-07-10T23:34:38.436+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_HIT] Cache hit in cache "EXPRESSION_CACHE" for key "expr|${post.getId()}".
+2024-07-10T23:34:38.436+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_MISS] Cache miss in cache "EXPRESSION_CACHE" for key "expr|@{/posts/2}".
+2024-07-10T23:34:38.436+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_ADD][48] Adding cache entry in cache "EXPRESSION_CACHE" for key "expr|@{/posts/2}". New size is 48.
+2024-07-10T23:34:38.436+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_HIT] Cache hit in cache "EXPRESSION_CACHE" for key "expr|${post.getPostPhoto()}".
+2024-07-10T23:34:38.436+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_MISS] Cache miss in cache "EXPRESSION_CACHE" for key "expr|@{/clothes/cloth03.jpg}".
+2024-07-10T23:34:38.436+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_ADD][49] Adding cache entry in cache "EXPRESSION_CACHE" for key "expr|@{/clothes/cloth03.jpg}". New size is 49.
+2024-07-10T23:34:38.436+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_HIT] Cache hit in cache "EXPRESSION_CACHE" for key "expr|${post.getId()}".
+2024-07-10T23:34:38.436+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_MISS] Cache miss in cache "EXPRESSION_CACHE" for key "expr|@{/posts/3}".
+2024-07-10T23:34:38.436+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_ADD][50] Adding cache entry in cache "EXPRESSION_CACHE" for key "expr|@{/posts/3}". New size is 50.
+2024-07-10T23:34:38.436+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_HIT] Cache hit in cache "EXPRESSION_CACHE" for key "expr|${post.getPostPhoto()}".
+2024-07-10T23:34:38.436+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_MISS] Cache miss in cache "EXPRESSION_CACHE" for key "expr|@{/clothes/cloth02.jpg}".
+2024-07-10T23:34:38.436+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_ADD][51] Adding cache entry in cache "EXPRESSION_CACHE" for key "expr|@{/clothes/cloth02.jpg}". New size is 51.
+2024-07-10T23:34:38.436+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_HIT] Cache hit in cache "EXPRESSION_CACHE" for key "expr|${post.getId()}".
+2024-07-10T23:34:38.436+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_MISS] Cache miss in cache "EXPRESSION_CACHE" for key "expr|@{/posts/4}".
+2024-07-10T23:34:38.436+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_ADD][52] Adding cache entry in cache "EXPRESSION_CACHE" for key "expr|@{/posts/4}". New size is 52.
+2024-07-10T23:34:38.436+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_HIT] Cache hit in cache "EXPRESSION_CACHE" for key "expr|${post.getPostPhoto()}".
+2024-07-10T23:34:38.436+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_HIT] Cache hit in cache "EXPRESSION_CACHE" for key "expr|@{/clothes/cloth02.jpg}".
+2024-07-10T23:34:38.436+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_HIT] Cache hit in cache "EXPRESSION_CACHE" for key "expr|${post.getId()}".
+2024-07-10T23:34:38.436+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_MISS] Cache miss in cache "EXPRESSION_CACHE" for key "expr|@{/posts/5}".
+2024-07-10T23:34:38.436+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_ADD][53] Adding cache entry in cache "EXPRESSION_CACHE" for key "expr|@{/posts/5}". New size is 53.
+2024-07-10T23:34:38.436+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_HIT] Cache hit in cache "EXPRESSION_CACHE" for key "expr|${post.getPostPhoto()}".
+2024-07-10T23:34:38.436+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_HIT] Cache hit in cache "EXPRESSION_CACHE" for key "expr|@{/clothes/cloth01.jpg}".
+2024-07-10T23:34:38.436+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_HIT] Cache hit in cache "EXPRESSION_CACHE" for key "expr|${post.getId()}".
+2024-07-10T23:34:38.436+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_MISS] Cache miss in cache "EXPRESSION_CACHE" for key "expr|@{/posts/6}".
+2024-07-10T23:34:38.436+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_ADD][54] Adding cache entry in cache "EXPRESSION_CACHE" for key "expr|@{/posts/6}". New size is 54.
+2024-07-10T23:34:38.436+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_HIT] Cache hit in cache "EXPRESSION_CACHE" for key "expr|${post.getPostPhoto()}".
+2024-07-10T23:34:38.436+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_HIT] Cache hit in cache "EXPRESSION_CACHE" for key "expr|@{/clothes/cloth03.jpg}".
+2024-07-10T23:34:38.436+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_HIT] Cache hit in cache "EXPRESSION_CACHE" for key "expr|${post.getId()}".
+2024-07-10T23:34:38.436+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_MISS] Cache miss in cache "EXPRESSION_CACHE" for key "expr|@{/posts/7}".
+2024-07-10T23:34:38.436+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_ADD][55] Adding cache entry in cache "EXPRESSION_CACHE" for key "expr|@{/posts/7}". New size is 55.
+2024-07-10T23:34:38.436+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_HIT] Cache hit in cache "EXPRESSION_CACHE" for key "expr|${post.getPostPhoto()}".
+2024-07-10T23:34:38.436+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_HIT] Cache hit in cache "EXPRESSION_CACHE" for key "expr|@{/clothes/cloth01.jpg}".
+2024-07-10T23:34:38.437+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_HIT] Cache hit in cache "EXPRESSION_CACHE" for key "expr|${post.getId()}".
+2024-07-10T23:34:38.437+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_MISS] Cache miss in cache "EXPRESSION_CACHE" for key "expr|@{/posts/8}".
+2024-07-10T23:34:38.437+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_ADD][56] Adding cache entry in cache "EXPRESSION_CACHE" for key "expr|@{/posts/8}". New size is 56.
+2024-07-10T23:34:38.437+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_HIT] Cache hit in cache "EXPRESSION_CACHE" for key "expr|${post.getPostPhoto()}".
+2024-07-10T23:34:38.437+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_HIT] Cache hit in cache "EXPRESSION_CACHE" for key "expr|@{/clothes/cloth02.jpg}".
+2024-07-10T23:34:38.437+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_MISS] Cache miss in cache "EXPRESSION_CACHE" for key "expr|${postPage.getTotalPages() > 1}".
+2024-07-10T23:34:38.437+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_ADD][57] Adding cache entry in cache "EXPRESSION_CACHE" for key "expr|${postPage.getTotalPages() > 1}". New size is 57.
+2024-07-10T23:34:38.437+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_MISS] Cache miss in cache "EXPRESSION_CACHE" for key "spel|postPage.getTotalPages() > 1".
+2024-07-10T23:34:38.437+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_ADD][58] Adding cache entry in cache "EXPRESSION_CACHE" for key "spel|postPage.getTotalPages() > 1". New size is 58.
+2024-07-10T23:34:38.438+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_MISS] Cache miss in cache "EXPRESSION_CACHE" for key "expr|${postPage.isFirst()}".
+2024-07-10T23:34:38.438+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_ADD][59] Adding cache entry in cache "EXPRESSION_CACHE" for key "expr|${postPage.isFirst()}". New size is 59.
+2024-07-10T23:34:38.438+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_MISS] Cache miss in cache "EXPRESSION_CACHE" for key "spel|postPage.isFirst()".
+2024-07-10T23:34:38.438+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_ADD][60] Adding cache entry in cache "EXPRESSION_CACHE" for key "spel|postPage.isFirst()". New size is 60.
+2024-07-10T23:34:38.438+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_HIT] Cache hit in cache "EXPRESSION_CACHE" for key "expr|${postPage.isFirst()}".
+2024-07-10T23:34:38.438+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_MISS] Cache miss in cache "EXPRESSION_CACHE" for key "each|i : ${#numbers.sequence(0, postPage.getTotalPages() -1)}".
+2024-07-10T23:34:38.438+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_ADD][61] Adding cache entry in cache "EXPRESSION_CACHE" for key "each|i : ${#numbers.sequence(0, postPage.getTotalPages() -1)}". New size is 61.
+2024-07-10T23:34:38.438+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_MISS] Cache miss in cache "EXPRESSION_CACHE" for key "spel|#numbers.sequence(0, postPage.getTotalPages() -1)".
+2024-07-10T23:34:38.438+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_ADD][62] Adding cache entry in cache "EXPRESSION_CACHE" for key "spel|#numbers.sequence(0, postPage.getTotalPages() -1)". New size is 62.
+2024-07-10T23:34:38.439+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_MISS] Cache miss in cache "EXPRESSION_CACHE" for key "expr|${i == postPage.getNumber()}".
+2024-07-10T23:34:38.439+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_ADD][63] Adding cache entry in cache "EXPRESSION_CACHE" for key "expr|${i == postPage.getNumber()}". New size is 63.
+2024-07-10T23:34:38.439+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_MISS] Cache miss in cache "EXPRESSION_CACHE" for key "spel|i == postPage.getNumber()".
+2024-07-10T23:34:38.439+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_ADD][64] Adding cache entry in cache "EXPRESSION_CACHE" for key "spel|i == postPage.getNumber()". New size is 64.
+2024-07-10T23:34:38.439+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_MISS] Cache miss in cache "EXPRESSION_CACHE" for key "expr|${i + 1}".
+2024-07-10T23:34:38.439+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_ADD][65] Adding cache entry in cache "EXPRESSION_CACHE" for key "expr|${i + 1}". New size is 65.
+2024-07-10T23:34:38.439+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_MISS] Cache miss in cache "EXPRESSION_CACHE" for key "spel|i + 1".
+2024-07-10T23:34:38.439+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_ADD][66] Adding cache entry in cache "EXPRESSION_CACHE" for key "spel|i + 1". New size is 66.
+2024-07-10T23:34:38.439+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_HIT] Cache hit in cache "EXPRESSION_CACHE" for key "expr|${i == postPage.getNumber()}".
+2024-07-10T23:34:38.439+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_HIT] Cache hit in cache "EXPRESSION_CACHE" for key "expr|${i == postPage.getNumber()}".
+2024-07-10T23:34:38.439+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_HIT] Cache hit in cache "EXPRESSION_CACHE" for key "expr|${i == postPage.getNumber()}".
+2024-07-10T23:34:38.439+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_MISS] Cache miss in cache "EXPRESSION_CACHE" for key "expr|@{/(page = ${i})}".
+2024-07-10T23:34:38.439+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_ADD][67] Adding cache entry in cache "EXPRESSION_CACHE" for key "expr|@{/(page = ${i})}". New size is 67.
+2024-07-10T23:34:38.439+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_MISS] Cache miss in cache "EXPRESSION_CACHE" for key "spel|i".
+2024-07-10T23:34:38.439+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_ADD][68] Adding cache entry in cache "EXPRESSION_CACHE" for key "spel|i". New size is 68.
+2024-07-10T23:34:38.439+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_HIT] Cache hit in cache "EXPRESSION_CACHE" for key "expr|${i + 1}".
+2024-07-10T23:34:38.439+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_HIT] Cache hit in cache "EXPRESSION_CACHE" for key "expr|${i == postPage.getNumber()}".
+2024-07-10T23:34:38.439+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_HIT] Cache hit in cache "EXPRESSION_CACHE" for key "expr|${i == postPage.getNumber()}".
+2024-07-10T23:34:38.440+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_MISS] Cache miss in cache "EXPRESSION_CACHE" for key "expr|${postPage.isLast()}".
+2024-07-10T23:34:38.440+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_ADD][69] Adding cache entry in cache "EXPRESSION_CACHE" for key "expr|${postPage.isLast()}". New size is 69.
+2024-07-10T23:34:38.440+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_MISS] Cache miss in cache "EXPRESSION_CACHE" for key "spel|postPage.isLast()".
+2024-07-10T23:34:38.440+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_ADD][70] Adding cache entry in cache "EXPRESSION_CACHE" for key "spel|postPage.isLast()". New size is 70.
+2024-07-10T23:34:38.440+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_HIT] Cache hit in cache "EXPRESSION_CACHE" for key "expr|${postPage.isLast()}".
+2024-07-10T23:34:38.440+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_MISS] Cache miss in cache "EXPRESSION_CACHE" for key "expr|@{/(page = ${postPage.getNumber() + 1})}".
+2024-07-10T23:34:38.440+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_ADD][71] Adding cache entry in cache "EXPRESSION_CACHE" for key "expr|@{/(page = ${postPage.getNumber() + 1})}". New size is 71.
+2024-07-10T23:34:38.440+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_MISS] Cache miss in cache "EXPRESSION_CACHE" for key "spel|postPage.getNumber() + 1".
+2024-07-10T23:34:38.440+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_ADD][72] Adding cache entry in cache "EXPRESSION_CACHE" for key "spel|postPage.getNumber() + 1". New size is 72.
+2024-07-10T23:34:38.440+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_MISS] Cache miss in cache "EXPRESSION_CACHE" for key "expr|~{fragment :: footer}".
+2024-07-10T23:34:38.440+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_ADD][73] Adding cache entry in cache "EXPRESSION_CACHE" for key "expr|~{fragment :: footer}". New size is 73.
+2024-07-10T23:34:38.440+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.TemplateEngine.cache.TEMPLATE_CACHE  : [THYMELEAF][http-nio-8080-exec-1][TEMPLATE_CACHE][CACHE_MISS] Cache miss in cache "TEMPLATE_CACHE" for key "fragment@(index;0,0)::[footer]".
+2024-07-10T23:34:38.441+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_MISS] Cache miss in cache "EXPRESSION_CACHE" for key "fsig|footer".
+2024-07-10T23:34:38.441+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_ADD][74] Adding cache entry in cache "EXPRESSION_CACHE" for key "fsig|footer". New size is 74.
+2024-07-10T23:34:38.441+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_HIT] Cache hit in cache "EXPRESSION_CACHE" for key "expr|tag".
+2024-07-10T23:34:38.441+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_MISS] Cache miss in cache "EXPRESSION_CACHE" for key "expr|~{fragment :: scripts}".
+2024-07-10T23:34:38.441+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_ADD][75] Adding cache entry in cache "EXPRESSION_CACHE" for key "expr|~{fragment :: scripts}". New size is 75.
+2024-07-10T23:34:38.441+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.TemplateEngine.cache.TEMPLATE_CACHE  : [THYMELEAF][http-nio-8080-exec-1][TEMPLATE_CACHE][CACHE_MISS] Cache miss in cache "TEMPLATE_CACHE" for key "fragment@(index;0,0)::[scripts]".
+2024-07-10T23:34:38.442+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_MISS] Cache miss in cache "EXPRESSION_CACHE" for key "fsig|scripts".
+2024-07-10T23:34:38.442+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_ADD][76] Adding cache entry in cache "EXPRESSION_CACHE" for key "fsig|scripts". New size is 76.
+2024-07-10T23:34:38.442+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_HIT] Cache hit in cache "EXPRESSION_CACHE" for key "expr|tag".
+2024-07-10T23:34:38.442+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.TemplateEngine.cache.TEMPLATE_CACHE  : [THYMELEAF][http-nio-8080-exec-1][TEMPLATE_CACHE][CACHE_MISS] Cache miss in cache "TEMPLATE_CACHE" for key " 		/*<![CDTA[*/ 		var apiKey = /*[[[...]er, 						map, 					}) 				}) 				 			}); 			} 		} 		 		initMap();		 		/*]]>*/ 	@(index;87,56) @JAVASCRIPT".
+2024-07-10T23:34:38.442+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_MISS] Cache miss in cache "EXPRESSION_CACHE" for key "expr|${apiKey}".
+2024-07-10T23:34:38.442+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_ADD][77] Adding cache entry in cache "EXPRESSION_CACHE" for key "expr|${apiKey}". New size is 77.
+2024-07-10T23:34:38.442+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_MISS] Cache miss in cache "EXPRESSION_CACHE" for key "spel|apiKey".
+2024-07-10T23:34:38.442+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_ADD][78] Adding cache entry in cache "EXPRESSION_CACHE" for key "spel|apiKey". New size is 78.
+2024-07-10T23:34:38.443+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_MISS] Cache miss in cache "EXPRESSION_CACHE" for key "expr|${mapId}".
+2024-07-10T23:34:38.443+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_ADD][79] Adding cache entry in cache "EXPRESSION_CACHE" for key "expr|${mapId}". New size is 79.
+2024-07-10T23:34:38.443+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_MISS] Cache miss in cache "EXPRESSION_CACHE" for key "spel|mapId".
+2024-07-10T23:34:38.443+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_ADD][80] Adding cache entry in cache "EXPRESSION_CACHE" for key "spel|mapId". New size is 80.
+2024-07-10T23:34:38.443+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_MISS] Cache miss in cache "EXPRESSION_CACHE" for key "expr|${store}".
+2024-07-10T23:34:38.443+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_ADD][81] Adding cache entry in cache "EXPRESSION_CACHE" for key "expr|${store}". New size is 81.
+2024-07-10T23:34:38.443+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_MISS] Cache miss in cache "EXPRESSION_CACHE" for key "spel|store".
+2024-07-10T23:34:38.443+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_ADD][82] Adding cache entry in cache "EXPRESSION_CACHE" for key "spel|store". New size is 82.
+2024-07-10T23:34:38.444+09:00 TRACE 23932 --- [http-nio-8080-exec-1] o.t.T.cache.EXPRESSION_CACHE             : [THYMELEAF][http-nio-8080-exec-1][EXPRESSION_CACHE][CACHE_HIT] Cache hit in cache "EXPRESSION_CACHE" for key "expr|${store}".
+2024-07-10T23:34:38.446+09:00 TRACE 23932 --- [http-nio-8080-exec-1] org.thymeleaf.TemplateEngine             : [THYMELEAF][http-nio-8080-exec-1] FINISHED PROCESS AND OUTPUT OF TEMPLATE "index" WITH LOCALE ja
+2024-07-10T23:34:38.447+09:00 TRACE 23932 --- [http-nio-8080-exec-1] org.thymeleaf.TemplateEngine.TIMER       : [THYMELEAF][http-nio-8080-exec-1][index][ja][31579300][32] TEMPLATE "index" WITH LOCALE ja PROCESSED IN 31579300 nanoseconds (approx. 32ms)
+2024-07-10T23:34:38.496+09:00  WARN 23932 --- [http-nio-8080-exec-10] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'java.lang.Integer'; For input string: "favicon.ico"]
+2024-07-10T23:34:45.943+09:00  INFO 23932 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-07-10T23:34:45.981+09:00  INFO 23932 --- [Thread-42] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-07-10T23:34:45.981+09:00  INFO 23932 --- [Thread-42] com.zaxxer.hikari.HikariDataSource       : HikariPool-11 - Shutdown initiated...
+2024-07-10T23:34:45.983+09:00  INFO 23932 --- [Thread-42] com.zaxxer.hikari.HikariDataSource       : HikariPool-11 - Shutdown completed.
+2024-07-10T23:34:46.046+09:00  INFO 23932 --- [restartedMain] c.e.o.OldfashionedApplication            : Starting OldfashionedApplication using Java 17.0.10 with PID 23932 (C:\Pleiades All in One\old_fashioned\oldfashioned\target\classes started by PC_User in C:\Pleiades All in One\old_fashioned\oldfashioned)
+2024-07-10T23:34:46.047+09:00  INFO 23932 --- [restartedMain] c.e.o.OldfashionedApplication            : The following 1 profile is active: "development"
+2024-07-10T23:34:46.180+09:00  INFO 23932 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-07-10T23:34:46.197+09:00  INFO 23932 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 16 ms. Found 10 JPA repository interfaces.
+2024-07-10T23:34:46.290+09:00  INFO 23932 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-07-10T23:34:46.290+09:00  INFO 23932 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-07-10T23:34:46.290+09:00  INFO 23932 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.25]
+2024-07-10T23:34:46.304+09:00  INFO 23932 --- [restartedMain] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2024-07-10T23:34:46.304+09:00  INFO 23932 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 256 ms
+2024-07-10T23:34:46.338+09:00  INFO 23932 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-12 - Starting...
+2024-07-10T23:34:46.346+09:00  INFO 23932 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-12 - Added connection com.mysql.cj.jdbc.ConnectionImpl@ed30454
+2024-07-10T23:34:46.346+09:00  INFO 23932 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-12 - Start completed.
+2024-07-10T23:34:46.385+09:00  INFO 23932 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-07-10T23:34:46.390+09:00  INFO 23932 --- [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-07-10T23:34:46.396+09:00  INFO 23932 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-07-10T23:34:46.475+09:00  INFO 23932 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-07-10T23:34:46.475+09:00  INFO 23932 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-07-10T23:34:46.682+09:00  WARN 23932 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-07-10T23:34:46.692+09:00  INFO 23932 --- [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name userDetailsServiceImpl
+2024-07-10T23:34:46.702+09:00  INFO 23932 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2024-07-10T23:34:46.876+09:00  INFO 23932 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-07-10T23:34:46.886+09:00  INFO 23932 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2024-07-10T23:34:46.891+09:00  INFO 23932 --- [restartedMain] c.e.o.OldfashionedApplication            : Started OldfashionedApplication in 0.86 seconds (process running for 9782.251)
+2024-07-10T23:34:46.893+09:00  INFO 23932 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged

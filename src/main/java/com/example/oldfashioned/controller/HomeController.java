@@ -35,11 +35,6 @@ public class HomeController {
 		this.storeRepository = storeRepository;
 	}
 	@GetMapping("/")
-	public String index() {
-		return "auth/login";
-	}
-	
-	@GetMapping("/a")
 	public String index(Model model, @PageableDefault(page = 0, size = 10, sort = "id", direction = Direction.ASC) Pageable pageable) {
 		Page<Post> postPage;
 		List<Category> category = categoryRepository.findAll();
@@ -50,11 +45,11 @@ public class HomeController {
 		model.addAttribute("postPage", postPage);
 		model.addAttribute("category", category);
 		model.addAttribute("store", store);
-		model.addAttribute("apiKey", apiKey);
-		model.addAttribute("mapId", mapId);
+//		model.addAttribute("apiKey", apiKey);
+//		model.addAttribute("mapId", mapId);
 		
 		
-		return "/index";
+		return "index";
 	}
 	
 	@GetMapping("/{id}")
@@ -67,6 +62,6 @@ public class HomeController {
 		model.addAttribute("apiKey", apiKey);
 		model.addAttribute("mapId", mapId);
 		
-		return "/index";
+		return "index";
 	}
 }
