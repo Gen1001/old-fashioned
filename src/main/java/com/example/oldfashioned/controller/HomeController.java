@@ -36,7 +36,7 @@ public class HomeController {
 	}
 	
 	
-	@GetMapping("")
+	@GetMapping("/")
 	public String index(Model model, @PageableDefault(page = 0, size = 10, sort = "id", direction = Direction.ASC) Pageable pageable) {
 		Page<Post> postPage;
 		List<Category> category = categoryRepository.findAll();
