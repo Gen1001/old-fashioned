@@ -34,9 +34,12 @@ public class HomeController {
 		this.categoryRepository = categoryRepository;
 		this.storeRepository = storeRepository;
 	}
-	
-	
 	@GetMapping("/")
+	public String index() {
+		return "auth/login";
+	}
+	
+	@GetMapping("/a")
 	public String index(Model model, @PageableDefault(page = 0, size = 10, sort = "id", direction = Direction.ASC) Pageable pageable) {
 		Page<Post> postPage;
 		List<Category> category = categoryRepository.findAll();
