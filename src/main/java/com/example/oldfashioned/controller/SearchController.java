@@ -2,6 +2,7 @@ package com.example.oldfashioned.controller;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort.Direction;
@@ -25,6 +26,11 @@ public class SearchController {
 	private final CategoryRepository categoryRepository;
 	private final StoreRepository storeRepository;
 	private final UserRepository userRepository;
+	@Value("${google.maps.api.key}")
+	private String apiKey;
+	@Value("${google.maps.map.id}")
+	private String mapId;
+	
 	
 	public SearchController(CategoryRepository categoryRepository, StoreRepository storeRepository, UserRepository userRepository){
 		this.categoryRepository = categoryRepository;
@@ -57,7 +63,9 @@ public class SearchController {
 		
 		model.addAttribute("category", category);
 		model.addAttribute("store", store);
+		model.addAttribute("apiKey", apiKey);
+		model.addAttribute("mapId", mapId);		
 		
-		return "index";
+		return "search/store";
 	}
 }

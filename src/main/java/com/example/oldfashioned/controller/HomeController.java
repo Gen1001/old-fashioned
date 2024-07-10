@@ -41,8 +41,6 @@ public class HomeController {
 		Page<Post> postPage;
 		List<Category> category = categoryRepository.findAll();
 		List<Store> store = storeRepository.findAll();
-		System.out.println(apiKey);
-		System.out.println(mapId);
 		
 		postPage = postRepository.findAllByOrderByCreatedAtDesc(pageable);
 		
@@ -63,6 +61,8 @@ public class HomeController {
 		
 		model.addAttribute("postPage", postPage);
 		model.addAttribute("category", category);
+		model.addAttribute("apiKey", apiKey);
+		model.addAttribute("mapId", mapId);
 		
 		return "/index";
 	}
