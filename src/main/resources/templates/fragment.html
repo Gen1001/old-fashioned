@@ -5,6 +5,7 @@
         <div th:fragment="meta" th:remove="tag">
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1">
+			<meta name="description" content="全国の古着を登録、検索！">
         </div>                        
         
         <!-- link要素の部品化 -->
@@ -22,7 +23,7 @@
         
         <title>部品化用のHTMLファイル</title>     
     </head>
-	<body>
+	<body class="home">
 		<!-- ヘッダーの部品化 -->
 		<div th:fragment="header" th:remove="tag">
 			<nav class="navbar navbar-expand-md shadow-sm oldfashioned-navbar">
@@ -100,21 +101,54 @@
 					</div>
 				</div>
 			</nav>
+			<div id="menubar">
+				<div class="container oldfashioned-container">
+					<nav>
+						<ul class="d-flex justify-content-end">
+							<li><a th:href="@{/}">HOME</a></li>
+							<li><a th:href="@{/search/store}">MAP</a></li>
+							<li><a th:href="@{/search/user}">USER</a></li>
+						</ul>
+					</nav>
+				</div>
+			</div>
 		</div>
 		
 		<!--　フッターの部品化 -->
 		<div th:fragment="footer" th:remove="tag">
-			<footer>
-				<div class="d-flex justify-content-center align-items-center h-100">
-					<p class="text-center text-muted small mb-0 footer_text">&copy; OLD Fashioned ALL rights reserved.</p>
-				</div>
-			</footer>
+			<ul id="footermenu">
+				<li><a th:href="@{/}">HOME</a></li>
+				<li><a href="@{/search/store}">MAP</a></li>
+				<li><a href="@{/search/user}">USER</a></li>
+			</ul>
+			<div class="text-center">
+				<small>&copy; OLD Fashioned ALL rights reserved.</small>
+				<span class="pr"><a href="https://template-party.com/" target="_blank">《Web Design:Template-Party》</a></span>
+			</div>
 		</div>
+		
+		<!--ページの上部へ戻るボタン-->
+		<div class="pagetop"><a href="#"><i class="fas fa-angle-double-up"></i></a></div>
+
 		
 		<!-- script要素の部品化 -->
 		<div th:fragment="scripts" th:remove="tag">
 			<!-- Bootstrap -->
 			<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+			<!--jQueryの読み込み-->
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+			
+			<!--スライドショー（slick）-->
+			<script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+			<script src="js/slick.js"></script>
+			
+			<!--パララックス（inview）-->
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/protonet-jquery.inview/1.1.2/jquery.inview.min.js"></script>
+			<script src="js/jquery.inview_set.js"></script>
+			
+			<!--このテンプレート専用のスクリプト-->
+			<script src="js/main.js"></script>
 		</div>
+
 	</body>
 </html>

@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>投稿一覧</title>
+    <title>トップページ</title>
     <div th:replace="~{fragment :: meta}"></div>
     <div th:replace="~{fragment :: styles}"></div>
 </head>
-<body>
+<body class="home">
     <div class="oldfashioned-wrapper">
         <div th:replace="~{fragment :: header}"></div>
         <main>
@@ -21,62 +21,109 @@
                             </div>
                         </div>
 						
-						<div class="body-category d-flex">
-							<h1>投稿一覧</h1>
-							<a th:href="@{/search/store}">
-								<h1>マップ検索</h1>
-							</a>
-							<a th:href="@{/search/user}">
-								<h1>ユーザー検索</h1>
-							</a>
+						<aside id="mainimg">
+						
+							<div class="slide slide1">
+								<div>
+									<h1 class="font-bebas">OLD FASHIONED</h1>
+									<p>スタイリッシュなデザインで、<br>都会の街並みに映える最新メンズファッション。</p>
+									<p class="btn-border-radius"><a href="bland.html#men">もっと詳しくみる</a></p>
+								</div>
+							</div>
+								
+							<div class="slide slide2">
+								<div>
+									<h1 class="font-gruppo">OLD FASHIONED</h1>
+									<p>洗練されたシルエットとデザインで、<br>自分らしさを際立たせるウィメンズスタイル。</p>
+									<p class="btn-border-radius"><a href="bland.html#women">もっと詳しくみる</a></p>
+								</div>
+							</div>
+								
+							<div class="slide slide3">
+								<div>
+									<h1 class="font-monoton">OLD FASHIONED</h1>
+									<p>遊び心とおしゃれが融合した、<br>子供たちのためのトレンドファッション。</p>
+									<p class="btn-border-radius"><a href="bland.html#kids">もっと詳しくみる</a></p>
+								</div>
+							</div>
+						
+						</aside>
+						
+						<div class="bg1">
+						
+							<section class="blur">
+							
+								<h2>Category</h2>
+								
+								<div class="list-grid1">
+									<div class="list image-container" onmouseover="playVideo(this)" onmouseout="pauseVideo(this)">
+										<a href="bland.html#men">
+											<figure><img src="images/sample3.png" alt=""></figure>
+											<video src="images/sample3.mp4" muted loop></video>
+											<div class="text2 font-bebas">Vintage</div>
+										</a>
+									</div>
+									
+									<div class="list image-container" onmouseover="playVideo(this)" onmouseout="pauseVideo(this)">
+										<a href="bland.html#women">
+											<figure><img src="images/sample2.png" alt=""></figure>
+											<video src="images/sample2.mp4" muted loop></video>
+											<div class="text2 font-gruppo">Import</div>
+										</a>
+									</div>
+									
+									<div class="list image-container" onmouseover="playVideo(this)" onmouseout="pauseVideo(this)">
+										<a href="bland.html#kids">
+											<figure><img src="images/sample1.png" alt=""></figure>
+											<video src="images/sample1.mp4" muted loop></video>
+											<div class="text2 font-monoton">Used</div>
+										</a>
+									</div>
+								</div>
+							
+							</section>
+						
 						</div>
-                        <div class="category">
-                            <div th:each="category : ${category}">
-                                <a th:href="@{/__${category.getId()}__}" th:text="${category.getName()}" class="category-text"></a>
-                            </div>
-                        </div>
-<!--                        <div class="row">-->
-<!--                            <div th:each="post : ${postPage}" class="col-md-6 md-6 justify-content-center">-->
-<!--                                <a th:href="@{/posts/myPage/__${post.getId()}__}" class="square-image m-10">-->
-<!--                                    <img th:src="@{/clothes/__${post.getPostPhoto()}__}" class="post-view">-->
-<!--                                    <p class="image-text" th:text="${post.getName()}"></p>-->
-<!--                                </a>-->
-<!--                            </div>-->
-<!--                        </div>-->
-						<div th:each="post : ${postPage}" class="col-md-4 justify-content-center">
-	                         <a th:href="@{/posts/__${post.getId()}__}">
-					 			 <div class="card h-200 mb-5">
-	                                 <img th:src="@{/clothes/__${post.getPostPhoto()}__}" class="card-img-top oldfashioned-vertical-card-image">
-									 <div class="card-body">
-										 <h3 class="card-title" th:text="${post.getName()}"></h3>
-										 <p class="catd-text">
-											 <span th:text="${post.getContent()}" class="box-text"></span>
-										 </p>
-									 </div>
-								 </div>	
-	                         </a>
-                        </div>
+						
+						<section class="blur">
+						
+							<h2>Post List</h2>
+							
+							<div class="list-grid1">
+								<div th:each="post : ${postPage}">
+									<div class="list image-container2">
+										<a th:href="@{/posts/__${post.getId()}__}">
+										<figure><img th:src="@{clothes/__${post.getPostPhoto()}__}" alt="投稿画像"></figure>
+										<div class="text2 font-bebas" th:text="${post.getName()}"></div>
+										</a>
+									</div>
+								</div>
+							</div>
+						
+						</section>
+						
                         <!-- マップ -->
                         <div id="map"></div>
-                        <!-- ページネーション -->
-                        <div th:if="${postPage.getTotalPages() > 1}" class="d-flex justify-content-center">
-                            <nav aria-label="投稿一覧">
-                                <ul class="pagination">
-                                    <li class="page-item">
-                                        <span th:if="${postPage.isFirst()}" class="page-link disabled">前</span>
-                                        <a th:unless="${postPage.isFirst()}" th:href="@{/(page = ${postPage.getNumber() -1})}" class="page-link oldfashioned-page-link">前</a>
-                                    </li>
-                                    <li th:each="i : ${#numbers.sequence(0, postPage.getTotalPages() -1)}" class="page-item">
-                                        <span th:if="${i == postPage.getNumber()}" class="page-link active oldfashioned-active" th:text="${i + 1}"></span>
-                                        <a th:unless="${i == postPage.getNumber()}" th:href="@{/(page = ${i})}" class="page-link oldfashioned-page-link" th:text="${i + 1}"></a>
-                                    </li>
-                                    <li class="page-item">
-                                        <span th:if="${postPage.isLast()}" class="page-link disabled">次</span>
-                                        <a th:unless="${postPage.isLast()}" th:href="@{/(page = ${postPage.getNumber() + 1})}" class="page-link oldfashioned-page-link">次</a>
-                                    </li>
-                                </ul>
-                            </nav>
-                        </div> 
+						
+						<div class="bg1">
+						
+							<section>
+							
+							<h2 class="dn">ギャラリー</h2>
+							
+							<div class="thumbnail-slide">
+								<a href="#"><img src="images/1.jpg" alt=""></a>
+								<a href="#"><img src="images/2.jpg" alt=""></a>
+								<a href="#"><img src="images/3.jpg" alt=""></a>
+								<a href="#"><img src="images/1.jpg" alt=""></a>
+								<a href="#"><img src="images/2.jpg" alt=""></a>
+								<a href="#"><img src="images/3.jpg" alt=""></a>
+							</div>
+							
+							</section>
+						
+						</div>
+                      
                     </div>
                 </div>
             </div>
