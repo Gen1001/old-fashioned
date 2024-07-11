@@ -35,6 +35,24 @@ public class HomeController {
 		this.storeRepository = storeRepository;
 	}
 	@GetMapping("/")
+	public String index(Model model) {
+		List<Post> postPage;
+		List<Category> category = categoryRepository.findAll();
+		List<Store> store = storeRepository.findAll();
+		
+		postPage = postRepository.findTop12ByOrderByCreatedAtDesc();
+		
+		model.addAttribute("postPage", postPage);
+		model.addAttribute("category", category);
+		model.addAttribute("store", store);
+		model.addAttribute("apiKey", apiKey);
+		model.addAttribute("mapId", mapId);
+		
+		
+		return "index";
+	}
+	
+	@GetMapping("/postAll")
 	public String index(Model model, @PageableDefault(page = 0, size = 10, sort = "id", direction = Direction.ASC) Pageable pageable) {
 		Page<Post> postPage;
 		List<Category> category = categoryRepository.findAll();

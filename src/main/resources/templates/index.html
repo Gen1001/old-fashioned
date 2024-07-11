@@ -1,15 +1,24 @@
 <!DOCTYPE html>
 <html lang="ja" xmlns:th="https://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>トップページ</title>
     <div th:replace="~{fragment :: meta}"></div>
     <div th:replace="~{fragment :: styles}"></div>
+    <title>トップページ</title>
 </head>
 <body class="home">
     <div class="oldfashioned-wrapper">
         <div th:replace="~{fragment :: header}"></div>
+		<div id="menubar">
+			<div class="container oldfashioned-container">
+				<nav>
+					<ul class="d-flex justify-content-end">
+						<li><a th:href="@{/}">HOME</a></li>
+						<li><a th:href="@{/search/store}">STORE</a></li>
+						<li><a th:href="@{/search/user}">USER</a></li>
+					</ul>
+				</nav>
+			</div>
+		</div>
         <main>
             <div class="container oldfashined-container">
                 <div class="row justify-content-center">
@@ -87,7 +96,7 @@
 						
 						<section class="blur">
 						
-							<h2>Post List</h2>
+							<h2>Latest Post</h2>
 							
 							<div class="list-grid1">
 								<div th:each="post : ${postPage}">
@@ -102,8 +111,7 @@
 						
 						</section>
 						
-                        <!-- マップ -->
-                        <div id="map"></div>
+						<a th:href="@{/search/post}" class="d-flex justify-content-center">投稿一覧</a>
 						
 						<div class="bg1">
 						
@@ -131,89 +139,5 @@
         <div th:replace="~{fragment :: footer}"></div>
     </div>
     <div th:replace="~{fragment :: scripts}"></div>
-	<script type="text/javascript" th:inline="javascript">
-		/*<![CDTA[*/
-		var apiKey = /*[[${apiKey}]]*/'[]';
-		var mapId = /*[[${mapId}]]*/'[]';
-		(g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})({
-		    key: apiKey,
-		    v: "week",
-		});
-		
-		let map;
-		
-		async function initMap() {
-			const { Map } = await google.maps.importLibrary("maps");
-			const { AdvancedMarkerElement } = await google.maps.importLibrary("marker");
-		
-			//現在地を取得
-		    if (navigator.geolocation) {
-		        navigator.geolocation.getCurrentPosition(showPosition);
-		    } else {
-		        alert("Geolocation is not supported by this browser.");
-		    }
-			
-			function showPosition(position) {
-			    let coordinate = {
-			        lat: position.coords.latitude,
-			        lng: position.coords.longitude
-			    };
-				
-				
-			//地図の描画
-			map = new Map(document.getElementById("map"), {
-		    center: coordinate,
-		    zoom: 8,
-			
-		    mapId: mapId,
-		 	});
-			
-			var stores = /*[[${store}]]*/ '[]';
-			stores = /*[[${store}]]*/ [];
-		 	
-		 	stores.forEach(function(store) {
-				//店舗の投稿ページへ遷移
-				const contentString =
-				        '<div class="">' +
-				        '<div class="mb5"><a href="/posts/storePage/' + store.id + '" class="btn btn-sm btn-default mb5">' +
-				        '店舗の投稿を見る' +
-				        '</a></div>' +
-				        '</div>';
-				  
-				const infowindow = new google.maps.InfoWindow({
-				    content: contentString,
-				  });
-				  
-				//店舗名を表示する
-			    const storeName = document.createElement("div");
-			    storeName.className = "store-name";
-			    storeName.textContent = store.name;
-			    
-			    //店舗の座標
-			    let storePosition = { lat: store.latitude, lng: store.longitude };
-				
-			 	//マーカーの設置
-			 	let marker = new AdvancedMarkerElement({
-				map,
-				position: storePosition,
-				content: storeName,
-				title: store.name,
-				});
-				
-				//クリック時の処理
-				marker.addListener("click", function() {
-					infowindow.open({
-						anchor: marker,
-						map,
-					})
-				})
-				
-			});
-			}
-		}
-		
-		initMap();		
-		/*]]>*/
-	</script>
 </body>
 </html>

@@ -10,6 +10,17 @@
 		<div class="oldfashioned-wrapper">
 			
 			<div th:replace="~{fragment :: header}"></div>
+			<div id="menubar">
+				<div class="container oldfashioned-container">
+					<nav>
+						<ul class="d-flex justify-content-end">
+							<li><a th:href="@{/}">HOME</a></li>
+							<li><a th:href="@{/search/store}">STORE</a></li>
+							<li><a th:href="@{/search/user}">USER</a></li>
+						</ul>
+					</nav>
+				</div>
+			</div>
 		
 			<main>
 				<div class="container pt-4 pb-5 oldfashioned-container">
@@ -21,31 +32,21 @@
 									<button type="submit" class="btn text-white shadow-sm oldfashioned-btn">検索</button>
 								</div>
 							</form>
-														
-							<div class="body-category d-flex">
-								<a th:href="@{/}">
-									<h1>投稿一覧</h1>
-								</a>						
-								<a th:href="@{/search/store}">
-									<h1>マップ検索</h1>
-								</a>
-								<h1>ユーザー検索</h1>
-							</div>
-											
-							<div th:each="user : ${userPage}" class="col-md-4 md-4 justify-content-center">
-                                 <a th:href="@{/posts/otherPage/__${user.getId()}__}">
-									 <div class="card h-200 mb-5">
-										<img th:if="${user.getUserPhoto()}" th:src="@{/profile/__${user.getUserPhoto()}__}" class="card-img-top oldfashioned-veriticai-card-image" alt="プロフィール画像">
-										<img th:unless="${user.getUserPhoto()}" th:src="@{/image/noImage.png}" class="card-img-top oldfashioned-veriticai-card-image" alt="NO IMAGE">
-										 <div class="card-body">
-											 <h3 class="card-title" th:text="${user.getName()}"></h3>
-											 <p class="catd-text">
-								 				 <span th:text="${user.getIntroduction()}" class="box-text"></span>
-				  							 </p>
-										 </div>
-									 </div>	
-	                             </a>
-	                         </div>
+							
+							<h1>USER</h1>
+							
+							<table class="ta1">
+								<div th:each="user : ${userPage}">
+									<tr>
+										<th>
+											<img th:if="${user.getUserPhoto()}" th:src="@{/profile/__${user.getUserPhoto()}__}" class="oldfashioned-veriticai-card-image profile" alt="プロフィール画像">
+											<img th:unless="${user.getUserPhoto()}" th:src="@{/profile/noImage.png}" class="oldfashioned-veriticai-card-image" alt="NO IMAGE">
+										</th>
+										<td th:text="${user.getNickname()}" class="user-nickname"></td>
+										<td th:text="${user.getIntroduction()}" class="user-introduction"></td>
+									</tr>
+								</div>
+							</table>
 							
 							<div th:if="${userPage.getTotalPages() > 1}" class="d-flex justify-content-center">
 								<nav aria-label="保存ページ">
