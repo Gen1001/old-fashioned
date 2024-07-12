@@ -72,9 +72,9 @@ public class AuthController {
 			return "auth/signup";
 		}
 		
-//		User createdUser = userService.create(signupForm);
-//		String requestUrl = new String(httpServletRequest.getRequestURL());
-//		signupEventPublisher.publishSignupEvent(createdUser, requestUrl);
+		User createdUser = userService.create(signupForm);
+		String requestUrl = new String(httpServletRequest.getRequestURL());
+		signupEventPublisher.publishSignupEvent(createdUser, requestUrl);
 		redirectAttributes.addFlashAttribute("successMessage", "ご入力いただいたメールアドレスに送信した認証メールに記載されているリンクをクリックし、会員登録を完了してください。");
 		
 		return "redirect:/login";

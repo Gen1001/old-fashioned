@@ -40,7 +40,6 @@ public class UserService {
 		
 		if (!imageFile.isEmpty()) {
 			user.setUserPhoto(saveCroppedImage(imageFile));
-
 		}
 		
 		user.setName(signupForm.getName());
