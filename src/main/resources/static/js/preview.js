@@ -47,5 +47,7 @@ cropBtn.addEventListener('click', function (event) {
 		userForm.submit();
 	}, 'image/jpeg')
    
+  }　else {
+	userForm.submit();
   }
 });

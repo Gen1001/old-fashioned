@@ -39,11 +39,6 @@ public class UserService {
 		MultipartFile imageFile = signupForm.getImageFile();
 		
 		if (!imageFile.isEmpty()) {
-//			String userPhoto = imageFile.getOriginalFilename();
-//			String hashedUserPhoto = generateNewFileName(userPhoto);
-//			Path filePath = Paths.get("src/main/resources/static/profile/" + hashedUserPhoto);
-//			copyImageFile(imageFile, filePath);
-//			user.setUserPhoto(hashedUserPhoto);
 			user.setUserPhoto(saveCroppedImage(imageFile));
 
 		}
