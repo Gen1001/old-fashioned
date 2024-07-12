@@ -124,19 +124,6 @@
                                         <input type="text" class="form-control" th:field="*{introduction}" autocomplete="tel-national" placeholder="ヴィンテージ好きの者です。よろしくお願いします！">                                
                                     </div>
                                 </div>
-								
-								<div class="form-group row mb-3">
-									<div class="col-md-4">
-										<label for="imageFile" class="col-form-label text-md-left fw-bold">プロフィール画像</label>
-									</div>
-									<div class="col-md-8">
-										<input type="file" class="form-control" th:field="*{imageFile}">
-									</div>
-								</div>
-								
-								<div>
-									<div class="row" id="imagePreview"></div>
-								</div>
                                                                                                                         
                                 <div class="form-group row mb-3">
                                     <div class="col-md-5">
@@ -168,12 +155,25 @@
                                     </div>
                                 </div>
 								
-								<div class="d-flex justify-content-center my-4">
-									<button id="crop-btn" type="button" class="btn text-white shadow-sm w-50 oldfashioned-btn">登録</button>
+								<div class="form-group row mb-3">
+									<div class="col-md-4">
+										<label for="imageFile" class="col-form-label text-md-left fw-bold">プロフィール画像</label>
+									</div>
+									<div class="col-md-8">
+										<input type="file" class="form-control" th:field="*{imageFile}">
+									</div>
+								</div>
+								
+								<div>
+									<div class="row" id="imagePreview"></div>
+								</div>
+								
+								<div class="form-group d-flex justify-content-center my-4">
+									<button id="crop-btn" type="submit" class="btn text-white shadow-sm w-50 oldfashioned-btn">登録（画像を選択した方）</button>
 								</div>                            
 								                                                                                                                        
                                 <div class="form-group d-flex justify-content-center my-4">
-                                    <button type="submit" class="btn"></button>
+                                    <button type="submit" class="btn text-white shadow-sm w-50 oldfashioned-btn">登録（画像を選択しなかった方）</button>
                                 </div>
                             </form>
                             
