@@ -3,6 +3,8 @@
  const cropBtn = document.getElementById('crop-btn');
  const userForm = document.getElementById('userForm');
  
+ let cropper;
+ 
  imageInput.addEventListener('change', () => {
    if (imageInput.files[0]) {
      let fileReader = new FileReader();
@@ -28,14 +30,8 @@
    }
  })
  
- document.getElementById('imageFile').addEventListener('chan')
- 
  //トリミングした画像を追加する
 cropBtn.addEventListener('click', function (event) {
-	if (imageInput.files.length === 0) {
-		userForm.submit();
-		return;
-	}
 	event.preventDefault();
   	if (cropper) {
     // トリミングされた画像データを取得
@@ -51,5 +47,5 @@ cropBtn.addEventListener('click', function (event) {
 		userForm.submit();
 	}, 'image/jpeg')
    
-  }
+  }　
 });
