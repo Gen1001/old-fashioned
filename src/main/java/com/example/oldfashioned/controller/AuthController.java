@@ -56,8 +56,8 @@ public class AuthController {
 		return "auth/signup";
 	}
 	
-	@PostMapping("/signup")
-	public String signup(@ModelAttribute @Validated SignupForm signupForm, BindingResult bindingResult, RedirectAttributes redirectAttributes, HttpServletRequest httpServletRequest, MultipartFile imageFile) {
+	@PostMapping("/signup/register")
+	public String register(@ModelAttribute @Validated SignupForm signupForm, BindingResult bindingResult, RedirectAttributes redirectAttributes, HttpServletRequest httpServletRequest, MultipartFile imageFile) {
 		if (userService.isEmailRegisterd(signupForm.getEmail())) {
 			FieldError fieldError = new FieldError(bindingResult.getObjectName(), "email", "すでに登録済みのメールアドレスです。");
 			bindingResult.addError(fieldError);
