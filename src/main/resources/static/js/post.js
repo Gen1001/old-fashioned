@@ -12,5 +12,7 @@ function showPosition(position) {
 }
 
 document.addEventListener("DOMContentLoaded", function() {
-	getLocation();
+	document.getElementById("storeName").addEventListener("change", function() {
+		getLocation();
+	});
 });

@@ -24,8 +24,6 @@
 	                <div class="row justify-content-center">
 	                    <div class="col">
 							
-							<h1 class="d-flex justify-content-center">STORE</h1>
-							
 							<form method="get" th:action="@{/search/store}" class="mb-3 ">
 								<div class="input-group top">
 									<input type="text" class="form-controle" name="keyword" th:value="${keyword}" placeholder="店舗名">
@@ -36,7 +34,9 @@
 	                      	<table class="ta1">
 								<div th:each="store : ${storePage}">
 									<tr>
-										<th th:text="${store.getName()}"></th>
+										<th>
+											<a th:href="@{/posts/storePage/__${store.getId()}__}" th:text="${store.getName()}"></a>
+										</th>
 										<td th:text="${store.getAddress()}"></td>
 									</tr>
 								</div>
@@ -66,11 +66,10 @@
 
 	                        <div id="map"></div>
 							
-							
-							
 	                    </div>
 	                </div>
 	            </div>
+				<div class="slide-bottom"></div>
 	        </main>
 	        <div th:replace="~{fragment :: footer}"></div>
 	    </div>

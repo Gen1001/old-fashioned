@@ -23,7 +23,7 @@
                                 </ol>
                             </nav> 
                             
-                            <h1 class="mb-3 text-center">会員情報</h1> 
+                            <h2 class="mb-3 text-center">会員情報</h2> 
                             
                             <div class="d-flex justify-content-end align-items-end mb-3">                    
                                 <div>
@@ -36,81 +36,40 @@
                             </div>     
 							
 							<div class="mb-4">
-								<img th:if="${user.getUserPhoto()}" th:src="@{/profile/__${user.getUserPhoto()}__}" class="profile" alt="プロフィール画像">
+								<img th:if="${user.getUserPhoto()}" th:src="@{/profile/__${user.getUserPhoto()}__}" class="profile-large" alt="プロフィール画像">
 								<img th:unless="${user.getUserPhoto()}" th:src="@{/images/noImage.png}" class="w-20" alt="NO IMAGE">
-							</div>                          
-                            
-                            <div class="container mb-4">
-                                <div class="row pb-2 mb-2 border-bottom">
-                                    <div class="col-4">
-                                        <span class="fw-bold">氏名</span>
-                                    </div>
-            
-                                    <div class="col">
-                                        <span th:text="${user.getName()}"></span>
-                                    </div>
-                                </div>                    
-                                
-                                <div class="row pb-2 mb-2 border-bottom">
-                                    <div class="col-4">
-                                        <span class="fw-bold">メールアドレス</span>
-                                    </div>
-            
-                                    <div class="col">
-                                        <span th:text="${user.getEmail()}"></span>
-                                    </div>
-                                </div>        
-								                         
-                                <div class="row pb-2 mb-2 border-bottom">
-                                    <div class="col-4">
-                                        <span class="fw-bold">郵便番号</span>
-                                    </div>
-            
-                                    <div class="col">
-                                        <span th:text="${user.getPostalCode()}"></span>
-                                    </div>
-                                </div>   
-                                
-                                <div class="row pb-2 mb-2 border-bottom">
-                                    <div class="col-4">
-                                        <span class="fw-bold">住所</span>
-                                    </div>
-            
-                                    <div class="col">
-                                        <span th:text="${user.getAddress()}"></span>
-                                    </div>
-                                </div>
-            
-                                <div class="row pb-2 mb-2 border-bottom">
-                                    <div class="col-4">
-                                        <span class="fw-bold">ニックネーム</span>
-                                    </div>
-            
-                                    <div class="col">
-                                        <span th:text="${user.getNickname()}"></span>
-                                    </div>
-                                </div>
-            
-                                <div class="row pb-2 mb-2 border-bottom">
-                                    <div class="col-4">
-                                        <span class="fw-bold">電話番号</span>
-                                    </div>
-            
-                                    <div class="col">
-                                        <span th:text="${user.getPhoneNumber()}"></span>
-                                    </div>
-                                </div>  
-            
-                                <div class="row pb-2 mb-2 border-bottom">
-                                    <div class="col-4">
-                                        <span class="fw-bold">自己紹介</span>
-                                    </div>
-            
-                                    <div class="col">
-                                        <span th:text="${user.getIntroduction()}"></span>
-                                    </div>
-                                </div>  
-                            </div>      
+							</div>  
+							
+							<table class="ta1">
+								<tr>
+									<th th:text="氏名"></th>
+									<td th:text="${user.getName()}"></td>
+								</tr>
+								<tr>
+									<th th:text="メールアドレス"></th>
+									<td th:text="${user.getEmail()}"></td>
+								</tr>
+								<tr>
+									<th th:text="郵便番号"></th>
+									<td th:text="${user.getPostalCode()}"></td>
+								</tr>
+								<tr>
+									<th th:text="住所"></th>
+									<td th:text="${user.getAddress()}"></td>
+								</tr>
+								<tr>
+									<th th:text="ニックネーム"></th>
+									<td th:text="${user.getNickname()}"></td>
+								</tr>
+								<tr>
+									<th th:text="電話番号"></th>
+									<td th:text="${user.getPhoneNumber()}"></td>
+								</tr>
+								<tr>
+									<th th:text="自己紹介"></th>
+									<td th:text="${user.getIntroduction()}"></td>
+								</tr>
+							</table>                        
 							
 							                                                                                                                   
                         </div>

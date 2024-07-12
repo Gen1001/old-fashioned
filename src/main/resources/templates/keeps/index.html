@@ -4,7 +4,7 @@
 
 		<div th:replace="~{fragment :: styles}"></div> 
 		
-		<title>保存一覧</title>	
+		<title>保存店舗</title>	
 	</head>
 	<body>
 		<div class="oldfashioned-wrapper">
@@ -22,20 +22,16 @@
 								</ol>
 							</nav>
 							
-							<h1 class="text-center">保存一覧</h1>
+							<h1 class="text-center">保存店舗</h1>
 							
-							<div th:each="keep : ${keepPage}" class="col-md-4 md-4 justify-content-center">
-                                 <a th:href="@{/posts/storePage/__${keep.getStore().getId()}__}">
-									 <div class="card h-200 mb-5">
-										 <div class="card-body">
-											 <h3 class="card-title" th:text="${keep.getStore().getName()}"></h3>
-											 <p class="catd-text">
-								 				 <span th:text="${keep.getStore().getAddress()}" class="box-text"></span>
-				  							 </p>
-										 </div>
-									 </div>	
-	                             </a>
-	                         </div>
+							<table class="ta1 showpage">
+								<div th:each="keep : ${keepPage}">
+									<tr>
+										<th th:text="${keep.getStore().getName()}"></th>
+										<td th:text="${keep.getStore().getAddress()}"></td>
+									</tr>
+								</div>
+							</table>
 							
 							<div th:if="${keepPage.getTotalPages() > 1}" class="d-flex justify-content-center">
 								<nav aria-label="保存ページ">

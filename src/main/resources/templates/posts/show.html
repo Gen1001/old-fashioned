@@ -20,12 +20,12 @@
 							<nav class="mb-4" style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
 								<ol class="breadcrumb mb-0">
 									<li class="breadcrumb-item"><a th:href="@{/}">ホーム</a></li>
-									<li class="breadcrumb-item"><a th:href="@{/posts/otherPage/__${user.getId()}__}" th:text="${user.getName()} + 'のページ'"></a></li>
+									<li class="breadcrumb-item"><a th:href="@{/posts/otherPage/__${user.getId()}__}" th:text="${user.getNickname()} + 'のページ'"></a></li>
 									<li class="breadcrumb-item active" aria-current="page">投稿詳細</li>
 								</ol>
 							</nav>
 							
-							<div th:if="${#authorization.expression('hasRole(''ROLE_GENERAL'')')}" class="text-align">
+							<div th:if="${#authorization.expression('hasRole(''ROLE_GENERAL'')') and self == null}" class="text-align">
 								<div th:if="${likeDelete}">
 									<a th:href="@{/likes/delete/__${post.getId()}__}">&#9829; いいね</a>
 								</div>
@@ -34,35 +34,41 @@
 								</div>
 							</div>
 							
-							<a th:href="@{/posts/otherPage/{id}(id=${post.getUser().getId()})}">
-								<img th:src="@{/profile/__${post.getUser().getUserPhoto()}__}" class="profile">
-							</a>
+							<table class="ta1 showpage">
+								<tr>
+									<th>
+										<a th:href="@{/posts/otherPage/__${user.getId()}__}">
+											<img th:if="${user.getUserPhoto()}" th:src="@{/profile/__${user.getUserPhoto()}__}" class="oldfashioned-veriticai-card-image profile" alt="プロフィール画像">
+											<img th:unless="${user.getUserPhoto()}" th:src="@{/profile/noImage.png}" class="oldfashioned-veriticai-card-image" alt="NO IMAGE">
+										</a>
+									</th>
+									<td th:text="${user.getNickname()}" class="user-nickname"></td>
+									<td th:text="${user.getIntroduction()}" class="user-introduction"></td>
+								</tr>
+							</table>
 							
-							<h1 class="text-center" th:text="${post.getUser().getNickname()}"></h1>
-															
-							<p class="text-center" th:text="${post.getUser().getIntroduction()}"></p>
-									
-							<div class="mb-4">
-								<img th:src="@{/clothes/__${post.getPostPhoto()}__}" class="w-100" alt="購入品画像">
+							<div class="mb-4 ">
+								<img th:src="@{/clothes/__${post.getPostPhoto()}__}" class="w-100 " alt="購入品画像">
 							</div>
-								
-							<div class="row pb-2 mb-2 border-bottom text-center">
-								<div class="col">
-									<span th:text="${post.getName()}"></span>
-								</div>
-							</div>	
-								
-							<div class="row pb-2 mb-2 border-bottom text-center">
-								<div class="col">
-									<span th:text="${post.getContent()}"></span>
-								</div>
-							</div>	
 							
+							<table class="ta1 text-center showname">
+								<tr>
+									<th class="text-center">購入商品</th>
+									<td th:text="${post.getName()}" class="postname"></td>
+								</tr>
+								<tr>
+									<th	class="text-center">説明</th>
+									<td th:text="${post.getContent()}" ></td>
+								</tr>
+							</table>
+							
+							<h2 class="d-flex justify-content-center">購入店舗</h2>
 							<div id="map"></div>	
 							
 						</div>
 					</div>
 				</div>
+				<div class="slide-bottom"></div>
 			</main>
 			
 			<div th:replace="~{fragment :: footer}"></div>

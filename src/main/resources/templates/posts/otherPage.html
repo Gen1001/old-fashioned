@@ -18,11 +18,11 @@
 							<nav class="mb-4" style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
 								<ol class="breadcrumb mb-0">
 									<li class="breadcrumb-item"><a th:href="@{/}">ホーム</a></li>
-									<li class="breadcrumb-item active" aria-current="page" th:text="${user.getName()} + 'のページ'"></li>
+									<li class="breadcrumb-item active" aria-current="page" th:text="${user.getNickname()} + 'のページ'"></li>
 								</ol>
 							</nav>
 							
-							<div th:if="${#authorization.expression('hasRole(''ROLE_GENERAL'')')}" class="text-align">
+							<div th:if="${#authorization.expression('hasRole(''ROLE_GENERAL'')') and self == null}" class="text-align">
 								<div th:if="${followDelete}">
 									<a th:href="@{/follows/delete/__${user.getId()}__}">フォローを外す</a>
 								</div>
@@ -31,25 +31,29 @@
 								</div>
 							</div>
 							
-							<img th:src="@{/profile/__${user.getUserPhoto()}__}" class="profile">
-								
-							<h1 class="text-center" th:text="${user.getNickname()}"></h1>
-								
-							<p class="text-center" th:text="${user.getIntroduction()}"></p>
-								
-							<div th:each="post : ${postPage}" class="col-md-4 md-4 justify-content-center">
-                                 <a th:href="@{/posts/__${post.getId()}__}">
-									 <div class="card h-200 mb-5">
-			                             <img th:src="@{/clothes/__${post.getPostPhoto()}__}" class="card-img-top oldfashioned-vertical-card-image">
-										 <div class="card-body">
-											 <h3 class="card-title" th:text="${post.getName()}"></h3>
-											 <p class="catd-text">
-								 				 <span th:text="${post.getContent()}" class="box-text"></span>
-				  							 </p>
-										 </div>
-									 </div>	
-	                             </a>
-	                         </div>
+							<img th:src="@{/profile/__${user.getUserPhoto()}__}" class="profile-large">
+							
+							<table class="ta1">
+								<tr>
+									<th th:text="${user.getNickname()}" class="user-nickname text-center"></th>
+									<td th:text="${user.getIntroduction()}" class="user-introduction"></td>
+								</tr>
+							</table>
+														
+							<section class="blur">
+																			
+								<div class="list-grid1">
+									<div th:each="post : ${postPage}">
+										<div class="list image-container2">
+											<a th:href="@{/posts/show/__${post.getId()}__}">
+												<figure><img th:src="@{/clothes/__${post.getPostPhoto()}__}" alt="投稿画像"></figure>
+												<div class="text2 font-bebas" th:text="${post.getName()}"></div>
+											</a>
+										</div>
+									</div>
+								</div>
+																			
+							</section>
 							
 							<div th:if="${postPage.getTotalPages() > 1}" class="d-flex justify-content-center">
 								<nav aria-label="ユーザーページ">
@@ -73,6 +77,7 @@
 						</div>
 					</div>
 				</div>
+				<div class="slide-bottom"></div>
 			</main>
 			
 			<div th:replace="~{fragment :: footer}"></div>

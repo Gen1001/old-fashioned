@@ -1,15 +1,13 @@
 <!DOCTYPE html>
-<html xmlns:th="https://www.thymeleaf.org">	<head>
-		<div th:replace="~{fragment :: meta}"></div>  
-
-		<div th:replace="~{fragment :: styles}"></div> 
-		
-		<title>ユーザー検索</title>	
+<html lang="ja" xmlns:th="https://www.thymeleaf.org">
+	<head>
+    	<div th:replace="~{fragment :: meta}"></div>
+    	<div th:replace="~{fragment :: styles}"></div>
+    	<title>ユーザー一覧</title>
 	</head>
-	<body>
-		<div class="oldfashioned-wrapper">
-			
-			<div th:replace="~{fragment :: header}"></div>
+	<body class="home">
+	    <div class="oldfashioned-wrapper">
+	        <div th:replace="~{fragment :: header}"></div>
 			<div id="menubar">
 				<div class="container oldfashioned-container">
 					<nav>
@@ -21,19 +19,16 @@
 					</nav>
 				</div>
 			</div>
-		
-			<main>
-				<div class="container pt-4 pb-5 oldfashioned-container">
-					<div class="row justify-content-center">
-						<div class="col">
+	        <main>
+	            <div class="container oldfashined-container">
+	                <div class="row justify-content-center">
+	                    <div class="col">
 							<form method="get" th:action="@{/search/user}" class="mb-3 ">
 								<div class="input-group top">
 									<input type="text" class="form-controle" name="keyword" th:value="${keyword}" placeholder="ユーザー名">
 									<button type="submit" class="btn text-white shadow-sm oldfashioned-btn">検索</button>
 								</div>
 							</form>
-							
-							<h1>USER</h1>
 							
 							<table class="ta1">
 								<div th:each="user : ${userPage}">
@@ -70,6 +65,7 @@
 						</div>
 					</div>
 				</div>
+				<div class="slide-bottom"></div>
 			</main>
 			
 			<div th:replace="~{fragment :: footer}"></div>

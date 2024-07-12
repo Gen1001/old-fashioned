@@ -18,6 +18,7 @@
 							<nav class="mb-4" style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
 								<ol class="breadcrumb mb-0">
 									<li class="breadcrumb-item"><a th:href="@{/}">ホーム</a></li>
+									<li class="breadcrumb-item"><a th:href="@{/search/store}">店舗一覧</a></li>
 									<li class="breadcrumb-item active" aria-current="page">店舗情報</li>
 								</ol>
 							</nav>
@@ -31,67 +32,55 @@
 								</div>
 							</div>
 								
-							<h1 class="text-center" th:text="${store.getName()}"></h1>
-								
-	                           <div th:each="post : ${postPage}" class="col-md-4 md-4 justify-content-center">
-	                              <a th:href="@{/posts/__${post.getId()}__}">
-									 <div class="card h-200 mb-5">
-	                                     <img th:src="@{/clothes/__${post.getPostPhoto()}__}" class="card-img-top oldfashioned-vertical-card-image">
-										 <div class="card-body">
-											 <h3 class="card-title" th:text="${post.getName()}"></h3>
-											 <p class="catd-text">
-												 <span th:text="${post.getContent()}" class="box-text"></span>
-											 </p>
-										 </div>
-									 </div>	
-	                              </a>
-	                          </div>
+							<table class="ta1 showpage">
+								<tr>
+									<th th:text="${store.getName()}"></th>
+									<td th:text="${store.getAddress()}"></td>
+								</tr>
+							</table>
 						   
-	                       <!-- ページネーション -->
-	                       <div th:if="${postPage.getTotalPages() > 1}" class="d-flex justify-content-center">
-                      		   <nav aria-label="店舗投稿一覧">
-		                           <ul class="pagination">
-	                                   <li class="page-item">
-	                                       <span th:if="${postPage.isFirst()}" class="page-link disabled">前</span>
-	                                       <a th:unless="${postPage.isFirst()}" th:href="@{/posts/storePage/__${store.getId()}__(page = ${postPage.getNumber() -1})}" class="page-link oldfashioned-page-link">前</a>
-	                                   </li>
-	                                   <li th:each="i : ${#numbers.sequence(0, postPage.getTotalPages() -1)}" class="page-item">
-	                                       <span th:if="${i == postPage.getNumber()}" class="page-link active oldfashioned-active" th:text="${i + 1}"></span>
-	                                       <a th:unless="${i == postPage.getNumber()}" th:href="@{/posts/storePage/__${store.getId()}__(page = ${i})}" class="page-link oldfashioned-page-link" th:text="${i + 1}"></a>
-	                                   </li>
-	                                   <li class="page-item">
-	                                       <span th:if="${postPage.isLast()}" class="page-link disabled">次</span>
-	                                       <a th:unless="${postPage.isLast()}" th:href="@{/posts/storePage/__${store.getId()}__(page = ${postPage.getNumber() + 1})}" class="page-link oldfashioned-page-link">次</a>
-	                                   </li>
-	                               </ul>
-	                           </nav>
-	 	                   </div> 
+				<section class="blur">
+																							
+												<div class="list-grid1">
+													<div th:each="post : ${postPage}">
+														<div class="list image-container2">
+															<a th:href="@{/posts/show/__${post.getId()}__}">
+																<figure><img th:src="@{/clothes/__${post.getPostPhoto()}__}" alt="投稿画像"></figure>
+																<div class="text2 font-bebas" th:text="${post.getName()}"></div>
+															</a>
+														</div>
+													</div>
+												</div>
+																							
+											</section>
+				
+				<div th:if="${postPage.getTotalPages() > 1}" class="d-flex justify-content-center pagedonation">
+				     <nav aria-label="店舗投稿一覧">
+					                           <ul class="pagination">
+				                                   <li class="page-item">
+				                                       <span th:if="${postPage.isFirst()}" class="page-link disabled">前</span>
+				                                       <a th:unless="${postPage.isFirst()}" th:href="@{/posts/storePage/__${store.getId()}__(page = ${postPage.getNumber() -1})}" class="page-link oldfashioned-page-link">前</a>
+				                                   </li>
+				                                   <li th:each="i : ${#numbers.sequence(0, postPage.getTotalPages() -1)}" class="page-item">
+				                                       <span th:if="${i == postPage.getNumber()}" class="page-link active oldfashioned-active" th:text="${i + 1}"></span>
+				                                       <a th:unless="${i == postPage.getNumber()}" th:href="@{/posts/storePage/__${store.getId()}__(page = ${i})}" class="page-link oldfashioned-page-link" th:text="${i + 1}"></a>
+				                                   </li>
+				                                   <li class="page-item">
+				                                       <span th:if="${postPage.isLast()}" class="page-link disabled">次</span>
+				                                       <a th:unless="${postPage.isLast()}" th:href="@{/posts/storePage/__${store.getId()}__(page = ${postPage.getNumber() + 1})}" class="page-link oldfashioned-page-link">次</a>
+				                                   </li>
+				                               </ul>
+				                           </nav>
+				 	                   </div> 
+									   
+						   <h2 class="d-flex justify-content-center">MAP</h2>
 						   <div id="map"></div>
-						   
-						   <div class="col container mb-4">
-							<div class="row pb-2 mb-2 border-bottom">
-								<div class="col-4">
-									<span class="fw-bold">店舗名</span>
-								</div>
-								<div class="col">
-									<span th:text="${store.getName()}"></span>
-								</div>
-							</div>
-							
-							<div class="row pb-2 mb-2 border-bottom">
-								<div class="col-4">
-									<span class="fw-bold">住所</span>
-								</div>
-								<div class="col">
-									<span th:text="${store.getAddress()}"></span>
-								</div>
-							</div>
-						   </div>
-							
 						   
 						</div>
 					</div>
 				</div>
+				
+				<div class="slide-bottom"></div>
 			</main>
 			
 			<div th:replace="~{fragment :: footer}"></div>

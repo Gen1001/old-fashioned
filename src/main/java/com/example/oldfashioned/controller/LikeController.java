@@ -56,7 +56,7 @@ public class LikeController {
 		likeForm.setUserId(user);
 		likeService.create(likeForm);
 		
-		String redirectUrl = String.format("redirect:/posts/%d", post.getId());
+		String redirectUrl = String.format("redirect:/posts/show/%d", post.getId());
 		
 		return redirectUrl;
 	}
@@ -68,7 +68,7 @@ public class LikeController {
 		
 		likeRepository.deleteByPostIdAndUserId(post.getId(), user.getId());
 		
-		String redirectUrl = String.format("redirect:/posts/%d", post.getId());
+		String redirectUrl = String.format("redirect:/posts/show/%d", post.getId());
 		
 		return redirectUrl;
 	}

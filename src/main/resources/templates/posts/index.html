@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="https://www.thymeleaf.org">
+	<head>
+    	<div th:replace="~{fragment :: meta}"></div>
+    	<div th:replace="~{fragment :: styles}"></div>
+    	<title>投稿一覧</title>
+	</head>
+	<body class="home">
+	    <div class="oldfashioned-wrapper">
+	        <div th:replace="~{fragment :: header}"></div>
+	        <main>
+	            <div class="container oldfashined-container">
+	                <div class="row justify-content-center">
+	                    <div class="col">
+						<h2 class="text-center">投稿一覧</h2>
+						
+						<div class="bg1">
+						
+							<section class="blur">
+							
+								<h2>Category</h2>
+								
+								<div class="list-grid1">
+									<div class="list image-container" onmouseover="playVideo(this)" onmouseout="pauseVideo(this)">
+										<a th:href="@{/posts/category/1}">
+											<figure><img th:src="@{/images/sample3.png}" alt=""></figure>
+											<video th:src="@{/images/sample3.mp4}" muted loop></video>
+											<div class="text2 font-bebas">Vintage</div>
+										</a>
+									</div>
+									
+									<div class="list image-container" onmouseover="playVideo(this)" onmouseout="pauseVideo(this)">
+										<a th:href="@{/posts/category/2}">
+											<figure><img th:src="@{/images/sample2.png}" alt=""></figure>
+											<video th:src="@{/images/sample2.mp4}" muted loop></video>
+											<div class="text2 font-gruppo">Import</div>
+										</a>
+									</div>
+									
+									<div class="list image-container" onmouseover="playVideo(this)" onmouseout="pauseVideo(this)">
+										<a th:href="@{/posts/category/3}">
+											<figure><img th:src="@{/images/sample1.png}" alt=""></figure>
+											<video th:src="@{/images/sample1.mp4}" muted loop></video>
+											<div class="text2 font-monoton">Used</div>
+										</a>
+									</div>
+								</div>
+							
+							</section>
+						
+						</div>
+						
+						<section class="blur">
+												
+							<h2>Post</h2>
+													
+							<div class="list-grid1">
+								<div th:each="post : ${postPage}">
+									<div class="list image-container2">
+										<a th:href="@{/posts/show/__${post.getId()}__}">
+											<figure><img th:src="@{/clothes/__${post.getPostPhoto()}__}" alt="投稿画像"></figure>
+											<div class="text2 font-bebas" th:text="${post.getName()}"></div>
+										</a>
+									</div>
+								</div>
+							</div>
+												
+						</section>
+						
+						<div th:if="${postPage.getTotalPages() > 1}" class="d-flex justify-content-center">
+							<nav aria-label="店舗一覧">
+								<ul class="pagination">
+									<li class="page-item">
+										<span th:if="${postPage.isFirst()}" class="page-link disabled">前</span>
+										<a th:unless="${postPage.isFirst()}" th:href="@{/posts(page = ${postPage.getNumber() -1})}" class="page-link oldfashioned-page-link">前</a>
+									</li>
+									<li th:each="i : ${#numbers.sequence(0, postPage.getTotalPages() -1)}" class="page-item">
+										<span th:if="${i == postPage.getNumber()}" class="page-link active oldfashioned-active" th:text="${i + 1}"></span>
+										<a th:unless="${i == postPage.getNumber()}" th:href="@{/posts(page = ${i})}" class="page-link oldfashioned-page-link" th:text="${i + 1}"></a>
+									</li>
+									<li class="page-item">
+										<span th:if="${postPage.isLast()}" class="page-link disabled">次</span>
+										<a th:unless="${postPage.isLast()}" th:href="@{/posts(page = ${postPage.getNumber() + 1})}" class="page-link oldfashioned-page-link">次</a>
+									</li>
+								</ul>
+							</nav>
+						</div> 
+						
+                    </div>
+                </div>
+            </div>
+			<div class="slide-bottom"></div>
+        </main>
+        <div th:replace="~{fragment :: footer}"></div>
+    </div>
+	
+    <div th:replace="~{fragment :: scripts}"></div>
+</body>
+</html>

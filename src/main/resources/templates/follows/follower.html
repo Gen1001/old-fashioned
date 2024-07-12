@@ -22,27 +22,30 @@
 								</ol>
 							</nav>
 							
-							<div class="d-flex">
-								<a th:href="@{/follows/follow}">
-									<h1>フォロー一覧</h1>
-								</a>
-									<h1>フォロワー一覧</h1>
+							<div id="menubar">
+								<div class="container oldfashioned-container">
+									<nav>
+										<ul class="d-flex justify-content-end">
+										<li><a th:href="@{/follows/follow}">FOLLOW</a></li>
+										<li><a th:href="@{/follows/follower}">FOLLOWER</a></li>
+										</ul>
+									</nav>
+								</div>
 							</div>
-							
-							<div th:each="follow : ${followPage}" class="col-md-4 md-4 justify-content-center">
-                                 <a th:href="@{/posts/otherPage/__${follow.getUser().getId()}__}">
-									 <div class="card h-200 mb-5">
-										<img th:if="${follow.getFollow().getUserPhoto()}" th:src="@{/profile/__${follow.getFollow().getUserPhoto()}__}" class="card-img-top oldfashioned-veriticai-card-image" alt="プロフィール画像">
-										<img th:unless="${follow.getFollow().getUserPhoto()}" th:src="@{/image/noImage.png}" class="card-img-top oldfashioned-veriticai-card-image" alt="NO IMAGE">
-										 <div class="card-body">
-											 <h3 class="card-title" th:text="${follow.getUser().getName()}"></h3>
-											 <p class="catd-text">
-								 				 <span th:text="${follow.getUser().getIntroduction()}" class="box-text"></span>
-				  							 </p>
-										 </div>
-									 </div>	
-	                             </a>
-	                         </div>
+													
+							<table class="ta1 follow-table">
+								<div th:each="follow : ${followPage}">
+									<tr>
+										<th>
+											<img th:if="${follow.getFollow.getUserPhoto()}" th:src="@{/profile/__${user.getUserPhoto()}__}" class="oldfashioned-veriticai-card-image profile" alt="プロフィール画像">
+											<img th:unless="${follow.getFollow.getUserPhoto()}" th:src="@{/profile/noImage.png}" class="oldfashioned-veriticai-card-image" alt="NO IMAGE">
+										</th>
+										<td th:text="${follow.getFollow.getNickname()}" class="user-nickname"></td>
+										<td th:text="${follow.getFollow.getIntroduction()}" class="user-introduction"></td>
+									</tr>
+								</div>
+							</table>
+													
 							
 							<div th:if="${followPage.getTotalPages() > 1}" class="d-flex justify-content-center">
 								<nav aria-label="フォロワーページ">

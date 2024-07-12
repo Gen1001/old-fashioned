@@ -22,21 +22,22 @@
 								</ol>
 							</nav>
 							
-							<h1 class="text-center">いいね一覧</h1>
+							<h2 class="text-center">お気に入り一覧</h2>
 							
-							<div th:each="like : ${likePage}" class="col-md-4 md-4 justify-content-center">
-                                 <a th:href="@{/posts/__${like.getPost().getId()}__}">
-									 <div class="card h-200 mb-5">
-			                             <img th:src="@{/clothes/__${like.getPost().getPostPhoto()}__}" class="card-img-top oldfashioned-vertical-card-image">
-										 <div class="card-body">
-											 <h3 class="card-title" th:text="${like.getPost().getName()}"></h3>
-											 <p class="catd-text">
-								 				 <span th:text="${like.getPost().getContent()}" class="box-text"></span>
-				  							 </p>
-										 </div>
-									 </div>	
-	                             </a>
-	                         </div>
+							<section class="blur">
+																									
+														<div class="list-grid1">
+															<div th:each="like : ${likePage}">
+																<div class="list image-container2">
+																	<a th:href="@{/posts/show/__${like.getPost().getId()}__}">
+																		<figure><img th:src="@{/clothes/__${like.getPost().getPostPhoto()}__}" alt="投稿画像"></figure>
+																		<div class="text2 font-bebas" th:text="${like.getPost().getName()}"></div>
+																	</a>
+																</div>
+															</div>
+														</div>
+																									
+													</section>
 							
 							<div th:if="${likePage.getTotalPages() > 1}" class="d-flex justify-content-center">
 								<nav aria-label="ユーザーページ">

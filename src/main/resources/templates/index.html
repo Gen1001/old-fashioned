@@ -101,7 +101,7 @@
 							<div class="list-grid1">
 								<div th:each="post : ${postPage}">
 									<div class="list image-container2">
-										<a th:href="@{/posts/__${post.getId()}__}">
+										<a th:href="@{/posts/show/__${post.getId()}__}">
 										<figure><img th:src="@{clothes/__${post.getPostPhoto()}__}" alt="投稿画像"></figure>
 										<div class="text2 font-bebas" th:text="${post.getName()}"></div>
 										</a>
@@ -111,9 +111,9 @@
 						
 						</section>
 						
-						<a th:href="@{/search/post}" class="d-flex justify-content-center">投稿一覧</a>
+						<a th:href="@{/posts}" class="d-flex justify-content-center">投稿を全て見る</a>
 						
-						<div class="bg1">
+						<div class="bg1 slide-bottom">
 						
 							<section>
 							
@@ -138,6 +138,7 @@
         </main>
         <div th:replace="~{fragment :: footer}"></div>
     </div>
+	
     <div th:replace="~{fragment :: scripts}"></div>
 </body>
 </html>

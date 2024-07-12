@@ -67,6 +67,30 @@ public class PostController {
 		this.keepRepository = keepRepository;
 		this.followRepository = followRepository;
 	}
+	@GetMapping(" ")
+	public String index(Model model, @PageableDefault(page = 0, size = 12, sort = "id", direction = Direction.ASC) Pageable pageable) {
+		Page<Post> postPage;
+		List<Category> category = categoryRepository.findAll();
+		
+		postPage = postRepository.findAllByOrderByCreatedAtDesc(pageable);
+		
+		model.addAttribute("postPage", postPage);
+		model.addAttribute("category", category);
+		
+		
+		return "posts/index";
+	}
+	
+	@GetMapping("/category/{id}")
+	public String index(Model model, @PageableDefault(page = 0, size = 12, sort = "id", direction = Direction.ASC) Pageable pageable, @PathVariable(name = "id") Integer id) {
+		Page<Post> postPage = postRepository.findByCategoryId(id, pageable);
+		List<Category> category = categoryRepository.findAll();
+		
+		model.addAttribute("postPage", postPage);
+		model.addAttribute("category", category);
+		
+		return "posts/index";
+	}
 	
 	@GetMapping("/register")
 	public String register(Model model) {
@@ -84,20 +108,23 @@ public class PostController {
 	public String create(@AuthenticationPrincipal UserDetailsImpl userDetailsImpl, @ModelAttribute @Validated PostRegisterForm postRegisterForm, BindingResult bindingResult, RedirectAttributes redirectAttributes, Model model) {
 		User user = userDetailsImpl.getUser();
 		String searchId = postRegisterForm.getStoreName();
+		Store storeId = postRegisterForm.getStoreId();
 		
-		if (bindingResult.hasErrors()) {
-			return "posts/register";
-		}
-		
-		Store store = storeRepository.findByName(searchId);
-		if (store == null) {
+		Store storeName = storeRepository.findByName(searchId);
+		if (!searchId.trim().isEmpty() && storeName == null) {
 			storeService.create(postRegisterForm);
 			Store storeSearch = storeRepository.findByName(searchId);
 			postRegisterForm.setStoreId(storeSearch);
 		} else {
 			postRegisterForm.setStoreId(postRegisterForm.getStoreId());
+			postRegisterForm.setLatitude(storeId.getLatitude());
+			postRegisterForm.setLongitude(storeId.getLongitude());
+			System.out.println(postRegisterForm.getLatitude());
 		}
 		
+		if (bindingResult.hasErrors()) {
+			return "posts/register";
+		}
 		
 		postRegisterForm.setUserId(user);
 		
@@ -108,7 +135,7 @@ public class PostController {
 	}
 	
 	@GetMapping("/myPage")
-	public String myPage(@AuthenticationPrincipal UserDetailsImpl userDetailsImpl, Model model, @PageableDefault(page = 0, size = 10, sort = "id", direction = Direction.ASC) Pageable pageable) {
+	public String myPage(@AuthenticationPrincipal UserDetailsImpl userDetailsImpl, Model model, @PageableDefault(page = 0, size = 12, sort = "id", direction = Direction.ASC) Pageable pageable) {
 		User user = userDetailsImpl.getUser();
 		Page<Post> postPage = postRepository.findByUserId(user.getId(), pageable);
 		
@@ -118,13 +145,17 @@ public class PostController {
 		return "posts/myPage";
 	}
 	
-	@GetMapping("/{id}")
+	@GetMapping("/show/{id}")
 	public String show(@AuthenticationPrincipal UserDetailsImpl userDetailsImpl, Model model, @PathVariable("id") Long id) {
 		Post post = postRepository.findById(id);
 		User user = post.getUser();
 		
 		if (userDetailsImpl != null) {
 			User self = userDetailsImpl.getUser();
+			if (post.getUser().getId() == self.getId()) {
+				model.addAttribute("self", self);
+			}
+			
 			List<Like> like = likeRepository.findByPostIdAndUserId(post.getId(), self.getId());
 			
 			if (like.isEmpty()) {
@@ -145,7 +176,7 @@ public class PostController {
 	}
 	
 	@GetMapping("/storePage/{id}")
-	public String storePage(@AuthenticationPrincipal UserDetailsImpl userDetailsImpl, Model model, @PathVariable("id") Integer id, @PageableDefault(page = 0, size = 10, sort = "id", direction = Direction.ASC) Pageable pageable) {
+	public String storePage(@AuthenticationPrincipal UserDetailsImpl userDetailsImpl, Model model, @PathVariable("id") Integer id, @PageableDefault(page = 0, size = 12, sort = "id", direction = Direction.ASC) Pageable pageable) {
 		Page<Post> postPage = postRepository.findByStoreId(id, pageable);
 		Store store = storeRepository.findById(id);
 		
@@ -172,12 +203,15 @@ public class PostController {
 	}
 	
 	@GetMapping("/otherPage/{id}")
-	public String otherPage(@AuthenticationPrincipal UserDetailsImpl userDetailsImpl, Model model, @PathVariable("id") Integer id, FollowForm followForm, @PageableDefault(page = 0, size = 10, sort = "id", direction = Direction.ASC) Pageable pageable) {
+	public String otherPage(@AuthenticationPrincipal UserDetailsImpl userDetailsImpl, Model model, @PathVariable("id") Integer id, FollowForm followForm, @PageableDefault(page = 0, size = 12, sort = "id", direction = Direction.ASC) Pageable pageable) {
 		Page<Post> postPage = postRepository.findByUserId(id, pageable);
 		User user = userRepository.findById(id).orElse(null);	
 		
 		if (userDetailsImpl != null) {
 			User self = userDetailsImpl.getUser();
+			if (user.getId() == self.getId()) {
+			model.addAttribute("self", self);
+			}
 			List<Follow> follow = followRepository.findByUserIdAndFollowId(user.getId(), self.getId());
 			
 			if (follow.isEmpty()) {

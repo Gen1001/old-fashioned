@@ -14,6 +14,7 @@ import lombok.Data;
 public class PostRegisterForm {
 	private Category categoryId;
 	
+	@NotNull
 	private Store storeId;
 	
 	private User userId;
@@ -29,9 +30,7 @@ public class PostRegisterForm {
 	@NotBlank(message = "投稿内容を入力してください。")
 	private String content;
 	
-	@NotNull
 	private Double latitude;
 	
-	@NotNull 
 	private Double longitude;
 }
