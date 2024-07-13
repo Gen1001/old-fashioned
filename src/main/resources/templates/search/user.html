@@ -34,7 +34,7 @@
 								<div th:each="user : ${userPage}">
 									<tr>
 										<th>
-											<a th:href="@{/posts/otherPage/__${user.getId()}__}">
+											<a th:href="@{|/posts/otherPage/${user.getId()}|}">
 												<img th:if="${!user.getUserPhoto().trim().isEmpty()}" th:src="@{|/profile/${user.getUserPhoto()}|}" class="oldfashioned-veriticai-card-image profile" alt="プロフィール画像">
 												<img th:unless="${!user.getUserPhoto().trim().isEmpty()}" th:src="@{/profile/noImage.png}" class="oldfashioned-veriticai-card-image profile" alt="NO IMAGE">
 											</a>

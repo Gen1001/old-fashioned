@@ -36,7 +36,7 @@
                             </div>     
 							
 							<div class="mb-4">
-							    <img th:if="${user.getUserPhoto() != null and !user.getUserPhoto().trim().isEmpty()}" th:src="@{|{/profile/${user.getUserPhoto()}|}" class="profile-large" alt="プロフィール画像">
+							    <img th:if="${user.getUserPhoto() != null and !user.getUserPhoto().trim().isEmpty()}" th:src="@{|/profile/${user.getUserPhoto()}|}" class="profile-large" alt="プロフィール画像">
 							    <img th:unless="${user.getUserPhoto() != null and !user.getUserPhoto().trim().isEmpty()}" th:src="@{/images/noImage.png}" class="w-20" alt="NO IMAGE">
 							</div>
 							
