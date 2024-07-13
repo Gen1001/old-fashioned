@@ -35,8 +35,8 @@
 									<tr>
 										<th>
 											<a th:href="@{/posts/otherPage/__${user.getId()}__}">
-												<img th:if="${user.getUserPhoto()}" th:src="@{/profile/__${user.getUserPhoto()}__}" class="oldfashioned-veriticai-card-image profile" alt="プロフィール画像">
-												<img th:unless="${user.getUserPhoto()}" th:src="@{/profile/noImage.png}" class="oldfashioned-veriticai-card-image profile-noImage" alt="NO IMAGE">
+												<img th:if="${!user.getUserPhoto().trim().isEmpty()}" th:src="@{|/profile/${user.getUserPhoto()}|}" class="oldfashioned-veriticai-card-image profile" alt="プロフィール画像">
+												<img th:unless="${!user.getUserPhoto().trim().isEmpty()}" th:src="@{/profile/noImage.png}" class="oldfashioned-veriticai-card-image profile" alt="NO IMAGE">
 											</a>
 										</th>
 										<td th:text="${user.getNickname()}" class="user-nickname"></td>
