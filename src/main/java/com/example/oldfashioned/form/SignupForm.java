@@ -4,7 +4,7 @@ import org.hibernate.validator.constraints.Length;
 import org.springframework.web.multipart.MultipartFile;
 
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
 import lombok.Data;
 
 @Data
@@ -15,8 +15,9 @@ public class SignupForm {
 	@NotBlank(message = "メールアドレスを入力してください。")
 	private String email;
 	
-	@NotNull(message = "郵便番号を入力してください。")
-	private Integer postalCode;
+	@NotBlank(message = "郵便番号を入力してください。")
+    @Pattern(regexp = "\\d{7}", message = "数字7桁を入力してください。")
+	private String postalCode;
 	
 	@NotBlank(message = "住所を入力してください。")
 	private String address;
@@ -24,8 +25,9 @@ public class SignupForm {
 	@NotBlank(message = "表示されるニックネームを入力してください。")
 	private String nickname;
 	
-	@NotNull(message = "電話番号を入力してください。")
-	private Integer phoneNumber;
+	@NotBlank(message = "電話番号を入力してください。")
+    @Pattern(regexp = "\\d{10,11}", message = "数字10桁または11桁を入力してください。")
+	private String phoneNumber;
 	
 	private String introduction;
 	

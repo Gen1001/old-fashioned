@@ -1,3 +1,4 @@
+
 CREATE TABLE IF NOT EXISTS roles (
 	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	name VARCHAR(50) NOT NULL
@@ -8,10 +9,10 @@ CREATE TABLE IF NOT EXISTS users (
 	role_id INT NOT NULL,
 	name VARCHAR(255) NOT NULL,
 	email VARCHAR(255) NOT NULL,
-	postal_code INT NOT NULL,
+	postal_code VARCHAR(50) NOT NULL,
 	address VARCHAR(255) NOT NULL,
 	nickname VARCHAR(255) NOT NULL,
-	phone_number INT NOT NULL,
+	phone_number VARCHAR(50) NOT NULL,
 	introduction VARCHAR(255),
 	password VARCHAR(255) NOT NULL,
 	enabled BOOLEAN NOT NULL,
