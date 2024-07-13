@@ -32,20 +32,24 @@
  
  //トリミングした画像を追加する
 cropBtn.addEventListener('click', function (event) {
-	event.preventDefault();
-  	if (cropper) {
-    // トリミングされた画像データを取得
-    const canvas = cropper.getCroppedCanvas();
-    canvas.toBlob((blob) => {
-		const file = new File([blob], imageInput.files[0].name, { type: 'image/jpeg'});
-		
-		//FileオブジェクトをimageInputに設定
-		const dataTransfer = new DataTransfer();
-		dataTransfer.items.add(file);
-		imageInput.files = dataTransfer.files;
-		
-		userForm.submit();
-	}, 'image/jpeg')
-   
-  }　
+	if (imageInput.files.length != 0) {
+		event.preventDefault();
+	  	if (cropper) {
+	    // トリミングされた画像データを取得
+	    const canvas = cropper.getCroppedCanvas();
+	    canvas.toBlob((blob) => {
+			const file = new File([blob], imageInput.files[0].name, { type: 'image/jpeg'});
+			
+			//FileオブジェクトをimageInputに設定
+			const dataTransfer = new DataTransfer();
+			dataTransfer.items.add(file);
+			imageInput.files = dataTransfer.files;
+			
+			userForm.submit();
+		}, 'image/jpeg')
+	   
+	  }　
+  } else {
+	userForm.submit();
+  }
 });
