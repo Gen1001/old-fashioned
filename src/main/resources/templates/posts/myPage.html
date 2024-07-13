@@ -22,16 +22,16 @@
 								</ol>
 							</nav>
 							<div class="mb-4">
-															<img th:if="${user.getUserPhoto()}" th:src="@{/profile/__${user.getUserPhoto()}__}" class="profile-large" alt="プロフィール画像">
-															<img th:unless="${user.getUserPhoto()}" th:src="@{/images/noImage.png}" class="w-20" alt="NO IMAGE">
-														</div>  
+								<img th:if="${user.getUserPhoto()}" th:src="@{${'/profile/' + user.getUserPhoto()}}" class="profile-large" alt="プロフィール画像">
+								<img th:unless="${user.getUserPhoto()}" th:src="@{/images/noImage.png}" class="w-20" alt="NO IMAGE">
+							</div>  
 														
 								<table class="ta1">
 									<tr>
-																<th th:text="${user.getNickname()}" class="user-nickname text-center"></th>
-																<td th:text="${user.getIntroduction()}" class="user-introduction"></td>
-															</tr>
-														</table>
+										<th th:text="${user.getNickname()}" class="user-nickname text-center"></th>
+										<td th:text="${user.getIntroduction()}" class="user-introduction"></td>
+									</tr>
+								</table>
 																					
 														<section class="blur">
 																										
