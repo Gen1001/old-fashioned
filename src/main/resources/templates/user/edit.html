@@ -147,13 +147,10 @@
 								<div th:if="${userPhoto}" class="row" id="imagePreview"><img th:src="@{/profile/__${userPhoto}__}" class="mb-3"></div>
 								<div th:unless="${userPhoto}" class="row" id="imagePreview"></div>
 								
-								<div class="d-flex justify-content-center my-4">
-									<button id="crop-btn" type="button" class="btn text-white shadow-sm w-50 oldfashioned-btn">更新（画像を更新した方）</button>
+								<div class="form-group d-flex justify-content-center my-4">
+									<button id="crop-btn" type="submit" class="btn text-white shadow-sm w-50 oldfashioned-btn">更新</button>
 								</div>                            
                                                                                                                         
-                                <div class="form-group d-flex justify-content-center my-4">
-                                    <button type="submit" class="btn text-white shadow-sm w-50 oldfashioned-btn">更新（画像を変更しなかった方）</button>
-                                </div>
                             </form>                                                                         
                         </div>
                     </div>

@@ -38,15 +38,17 @@ cropBtn.addEventListener('click', function (event) {
 	    // トリミングされた画像データを取得
 	    const canvas = cropper.getCroppedCanvas();
 	    canvas.toBlob((blob) => {
-			const file = new File([blob], imageInput.files[0].name, { type: 'image/jpeg'});
+			const file = new File([blob], imageInput.files[0].name, { type: 'multipart/form-data'});
 			
 			//FileオブジェクトをimageInputに設定
 			const dataTransfer = new DataTransfer();
 			dataTransfer.items.add(file);
 			imageInput.files = dataTransfer.files;
 			
+			console.log(userForm);
+			
 			userForm.submit();
-		}, 'image/jpeg')
+		}, 'multipart/form-data')
 	   
 	  }　
   } else {

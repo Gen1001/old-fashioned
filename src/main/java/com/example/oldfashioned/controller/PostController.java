@@ -136,7 +136,7 @@ public class PostController {
 	
 	@GetMapping("/myPage")
 	public String myPage(@AuthenticationPrincipal UserDetailsImpl userDetailsImpl, Model model, @PageableDefault(page = 0, size = 12, sort = "id", direction = Direction.ASC) Pageable pageable) {
-		User user = userDetailsImpl.getUser();
+		User user = userRepository.getReferenceById(userDetailsImpl.getUser().getId());
 		Page<Post> postPage = postRepository.findByUserId(user.getId(), pageable);
 		
 		model.addAttribute("postPage", postPage);

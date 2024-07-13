@@ -21,8 +21,10 @@
 									<li class="breadcrumb-item active" aria-current="page">マイページ</li>
 								</ol>
 							</nav>
-							
-							<img th:src="@{/profile/__${user.getUserPhoto()}__}" class="profile-large">
+							<div class="mb-4">
+															<img th:if="${user.getUserPhoto()}" th:src="@{/profile/__${user.getUserPhoto()}__}" class="profile-large" alt="プロフィール画像">
+															<img th:unless="${user.getUserPhoto()}" th:src="@{/images/noImage.png}" class="w-20" alt="NO IMAGE">
+														</div>  
 														
 								<table class="ta1">
 									<tr>
