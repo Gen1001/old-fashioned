@@ -31,7 +31,10 @@
 								</div>
 							</div>
 							
-							<img th:src="@{/profile/__${user.getUserPhoto()}__}" class="profile-large">
+							<div class="mb-4">
+							    <img th:if="${user.getUserPhoto() != null && !user.getUserPhoto().trim().isEmpty()}" th:src="${user.getUserPhoto()}" class="oldfashioned-veriticai-card-image profile-large" alt="プロフィール画像">
+							    <img th:unless="${user.getUserPhoto() != null && !user.getUserPhoto().trim().isEmpty()}" th:src="@{/profile/noImage.png}" class="oldfashioned-veriticai-card-image profile-large" alt="NO IMAGE">
+							</div>
 							
 							<table class="ta1">
 								<tr>

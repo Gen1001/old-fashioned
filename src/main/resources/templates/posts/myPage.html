@@ -21,10 +21,11 @@
 									<li class="breadcrumb-item active" aria-current="page">マイページ</li>
 								</ol>
 							</nav>
+
 							<div class="mb-4">
-								<img th:if="${user.getUserPhoto() != ''}" th:src="@{${'/profile/' + user.getUserPhoto()}}" class="profile-large" alt="プロフィール画像">
-								<img th:unless="${user.getUserPhoto() != ''}" th:src="@{/images/noImage.png}" class="w-20" alt="NO IMAGE">
-							</div>  
+							    <img th:if="${user.getUserPhoto() != null && !user.getUserPhoto().trim().isEmpty()}" th:src="${user.getUserPhoto()}" class="oldfashioned-veriticai-card-image profile-large" alt="プロフィール画像">
+							    <img th:unless="${user.getUserPhoto() != null && !user.getUserPhoto().trim().isEmpty()}" th:src="@{/profile/noImage.png}" class="oldfashioned-veriticai-card-image profile-large" alt="NO IMAGE">
+							</div>
 														
 								<table class="ta1">
 									<tr>
