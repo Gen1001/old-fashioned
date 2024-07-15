@@ -10,7 +10,7 @@ import com.example.oldfashioned.form.PostRegisterForm;
 import com.example.oldfashioned.repository.PostRepository;
 
 import jakarta.transaction.Transactional;
-import software.amazon.awssdk.auth.credentials.ProfileCredentialsProvider;
+import software.amazon.awssdk.auth.credentials.EnvironmentVariableCredentialsProvider;
 import software.amazon.awssdk.core.sync.RequestBody;
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.s3.S3Client;
@@ -30,7 +30,7 @@ public class PostService {
 		this.fileService = fileService;
 		this.s3Client = S3Client.builder()
 				.region(Region.AP_SOUTHEAST_2)
-				.credentialsProvider(ProfileCredentialsProvider.create())
+				.credentialsProvider(EnvironmentVariableCredentialsProvider.create())
                 .build();
     }
 
@@ -91,13 +91,5 @@ public class PostService {
             throw new RuntimeException("Failed to upload file to S3.", e);
         }
     }
-//    // 画像ファイルを指定したファイルにコピーする
-//    public void copyImageFile(MultipartFile imageFile, Path filePath) {           
-//        try {
-//            Files.copy(imageFile.getInputStream(), filePath);
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }          
-//    } 
     
 }
