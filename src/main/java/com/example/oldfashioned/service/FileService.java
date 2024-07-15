@@ -14,14 +14,18 @@ public class FileService {
 	public FileService(FileRepository fileRepository) {
 		this.fileRepository = fileRepository;
 	}
+	
     @Transactional
     public File create(Post post, String url) {
         File file = new File();
 
         file.setPost(post);
         file.setFileUrl(url);
+        
+        File saveFile = fileRepository.save(file);
+        System.out.println("File saved with ID: " + saveFile.getId());
 
-        return fileRepository.save(file);
+        return saveFile;
     }
 
 }

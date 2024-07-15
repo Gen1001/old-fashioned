@@ -20,7 +20,7 @@ import software.amazon.awssdk.services.s3.model.PutObjectResponse;
 
 @Service
 public class PostService {
-	private PostRepository postRepository;
+	private final PostRepository postRepository;
 	private final FileService fileService;
 	private final S3Client s3Client;
 	private final String bucketName = "old-fahioned";
@@ -50,13 +50,12 @@ public class PostService {
 		post = postRepository.save(post);
 		
 		Post postId = postRepository.getReferenceById(post.getId());
+		System.out.println("Post saved with ID: " + post.getId());
 		
 		MultipartFile[] imageFiles = postRegisterForm.getImageFiles();
 		
 		for (MultipartFile imageFile : imageFiles) {
-			String postPhoto = imageFile.getOriginalFilename();
-			String hashedFileName = generateNewFileName(postPhoto);
-			String keyName = "clothes/" + hashedFileName;
+			String keyName = "clothes/" + generateNewFileName(imageFile.getOriginalFilename());
 			String fileUrl = uploadFile(s3Client, bucketName, keyName, imageFile);
 			fileService.create(postId, fileUrl);
 		}
@@ -82,10 +81,13 @@ public class PostService {
             PutObjectResponse response = s3.putObject(putObjectRequest,
                     RequestBody.fromBytes(imageFile.getBytes()));
 
-            return s3.utilities().getUrl(GetUrlRequest.builder()
+            String fileUrl = s3.utilities().getUrl(GetUrlRequest.builder()
                     .bucket(bucketName)
                     .key(keyName)
                     .build()).toString();
+
+            System.out.println("File uploaded successfully. ETag: " + response.eTag());
+            return fileUrl;
         } catch (Exception e) {
             e.printStackTrace();
             throw new RuntimeException("Failed to upload file to S3.", e);
