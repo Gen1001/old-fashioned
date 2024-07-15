@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.example.oldfashioned.entity.Category;
+import com.example.oldfashioned.entity.File;
 import com.example.oldfashioned.entity.Follow;
 import com.example.oldfashioned.entity.Keep;
 import com.example.oldfashioned.entity.Like;
@@ -29,6 +30,7 @@ import com.example.oldfashioned.entity.User;
 import com.example.oldfashioned.form.FollowForm;
 import com.example.oldfashioned.form.PostRegisterForm;
 import com.example.oldfashioned.repository.CategoryRepository;
+import com.example.oldfashioned.repository.FileRepository;
 import com.example.oldfashioned.repository.FollowRepository;
 import com.example.oldfashioned.repository.KeepRepository;
 import com.example.oldfashioned.repository.LikeRepository;
@@ -51,12 +53,13 @@ public class PostController {
 	private final LikeRepository likeRepository;
 	private final KeepRepository keepRepository;
 	private final FollowRepository followRepository;
+	private final FileRepository fileRepository;
 	@Value("${google.maps.api.key}")
 	private String apiKey;
 	@Value("${google.maps.map.id}")
 	private String mapId;
 	
-	public PostController(PostRepository postRepository, CategoryRepository categoryRepository, StoreRepository storeRepository, StoreService storeService, PostService postService, UserRepository userRepositpry, LikeRepository likeRepository, KeepRepository keepRepository, FollowRepository followRepository) {
+	public PostController(PostRepository postRepository, CategoryRepository categoryRepository, StoreRepository storeRepository, StoreService storeService, PostService postService, UserRepository userRepositpry, LikeRepository likeRepository, KeepRepository keepRepository, FollowRepository followRepository, FileRepository fileRepository) {
 		this.postRepository = postRepository;
 		this.categoryRepository = categoryRepository;
 		this.storeRepository = storeRepository;
@@ -66,27 +69,26 @@ public class PostController {
 		this.likeRepository = likeRepository;
 		this.keepRepository = keepRepository;
 		this.followRepository = followRepository;
+		this.fileRepository = fileRepository;
 	}
 	@GetMapping(" ")
 	public String index(Model model, @PageableDefault(page = 0, size = 12, sort = "id", direction = Direction.ASC) Pageable pageable) {
-		Page<Post> postPage;
 		List<Category> category = categoryRepository.findAll();
 		
-		postPage = postRepository.findAllByOrderByCreatedAtDesc(pageable);
+		Page<File> filePage = fileRepository.findAllDistinctPostIdByOrderByCreatedAtDesc(pageable);
 		
-		model.addAttribute("postPage", postPage);
+		model.addAttribute("filePage", filePage);
 		model.addAttribute("category", category);
-		
 		
 		return "posts/index";
 	}
 	
 	@GetMapping("/category/{id}")
 	public String index(Model model, @PageableDefault(page = 0, size = 12, sort = "id", direction = Direction.ASC) Pageable pageable, @PathVariable(name = "id") Integer id) {
-		Page<Post> postPage = postRepository.findByCategoryId(id, pageable);
+		Page<File> filePage = fileRepository.findAllDistinctPostIdByOrderByCreatedAtDesc(pageable);
 		List<Category> category = categoryRepository.findAll();
 		
-		model.addAttribute("postPage", postPage);
+		model.addAttribute("filePage", filePage);
 		model.addAttribute("category", category);
 		
 		return "posts/index";
@@ -137,9 +139,9 @@ public class PostController {
 	@GetMapping("/myPage")
 	public String myPage(@AuthenticationPrincipal UserDetailsImpl userDetailsImpl, Model model, @PageableDefault(page = 0, size = 12, sort = "id", direction = Direction.ASC) Pageable pageable) {
 		User user = userRepository.getReferenceById(userDetailsImpl.getUser().getId());
-		Page<Post> postPage = postRepository.findByUserId(user.getId(), pageable);
+		Page<File> filePage = fileRepository.findFilesDistinctPostIdByUserId(user.getId(), pageable);
 		
-		model.addAttribute("postPage", postPage);
+		model.addAttribute("filePage", filePage);
 		model.addAttribute("user", user);
 		
 		return "posts/myPage";
@@ -148,6 +150,7 @@ public class PostController {
 	@GetMapping("/show/{id}")
 	public String show(@AuthenticationPrincipal UserDetailsImpl userDetailsImpl, Model model, @PathVariable("id") Long id) {
 		Post post = postRepository.findById(id);
+		List<File> file = fileRepository.findByPostId(id);
 		User user = post.getUser();
 		
 		if (userDetailsImpl != null) {
@@ -167,6 +170,7 @@ public class PostController {
 			}
 		}
 		
+		model.addAttribute("file", file);
 		model.addAttribute("post", post);
 		model.addAttribute("user", user);
 		model.addAttribute("apiKey", apiKey);
@@ -177,7 +181,7 @@ public class PostController {
 	
 	@GetMapping("/storePage/{id}")
 	public String storePage(@AuthenticationPrincipal UserDetailsImpl userDetailsImpl, Model model, @PathVariable("id") Integer id, @PageableDefault(page = 0, size = 12, sort = "id", direction = Direction.ASC) Pageable pageable) {
-		Page<Post> postPage = postRepository.findByStoreId(id, pageable);
+		Page<File> filePage = fileRepository.findFilesDistinctPostIdByStoreId(id, pageable);
 		Store store = storeRepository.findById(id);
 		
 		if (userDetailsImpl != null) {
@@ -194,7 +198,7 @@ public class PostController {
 			
 		}
 		
-		model.addAttribute("postPage", postPage);
+		model.addAttribute("filePage", filePage);
 		model.addAttribute("store", store);
 		model.addAttribute("apiKey", apiKey);
 		model.addAttribute("mapId", mapId);
@@ -204,7 +208,7 @@ public class PostController {
 	
 	@GetMapping("/otherPage/{id}")
 	public String otherPage(@AuthenticationPrincipal UserDetailsImpl userDetailsImpl, Model model, @PathVariable("id") Integer id, FollowForm followForm, @PageableDefault(page = 0, size = 12, sort = "id", direction = Direction.ASC) Pageable pageable) {
-		Page<Post> postPage = postRepository.findByUserId(id, pageable);
+		Page<File> filePage = fileRepository.findFilesDistinctPostIdByUserId(id, pageable);
 		User user = userRepository.findById(id).orElse(null);	
 		
 		if (userDetailsImpl != null) {
@@ -223,7 +227,7 @@ public class PostController {
 			}
 		}
 		
-		model.addAttribute("postPage", postPage);
+		model.addAttribute("filePage", filePage);
 		model.addAttribute("user", user);
 		
 		

@@ -38,8 +38,8 @@
 								<tr>
 									<th>
 										<a th:href="@{/posts/otherPage/__${user.getId()}__}">
-											<img th:if="${user.getUserPhoto()}" th:src="@{/profile/__${user.getUserPhoto()}__}" class="oldfashioned-veriticai-card-image profile" alt="プロフィール画像">
-											<img th:unless="${user.getUserPhoto()}" th:src="@{/profile/noImage.png}" class="oldfashioned-veriticai-card-image" alt="NO IMAGE">
+										    <img th:if="${user.getUserPhoto() != null && !user.getUserPhoto().trim().isEmpty()}" th:src="${user.getUserPhoto()}" class="oldfashioned-veriticai-card-image profile" alt="プロフィール画像">
+											<img th:unless="${user.getUserPhoto() != null && !user.getUserPhoto().trim().isEmpty()}" th:src="@{/profile/noImage.png}" class="oldfashioned-veriticai-card-image profile" alt="NO IMAGE">
 										</a>
 									</th>
 									<td th:text="${user.getNickname()}" class="user-nickname"></td>
@@ -47,8 +47,13 @@
 								</tr>
 							</table>
 							
-							<div class="mb-4 ">
-								<img th:src="@{/clothes/__${post.getPostPhoto()}__}" class="w-100 " alt="購入品画像">
+							<div id="imagePreview" class="mb-4 image-preview"></div>
+							<div class="thumbnail-container-wrapper">
+							    <div class="thumbnail-container">
+							        <div th:each="file : ${file}">
+							            <img th:src="${file.fileUrl}" class="thumbnail" alt="購入品画像">
+							        </div>
+							    </div>
 							</div>
 							
 							<table class="ta1 text-center showname">
@@ -142,6 +147,6 @@
 						initMap();		
 						/*]]>*/
 					</script>
-		
+			<script th:src="@{/js/showPreview.js}"></script>
 	</body>
 </html>

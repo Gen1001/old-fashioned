@@ -612,22 +612,22 @@ animationの行の「0.05s」が文字の出現のなめらかさで、大きい
 	background: rgba(0,0,0,0.7);	/*背景色。0,0,0は黒のことで0.7は色が70%出た状態。*/
 }
 
+
+/*listブロック全体を囲むブロック*/
+.list-grid1 {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);	/*3列にする指定。4列にしたければrepeat(4, 1fr)とする。*/
+	gap: 2vw;	/*ブロックの間に空けるマージン的な指定*/
+}
+
+/*ボックス１個あたり*/
+.list-grid1 .list {
+	margin-bottom: 0;	/*下マージンをリセット*/
+}
 	/*画面幅700px以上の追加指定*/
-	@media screen and (min-width:700px) {
+@media screen and (min-width:700px) {
 
-	/*listブロック全体を囲むブロック*/
-	.list-grid1 {
-		display: grid;
-		grid-template-columns: repeat(3, 1fr);	/*3列にする指定。4列にしたければrepeat(4, 1fr)とする。*/
-		gap: 2vw;	/*ブロックの間に空けるマージン的な指定*/
-	}
-
-	/*ボックス１個あたり*/
-	.list-grid1 .list {
-		margin-bottom: 0;	/*下マージンをリセット*/
-	}
-
-	}/*追加指定ここまで*/
+}/*追加指定ここまで*/
 
 
 /*list-grid1（静止画から動画にチェンジするボックス）※変更不要
@@ -698,14 +698,15 @@ animationの行の「0.05s」が文字の出現のなめらかさで、大きい
 ---------------------------------------------------------------------------*/
 .bg1 {
 	position: relative;
+/*	width: 150%;*/
 	background: var(--primary-color);		/*背景色。css冒頭で指定しているprimary-colorを読み込みます*/
 	color: var(--primary-inverse-color);	/*文字色。css冒頭で指定しているprimary-inverse-colorを読み込みます*/
 	
 	/*以下は変更不要*/
 	margin-left: calc(-1.5 * var(--global-space));
 	margin-right: calc(-1.5 * var(--global-space));
-	padding-left: var(--global-space);
-	padding-right: var(--global-space);
+	padding-left: calc(1.4 * var(--global-space));
+	padding-right: calc(1.4 * var(--global-space));
 }
 .bg1 a {
 	color: inherit;
@@ -744,58 +745,6 @@ animationの行の「0.05s」が文字の出現のなめらかさで、大きい
 .thumbnail img:hover {
 	opacity: 0.8;	/*マウスオン時に80%だけ色を出す。つまり薄くなります。*/
 }
-
-
-/*詳細ページ（bland_item.html）で使っている「前のページに戻る」ボタン*/
-/*---------------------------------------------------------------------------*/
-/*.btn-back {*/
-/*	text-align: center;*/
-/*}*/
-/*.btn-back a {*/
-/*	text-decoration: none;display: inline-block;*/
-/*	padding: 0.5rem 2rem;	ボタン内の余白。上下、左右。*/
-/*	border-radius: 30px;	角を丸くする指定。ある程度大きければ適当でいいです。*/
-/*	background: #000;		背景色*/
-/*	color: #fff;			文字色*/
-/*}*/
-/*.btn-back a::before {*/
-/*	font-family: "Font Awesome 6 Free";	Font Awesomeを使う指定*/
-/*	content: "\f0d9";		使いたいアイコン名をここで指定。Font Awesomeに記載されています。詳しくは当テンプレートのマニュアルを読んで下さい。*/
-/*	padding-right: 0.8em;	アイコンとテキストの間の余白*/
-/*	font-weight: bold;		この設定がないとアイコンが出ない場合があります*/
-/*	opacity: 0.5;			色を50%だけ出す*/
-/*}*/
-
-
-/*クーポンボタン（トップページ右側の縦書きボタン）*/
-/*---------------------------------------------------------------------------*/
-/*#message-parts a {*/
-/*	text-decoration: none;display: block;*/
-/*	writing-mode: vertical-rl;*/
-/*	text-orientation: upright;*/
-/*	background: #ff7e00;背景色*/
-/*	color: #fff;		文字色*/
-/*	position: fixed;	スクロールしてもボタンが移動しないようにする指定。移動させたいならfixedをabsoluteにして下さい。*/
-/*	z-index: 2;*/
-/*	right: 0px;			ボタンの右からの配置場所指定*/
-/*	top: 170px;			ボタンの上からの配置場所指定*/
-/*	padding: 20px 15px;	ボタン内の余白。上下、左右。*/
-/*	border-radius: 5px 0px 0px 5px;	角を丸くする指定。左上、右上、右下、左下の順番。*/
-/*	letter-spacing: 0.2rem;	文字間隔を少しだけ広く*/
-/*	font-size: 0.8rem;	文字サイズを80%*/
-/*}*/
-
-/*ふきだしアイコン*/
-/*#message-parts i {*/
-/*	transform: scale(1.3);	1.3倍に*/
-/*	margin-bottom: 10px;	下に空ける余白*/
-/*}*/
-
-/*マウスオン時に少し明るくする*/
-/*#message-parts a:hover {*/
-/*	filter: brightness(1.2);*/
-/*}*/
-
 
 /*テーブル（ta1）
 ---------------------------------------------------------------------------*/
@@ -863,6 +812,84 @@ animationの行の「0.05s」が文字の出現のなめらかさで、大きい
 	width: 60px;		/*幅*/
 	line-height: 60px;	/*高さ*/
 	border-radius: 50%;	/*円形にする*/
+}
+
+.list-post {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);	/*２列にする。３列がいいなら、(3, 1fr)とすればOKです。*/
+	gap: 1rem;	/*写真ブロック同士に空けるマージン的な要素。*/
+	margin-bottom: var(--global-space);	/*ボックスの下に空けるスペース。css冒頭で指定しているglobal-spaceを読み込みます*/
+	
+}
+
+	/*画面幅1400px以上の追加指定*/
+	@media screen and (min-width:1400px) {
+
+	.list-post {
+		grid-template-columns: repeat(5, 1fr);	/*4列にする*/
+	}
+
+	}/*追加指定ここまで*/
+
+
+/*list（メニュー写真や説明が入ったボックス一個あたり）
+---------------------------------------------------------------------------*/
+/*list内の全ての要素のマージンを一旦リセット*/
+.list * {
+	margin: 0;
+}
+
+/*ボックス１個あたり*/
+.list {
+	position: relative;
+    display: flex;
+	flex-direction: column;
+	padding: 0;			/*ボックス内の余白*/
+	background: #F6F6F6;		/*背景色*/
+	color: #F6F6F6;			/*文字色*/
+	box-shadow: 5px 5px 20px rgba(0,0,0,0.1);	/*ボックスの影。右へ、下へ、ぼかし幅、0,0,0は黒の事で0.1は色が10%出た状態。*/
+}
+
+/*リンクテキストがある場合に親要素のカラーを引き継ぐ*/
+.list a {
+	color: inherit;
+}
+
+.list h4 {
+	font-size:110%;
+	text-align: center;
+}
+
+/*ブロック内のp要素*/
+.list p {
+	font-weight: normal;	/*h要素のデフォルトの太字を標準にする*/
+	text-align: end;
+	margin-right: 0.3rem;
+	font-size: 0.8rem;		/*文字サイズを80%に*/
+}
+
+/*アイコン*/
+.list .newicon {
+	position: absolute;
+	left: -5px;	/*左からの配置場所。マイナスがついているので本来の向きとは逆に移動する。*/
+	top: -10px;	/*上からの配置場所。マイナスがついているので本来の向きとは逆に移動する。*/
+	background: var(--primary-color);	/*背景色。css冒頭で指定しているprimary-colorを読み込みます*/
+	color: var(--primary-text-color);	/*背景色。css冒頭で指定しているprimary-text-colorを読み込みます*/
+	font-size: 0.7rem;	/*文字サイズ。70%。*/
+	width: 5em;			/*アイコンの幅。4文字分。*/
+	line-height: 5em;	/*行間ですが、高さとして使っています。上のwidthと揃えれば正円になります。*/
+	border-radius: 50%;	/*円形にする指定。*/
+	text-align: center;	/*テキストをセンタリング*/
+}
+
+/*ボックス内のfigure画像*/
+.list figure img {
+	height: 100%;
+	margin-bottom: 0.5rem;	/*画像の下に空けるスペース*/
+}
+
+.post-font {
+	color: #09090A;
 }
 
 
@@ -1112,6 +1139,56 @@ a:hover {
 
 .follow-table {
 	margin-top: 20px;
+}
+
+.thumbnail-container-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.thumbnail-container {
+	display: flex;
+	overflow-x: auto;
+	margin-top: 10px;
+	justify-content: flex-start;
+	flex-wrap: wrap;
+	max-width: 90%;
+}
+
+.thumbnail {
+	width: 80px;
+	height: 80px;
+	margin: 0 3px 10px 3px;
+	cursor: pointer;
+	transition: transform 0.2s;
+}
+
+.thumbnail:hover {
+	transform: scale(1.1);
+}
+
+.image-preview {
+	margin-top: 20px;
+	display: flex;
+	justify-content: center;
+}
+
+.image-preview img {
+	max-width: 100%; /* 大きな画像の最大幅を設定 */
+    max-height: 100%; /* 大きな画像の最大高さを設定 */
+    object-fit: contain; /* 元の縦横比を保ちつつ、コンテナに収まるように画像を調整 */
+}
+
+@media (max-widht: 600px) {
+	.thumbnail-container {
+		flex-direction: column;
+	}
+	
+	.thumbnail {
+		margin-right: 0;
+		margin-bottom: 10px;
+	}
 }
 
 @media screen and (min-width: 1400px) {

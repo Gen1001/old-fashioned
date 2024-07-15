@@ -65,7 +65,7 @@
 									<div class="list image-container" onmouseover="playVideo(this)" onmouseout="pauseVideo(this)">
 										<a th:href="@{/posts/category/1}">
 											<figure><img src="images/sample3.png" alt=""></figure>
-											<video src="images/sample3.mp4" muted loop></video>
+											<video th:src="@{https://old-fahioned.s3.ap-southeast-2.amazonaws.com/top-page/sample3.mp4}" muted loop></video>
 											<div class="text2 font-bebas">Vintage</div>
 										</a>
 									</div>
@@ -73,7 +73,7 @@
 									<div class="list image-container" onmouseover="playVideo(this)" onmouseout="pauseVideo(this)">
 										<a th:href="@{/posts/category/2}">
 											<figure><img src="images/sample2.png" alt=""></figure>
-											<video src="images/sample2.mp4" muted loop></video>
+											<video th:src="@{https://old-fahioned.s3.ap-southeast-2.amazonaws.com/top-page/sample2.mp4}" muted loop></video>
 											<div class="text2 font-gruppo">Import</div>
 										</a>
 									</div>
@@ -81,7 +81,7 @@
 									<div class="list image-container" onmouseover="playVideo(this)" onmouseout="pauseVideo(this)">
 										<a th:href="@{/posts/category/3}">
 											<figure><img src="images/sample1.png" alt=""></figure>
-											<video src="images/sample1.mp4" muted loop></video>
+											<video th:src="@{https://old-fahioned.s3.ap-southeast-2.amazonaws.com/top-page/sample1.mp4}" muted loop></video>
 											<div class="text2 font-monoton">Used</div>
 										</a>
 									</div>
@@ -91,22 +91,22 @@
 						
 						</div>
 						
-						<section class="blur">
 						
-							<h2>Latest Post</h2>
+						<h2>Latest Post</h2>
 							
-							<div class="list-grid1">
-								<div th:each="post : ${postPage}">
-									<div class="list image-container2">
-										<a th:href="@{/posts/show/__${post.getId()}__}">
-										<figure><img th:src="@{clothes/__${post.getPostPhoto()}__}" alt="投稿画像"></figure>
-										<div class="text2 font-bebas" th:text="${post.getName()}"></div>
-										</a>
-									</div>
+						<div class="list-post">
+							<div th:each="file : ${file}">
+								<div class="list up post-font">
+									<a th:href="@{/posts/show/__${file.getPost().getId()}__}">
+										<figure><img th:src="${file.getFileUrl()}" alt="投稿画像"></figure>
+										<div class="text">
+											<h4 th:text="${file.getPost().getName()}"></h4>
+										</div>
+										<p th:text="${#dates.format(file.createdAt, 'yyyy/MM/dd')}"></p>
+									</a>
 								</div>
 							</div>
-						
-						</section>
+						</div>
 						
 						<a th:href="@{/posts}" class="d-flex justify-content-center">投稿を全て見る</a>
 						

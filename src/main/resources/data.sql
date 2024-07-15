@@ -4,7 +4,6 @@ INSERT IGNORE INTO roles (id, name) VALUES (2, 'ROLE_ADMIN');
 
 -- usersテーブル --
 INSERT IGNORE INTO users (id, role_id, name, email, postal_code, address, nickname, phone_number, introduction, password, enabled, user_photo) VALUES (1, 1, '山田太郎', 'taro.yamada@example.com', '1111111', '東京都', 'タロウ', '11111111111', 'インポート好き', '$2a$10$2JNjTwZBwo7fprL2X4sv.OEKqxnVtsVQvuXDkI8xVGix.U3W5B7CO', true, 'profile01.png');
-INSERT IGNORE INTO users (id, role_id, name, email, postal_code, address, nickname, phone_number, introduction, password, enabled, user_photo) VALUES (2, 2, '山田花子', 'hanako.yamada@example.com', '2222222', '東京都', 'ハナコ', '22222222222', 'ヴィンテージ専', '$2a$10$2JNjTwZBwo7fprL2X4sv.OEKqxnVtsVQvuXDkI8xVGix.U3W5B7CO', true, 'profile01.png');
 
 -- categoriesテーブル --
 INSERT IGNORE INTO categories (id, name) VALUES (1, 'ユーズド');
@@ -28,17 +27,3 @@ INSERT IGNORE INTO stores (id, name, address, latitude, longitude) VALUES (13, '
 INSERT IGNORE INTO stores (id, name, address, latitude, longitude) VALUES (14, 'Antique Nagasaki', '長崎県長崎市浜町10-13', 32.7497003, 129.878152);
 INSERT IGNORE INTO stores (id, name, address, latitude, longitude) VALUES (15, 'Retro Kagoshima', '鹿児島県鹿児島市東千石町14-10', 31.5928745, 130.5524195);
 INSERT IGNORE INTO stores (id, name, address, latitude, longitude) VALUES (16, 'Vintage Niigata', '新潟県新潟市中央区万代1-4-8', 37.9171212, 139.0614891);
--- postsテーブル --
-INSERT IGNORE INTO posts (id, category_id, store_id, user_id, post_photo, name, content, latitude, longitude, store_name) VALUES
-(1, 1, 3, 1, 'cloth01.jpg', 'クルーネックトップ', 'グレーとブラックのコンストラクタが印象的', 35.6619912, 139.7041046, ''),
-(2, 3, 3, 1, 'cloth02.jpg', 'オールスターコンバース', 'オールスターコンバース', 35.6619912, 139.7041046, ''),
-(3, 2, 3, 1, 'cloth03.jpg', 'スリージーンズ', 'スリージーンズ', 35.6619912, 139.7041046, ''),
-(4, 2, 3, 1, 'cloth04.jpg', 'オーロラデニム', 'オーロラデニム', 35.6619912, 139.7041046, ''),
-(5, 1, 3, 1, 'cloth05.jpg', 'デニムジャケット', 'デニムジャケット', 35.6619912, 139.7041046, ''),
-(6, 3, 3, 1, 'cloth06.jpg', 'STRAIGHT', 'STRAIGHT', 35.6619912, 139.7041046, ''),
-(7, 1, 3, 1, 'cloth07.jpg', 'ブルーデニムボトム', 'ブルーデニムボトム', 35.6619912, 139.7041046, ''),
-(8, 2, 3, 1,  'cloth01.jpg', 'クルーネックトップ', 'グレーとブラックのコンストラクタが印象的', 35.6619912, 139.7041046, ''),
-(9, 3, 3, 1, 'cloth01.jpg', 'クルーネックトップ', 'グレーとブラックのコンストラクタが印象的', 35.6619912, 139.7041046, ''),
-(10, 1, 3, 1, 'cloth01.jpg', 'クルーネックトップ', 'グレーとブラックのコンストラクタが印象的', 35.6619912, 139.7041046, ''),
-(11, 3, 3, 1, 'cloth01.jpg', 'クルーネックトップ', 'グレーとブラックのコンストラクタが印象的', 35.6619912, 139.7041046, ''),
-(12, 2, 3, 1, 'cloth01.jpg', 'クルーネックトップ', 'グレーとブラックのコンストラクタが印象的', 35.6619912, 139.7041046, '');

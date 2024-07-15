@@ -33,9 +33,6 @@ public class Post {
 	@JoinColumn(name = "user_id")
 	private User user;
 	
-	@Column(name = "post_photo")
-	private String postPhoto;
-	
 	@Column(name = "name")
 	private String name;
 	

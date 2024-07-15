@@ -22,7 +22,7 @@ public class PostRegisterForm {
 	private String storeName;
 	
 	@NotNull(message = "投稿画像を選択してください。")
-	private MultipartFile imageFile;
+	private MultipartFile[] imageFiles;
 	
 	@NotBlank(message = "商品名を入力してください。")
 	private String name;

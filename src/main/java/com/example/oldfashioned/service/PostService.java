@@ -1,9 +1,5 @@
 package com.example.oldfashioned.service;
 
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.UUID;
 
 import org.springframework.stereotype.Service;
@@ -14,28 +10,33 @@ import com.example.oldfashioned.form.PostRegisterForm;
 import com.example.oldfashioned.repository.PostRepository;
 
 import jakarta.transaction.Transactional;
+import software.amazon.awssdk.auth.credentials.ProfileCredentialsProvider;
+import software.amazon.awssdk.core.sync.RequestBody;
+import software.amazon.awssdk.regions.Region;
+import software.amazon.awssdk.services.s3.S3Client;
+import software.amazon.awssdk.services.s3.model.GetUrlRequest;
+import software.amazon.awssdk.services.s3.model.PutObjectRequest;
+import software.amazon.awssdk.services.s3.model.PutObjectResponse;
 
 @Service
 public class PostService {
 	private PostRepository postRepository;
+	private final FileService fileService;
+	private final S3Client s3Client;
+	private final String bucketName = "old-fahioned";
 	
-	public PostService(PostRepository postRepository) {
+	public PostService(PostRepository postRepository, FileService fileService) {
 		this.postRepository = postRepository;
-	}
-	
+		this.fileService = fileService;
+		this.s3Client = S3Client.builder()
+				.region(Region.AP_SOUTHEAST_2)
+				.credentialsProvider(ProfileCredentialsProvider.create())
+                .build();
+    }
+
 	@Transactional
 	public Post create(PostRegisterForm postRegisterForm) {
 		Post post = new Post();
-		MultipartFile imageFile = postRegisterForm.getImageFile();
-		
-		if (!imageFile.isEmpty()) {
-			String postPhoto = imageFile.getOriginalFilename();
-			String hashedUserPhoto = generateNewFileName(postPhoto);
-			Path filePath = Paths.get("src/main/resources/static/clothes/" + hashedUserPhoto);
-			copyImageFile(imageFile, filePath);
-			post.setPostPhoto(hashedUserPhoto);
-
-		}
 		
 		post.setStore(postRegisterForm.getStoreId());
 		post.setCategory(postRegisterForm.getCategoryId());
@@ -46,26 +47,57 @@ public class PostService {
 		post.setLongitude(postRegisterForm.getLongitude());
 		post.setStoreName(postRegisterForm.getStoreName());
 		
-		return postRepository.save(post);
+		post = postRepository.save(post);
+		
+		Post postId = postRepository.getReferenceById(post.getId());
+		
+		MultipartFile[] imageFiles = postRegisterForm.getImageFiles();
+		
+		for (MultipartFile imageFile : imageFiles) {
+			String postPhoto = imageFile.getOriginalFilename();
+			String hashedFileName = generateNewFileName(postPhoto);
+			String keyName = "clothes/" + hashedFileName;
+			String fileUrl = uploadFile(s3Client, bucketName, keyName, imageFile);
+			fileService.create(postId, fileUrl);
+		}
+		
+		return post;
 	}
 	
-	// UUIDを使って生成したファイル名を返す
-    public String generateNewFileName(String fileName) {
-        String[] fileNames = fileName.split("\\.");                
+	public String generateNewFileName(String fileName) {
+        String[] fileNames = fileName.split("\\.");
         for (int i = 0; i < fileNames.length - 1; i++) {
-            fileNames[i] = UUID.randomUUID().toString();            
+            fileNames[i] = UUID.randomUUID().toString();
         }
-        String hashedFileName = String.join(".", fileNames);
-        return hashedFileName;
-    }     
-    
-    // 画像ファイルを指定したファイルにコピーする
-    public void copyImageFile(MultipartFile imageFile, Path filePath) {           
+        return String.join(".", fileNames);
+    }
+
+    public String uploadFile(S3Client s3, String bucketName, String keyName, MultipartFile imageFile) {
         try {
-            Files.copy(imageFile.getInputStream(), filePath);
-        } catch (IOException e) {
+            PutObjectRequest putObjectRequest = PutObjectRequest.builder()
+                    .bucket(bucketName)
+                    .key(keyName)
+                    .build();
+
+            PutObjectResponse response = s3.putObject(putObjectRequest,
+                    RequestBody.fromBytes(imageFile.getBytes()));
+
+            return s3.utilities().getUrl(GetUrlRequest.builder()
+                    .bucket(bucketName)
+                    .key(keyName)
+                    .build()).toString();
+        } catch (Exception e) {
             e.printStackTrace();
-        }          
-    } 
+            throw new RuntimeException("Failed to upload file to S3.", e);
+        }
+    }
+//    // 画像ファイルを指定したファイルにコピーする
+//    public void copyImageFile(MultipartFile imageFile, Path filePath) {           
+//        try {
+//            Files.copy(imageFile.getInputStream(), filePath);
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }          
+//    } 
     
 }
