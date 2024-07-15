@@ -15,7 +15,7 @@ import com.example.oldfashioned.form.UserEditForm;
 import com.example.oldfashioned.repository.RoleRepository;
 import com.example.oldfashioned.repository.UserRepository;
 
-import software.amazon.awssdk.auth.credentials.ProfileCredentialsProvider;
+import software.amazon.awssdk.auth.credentials.EnvironmentVariableCredentialsProvider;
 import software.amazon.awssdk.core.sync.RequestBody;
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.s3.S3Client;
@@ -37,7 +37,7 @@ public class UserService {
         this.passwordEncoder = passwordEncoder;
         this.s3Client = S3Client.builder()
                 .region(Region.AP_SOUTHEAST_2)
-                .credentialsProvider(ProfileCredentialsProvider.create())
+                .credentialsProvider(EnvironmentVariableCredentialsProvider.create())
                 .build();
     }
 
@@ -48,7 +48,7 @@ public class UserService {
         MultipartFile imageFile = signupForm.getImageFile();
 
         if (!imageFile.isEmpty()) {
-            String hashedFileName = generateNewFileName(imageFile.getOriginalFilename());
+            String hashedFileName = saveCroppedImage(imageFile);
             String keyName = "profile/" + hashedFileName;
             String fileUrl = uploadFile(s3Client, bucketName, keyName, imageFile);
             user.setUserPhoto(fileUrl); // URLを設定
@@ -75,7 +75,7 @@ public class UserService {
         MultipartFile imageFile = userEditForm.getImageFile();
 
         if (!imageFile.isEmpty()) {
-            String hashedFileName = generateNewFileName(imageFile.getOriginalFilename());
+            String hashedFileName = saveCroppedImage(imageFile);
             String keyName = "profile/" + hashedFileName;
             String fileUrl = uploadFile(s3Client, bucketName, keyName, imageFile);
             user.setUserPhoto(fileUrl); // URLを設定
@@ -113,6 +113,14 @@ public class UserService {
     public String generateNewFileName(String originalFileName) {
         String extension = originalFileName.substring(originalFileName.lastIndexOf('.'));
         String hashedFileName = UUID.randomUUID().toString() + extension;
+        return hashedFileName;
+    }
+
+    // クリップした画像を保存する
+    @Transactional
+    public String saveCroppedImage(MultipartFile imageFile) {
+        String hashedFileName = generateNewFileName(imageFile.getOriginalFilename());
+
         return hashedFileName;
     }
 
