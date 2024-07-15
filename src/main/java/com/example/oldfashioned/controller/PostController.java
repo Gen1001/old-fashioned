@@ -112,15 +112,18 @@ public class PostController {
 		String searchId = postRegisterForm.getStoreName();
 		Store storeId = postRegisterForm.getStoreId();
 		
-		Store storeName = storeRepository.findByName(searchId);
-		if (!searchId.trim().isEmpty() && storeName == null) {
-			storeService.create(postRegisterForm);
-			Store storeSearch = storeRepository.findByName(searchId);
-			postRegisterForm.setStoreId(storeSearch);
-		} else {
-			postRegisterForm.setStoreId(postRegisterForm.getStoreId());
-			postRegisterForm.setLatitude(storeId.getLatitude());
-			postRegisterForm.setLongitude(storeId.getLongitude());
+		if (searchId != null) {
+			Store storeName = storeRepository.findByName(searchId);
+			if (!searchId.trim().isEmpty() && storeName == null) {
+				storeService.create(postRegisterForm);
+				Store storeSearch = storeRepository.findByName(searchId);
+				postRegisterForm.setStoreId(storeSearch);
+			} else {
+				postRegisterForm.setStoreId(postRegisterForm.getStoreId());
+				postRegisterForm.setLatitude(storeId.getLatitude());
+				postRegisterForm.setLongitude(storeId.getLongitude());
+			}
+			
 		}
 		
 		if (bindingResult.hasErrors()) {
