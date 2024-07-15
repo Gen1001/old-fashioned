@@ -1,10 +1,5 @@
 package com.example.oldfashioned.service;
 
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.nio.file.StandardCopyOption;
 import java.util.UUID;
 
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -53,7 +48,7 @@ public class UserService {
         MultipartFile imageFile = signupForm.getImageFile();
 
         if (!imageFile.isEmpty()) {
-            String hashedFileName = saveCroppedImage(imageFile);
+            String hashedFileName = generateNewFileName(imageFile.getOriginalFilename());
             String keyName = "profile/" + hashedFileName;
             String fileUrl = uploadFile(s3Client, bucketName, keyName, imageFile);
             user.setUserPhoto(fileUrl); // URLを設定
@@ -80,7 +75,7 @@ public class UserService {
         MultipartFile imageFile = userEditForm.getImageFile();
 
         if (!imageFile.isEmpty()) {
-            String hashedFileName = saveCroppedImage(imageFile);
+            String hashedFileName = generateNewFileName(imageFile.getOriginalFilename());
             String keyName = "profile/" + hashedFileName;
             String fileUrl = uploadFile(s3Client, bucketName, keyName, imageFile);
             user.setUserPhoto(fileUrl); // URLを設定
@@ -118,21 +113,6 @@ public class UserService {
     public String generateNewFileName(String originalFileName) {
         String extension = originalFileName.substring(originalFileName.lastIndexOf('.'));
         String hashedFileName = UUID.randomUUID().toString() + extension;
-        return hashedFileName;
-    }
-
-    // クリップした画像を保存する
-    @Transactional
-    public String saveCroppedImage(MultipartFile imageFile) {
-        String hashedFileName = generateNewFileName(imageFile.getOriginalFilename());
-        Path filePath = Paths.get("src/main/resources/static/profile/" + hashedFileName);
-
-        try {
-            Files.copy(imageFile.getInputStream(), filePath, StandardCopyOption.REPLACE_EXISTING);
-        } catch (IOException e) {
-            throw new RuntimeException("画像の保存中にエラーが発生しました。", e);
-        }
-
         return hashedFileName;
     }
 
