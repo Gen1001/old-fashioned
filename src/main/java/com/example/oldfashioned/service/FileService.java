@@ -53,20 +53,28 @@ public class FileService {
 				file.setPost(post);
 				file.setFileUrl(fileUrl);
 				
-				file = fileRepository.save(file);
+				fileRepository.save(file);
 			} catch(Exception e) {
 				System.out.println("error" + e.getMessage());
 				e.printStackTrace();
+				throw e;
 			}
 		}
     }
     
-    public String generateNewFileName(String fileName) {
-        String[] fileNames = fileName.split("\\.");
-        for (int i = 0; i < fileNames.length - 1; i++) {
-            fileNames[i] = UUID.randomUUID().toString();
-        }
-        return String.join(".", fileNames);
+//    public String generateNewFileName(String fileName) {
+//        String[] fileNames = fileName.split("\\.");
+//        for (int i = 0; i < fileNames.length - 1; i++) {
+//            fileNames[i] = UUID.randomUUID().toString();
+//        }
+//        return String.join(".", fileNames);
+//    }
+    
+ // UUIDを使って生成したファイル名を返す
+    public String generateNewFileName(String originalFileName) {
+        String extension = originalFileName.substring(originalFileName.lastIndexOf('.'));
+        String hashedFileName = UUID.randomUUID().toString() + extension;
+        return hashedFileName;
     }
 
     public String uploadFile(S3Client s3, String bucketName, String keyName, MultipartFile imageFile) {
