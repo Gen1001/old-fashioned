@@ -121,7 +121,6 @@ public class PostController {
 			postRegisterForm.setStoreId(postRegisterForm.getStoreId());
 			postRegisterForm.setLatitude(storeId.getLatitude());
 			postRegisterForm.setLongitude(storeId.getLongitude());
-			System.out.println(postRegisterForm.getLatitude());
 		}
 		
 		if (bindingResult.hasErrors()) {

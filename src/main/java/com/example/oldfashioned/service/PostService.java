@@ -58,7 +58,7 @@ public class PostService {
 			String hashedFileName = generateNewFileName(imageFile.getOriginalFilename());
 			String keyName = "clothes/" + hashedFileName;
 			String fileUrl = uploadFile(s3Client, bucketName, keyName, imageFile);
-			fileService.create(postId, fileUrl);
+//			fileService.create(postId, fileUrl);
 		}
 		
 		return post;
