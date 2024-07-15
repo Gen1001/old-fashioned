@@ -29,7 +29,7 @@ public class UserController {
 		this.userService = userService;
 	}
 	
-	@GetMapping
+	@GetMapping(" ")
 	public String index(@AuthenticationPrincipal UserDetailsImpl userDetailsImpl, Model model) {
 		User user = userRepository.getReferenceById(userDetailsImpl.getUser().getId());
 		
