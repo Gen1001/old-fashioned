@@ -35,7 +35,7 @@ public class PostService {
     }
 
 	@Transactional
-	public Post create(PostRegisterForm postRegisterForm) {
+	public Integer create(PostRegisterForm postRegisterForm) {
 		Post post = new Post();
 		
 		post.setStore(postRegisterForm.getStoreId());
@@ -47,26 +47,27 @@ public class PostService {
 		post.setLongitude(postRegisterForm.getLongitude());
 		post.setStoreName(postRegisterForm.getStoreName());
 		
-		post = postRepository.save(post);
+//		post = postRepository.save(post);
 		
+//		Integer postId = post.getId();
+//		System.out.println("Post saved with ID: " + postId);
+//		
+//		MultipartFile[] imageFiles = postRegisterForm.getImageFiles();
+//		
+//		for (MultipartFile imageFile : imageFiles) {
+//			String hashedFileName = generateNewFileName(imageFile.getOriginalFilename());
+//			String keyName = "clothes/" + hashedFileName;
+//			String fileUrl = uploadFile(s3Client, bucketName, keyName, imageFile);
+//			try {
+//				fileService.create(postId, fileUrl);
+//			} catch(Exception e) {
+//				System.out.println("error" + e.getMessage());
+//				e.printStackTrace();
+//			}
+//		}
+		postRepository.save(post);
 		Integer postId = post.getId();
-		System.out.println("Post saved with ID: " + postId);
-		
-		MultipartFile[] imageFiles = postRegisterForm.getImageFiles();
-		
-		for (MultipartFile imageFile : imageFiles) {
-			String hashedFileName = generateNewFileName(imageFile.getOriginalFilename());
-			String keyName = "clothes/" + hashedFileName;
-			String fileUrl = uploadFile(s3Client, bucketName, keyName, imageFile);
-			try {
-				fileService.create(postId, fileUrl);
-			} catch(Exception e) {
-				System.out.println("error" + e.getMessage());
-				e.printStackTrace();
-			}
-		}
-		
-		return post;
+		return postId;
 	}
 	
 	public String generateNewFileName(String fileName) {

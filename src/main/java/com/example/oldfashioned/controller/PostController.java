@@ -38,6 +38,7 @@ import com.example.oldfashioned.repository.PostRepository;
 import com.example.oldfashioned.repository.StoreRepository;
 import com.example.oldfashioned.repository.UserRepository;
 import com.example.oldfashioned.security.UserDetailsImpl;
+import com.example.oldfashioned.service.FileService;
 import com.example.oldfashioned.service.PostService;
 import com.example.oldfashioned.service.StoreService;
 
@@ -54,12 +55,13 @@ public class PostController {
 	private final KeepRepository keepRepository;
 	private final FollowRepository followRepository;
 	private final FileRepository fileRepository;
+	private final FileService fileService;
 	@Value("${google.maps.api.key}")
 	private String apiKey;
 	@Value("${google.maps.map.id}")
 	private String mapId;
 	
-	public PostController(PostRepository postRepository, CategoryRepository categoryRepository, StoreRepository storeRepository, StoreService storeService, PostService postService, UserRepository userRepositpry, LikeRepository likeRepository, KeepRepository keepRepository, FollowRepository followRepository, FileRepository fileRepository) {
+	public PostController(PostRepository postRepository, CategoryRepository categoryRepository, StoreRepository storeRepository, StoreService storeService, PostService postService, UserRepository userRepositpry, LikeRepository likeRepository, KeepRepository keepRepository, FollowRepository followRepository, FileRepository fileRepository, FileService fileService) {
 		this.postRepository = postRepository;
 		this.categoryRepository = categoryRepository;
 		this.storeRepository = storeRepository;
@@ -70,6 +72,7 @@ public class PostController {
 		this.keepRepository = keepRepository;
 		this.followRepository = followRepository;
 		this.fileRepository = fileRepository;
+		this.fileService = fileService;
 	}
 	@GetMapping(" ")
 	public String index(Model model, @PageableDefault(page = 0, size = 12, sort = "id", direction = Direction.ASC) Pageable pageable) {
@@ -132,7 +135,9 @@ public class PostController {
 		
 		postRegisterForm.setUserId(user);
 		
-		postService.create(postRegisterForm);
+		Integer postId = postService.create(postRegisterForm);
+		
+		fileService.create(postRegisterForm, postId);
 		redirectAttributes.addFlashAttribute("successMessage", "投稿しました。");
 		
 		return "redirect:/posts/myPage";
