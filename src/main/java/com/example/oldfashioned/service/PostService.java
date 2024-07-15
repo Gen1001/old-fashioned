@@ -58,11 +58,11 @@ public class PostService {
 			String hashedFileName = generateNewFileName(imageFile.getOriginalFilename());
 			String keyName = "clothes/" + hashedFileName;
 			String fileUrl = uploadFile(s3Client, bucketName, keyName, imageFile);
-			try {
-				fileService.create(postId, fileUrl);
-			} catch(Exception e) {
-				System.out.println("error");
-			}
+//			try {
+//				fileService.create(postId, fileUrl);
+//			} catch(Exception e) {
+//				System.out.println("error");
+//			}
 		}
 		
 		return post;
