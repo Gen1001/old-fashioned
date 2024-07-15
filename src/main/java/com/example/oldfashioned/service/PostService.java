@@ -55,7 +55,8 @@ public class PostService {
 		MultipartFile[] imageFiles = postRegisterForm.getImageFiles();
 		
 		for (MultipartFile imageFile : imageFiles) {
-			String keyName = "clothes/" + generateNewFileName(imageFile.getOriginalFilename());
+			String hashedFileName = generateNewFileName(imageFile.getOriginalFilename());
+			String keyName = "clothes/" + hashedFileName;
 			String fileUrl = uploadFile(s3Client, bucketName, keyName, imageFile);
 			fileService.create(postId, fileUrl);
 		}

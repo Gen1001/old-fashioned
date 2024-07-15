@@ -48,7 +48,7 @@ public class UserService {
         MultipartFile imageFile = signupForm.getImageFile();
 
         if (!imageFile.isEmpty()) {
-            String hashedFileName = saveCroppedImage(imageFile);
+            String hashedFileName = generateNewFileName(imageFile.getOriginalFilename());
             String keyName = "profile/" + hashedFileName;
             String fileUrl = uploadFile(s3Client, bucketName, keyName, imageFile);
             user.setUserPhoto(fileUrl); // URLを設定
@@ -75,7 +75,7 @@ public class UserService {
         MultipartFile imageFile = userEditForm.getImageFile();
 
         if (!imageFile.isEmpty()) {
-            String hashedFileName = saveCroppedImage(imageFile);
+            String hashedFileName = generateNewFileName(imageFile.getOriginalFilename());
             String keyName = "profile/" + hashedFileName;
             String fileUrl = uploadFile(s3Client, bucketName, keyName, imageFile);
             user.setUserPhoto(fileUrl); // URLを設定
@@ -113,14 +113,6 @@ public class UserService {
     public String generateNewFileName(String originalFileName) {
         String extension = originalFileName.substring(originalFileName.lastIndexOf('.'));
         String hashedFileName = UUID.randomUUID().toString() + extension;
-        return hashedFileName;
-    }
-
-    // クリップした画像を保存する
-    @Transactional
-    public String saveCroppedImage(MultipartFile imageFile) {
-        String hashedFileName = generateNewFileName(imageFile.getOriginalFilename());
-
         return hashedFileName;
     }
 
