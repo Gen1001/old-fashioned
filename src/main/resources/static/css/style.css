@@ -1159,7 +1159,7 @@ a:hover {
 .thumbnail {
 	width: 80px;
 	height: 80px;
-	margin: 0 3px 10px 3px;
+	margin: 0 3px 40px 3px;
 	cursor: pointer;
 	transition: transform 0.2s;
 }

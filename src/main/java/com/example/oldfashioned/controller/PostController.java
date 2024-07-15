@@ -44,7 +44,7 @@ import com.example.oldfashioned.service.FileService;
 import com.example.oldfashioned.service.PostService;
 import com.example.oldfashioned.service.StoreService;
 
-import software.amazon.awssdk.auth.credentials.EnvironmentVariableCredentialsProvider;
+import software.amazon.awssdk.auth.credentials.ProfileCredentialsProvider;
 import software.amazon.awssdk.core.sync.RequestBody;
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.s3.S3Client;
@@ -87,7 +87,7 @@ public class PostController {
 		this.fileService = fileService;
 		this.s3Client = S3Client.builder()
 				.region(Region.AP_SOUTHEAST_2)
-				.credentialsProvider(EnvironmentVariableCredentialsProvider.create())
+				.credentialsProvider(ProfileCredentialsProvider.create())
                 .build();
 	}
 	@GetMapping(" ")

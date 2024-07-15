@@ -25,10 +25,10 @@
 							
 							<div th:if="${#authorization.expression('hasRole(''ROLE_GENERAL'')')}" class="text-align">
 								<div th:if="${keepDelete}">
-									<a th:href="@{/keeps/delete/__${store.getId()}__}">&#9829; 保存</a>
+									<a th:href="@{/keeps/delete/__${store.getId()}__}">&#128190; 保存</a>
 								</div>
 								<div th:if="${keepRegister}">
-									<a th:href="@{/keeps/create/__${store.getId()}__}">&#9825; 保存</a>
+									<a th:href="@{/keeps/create/__${store.getId()}__}">&#128190; 保存</a>
 								</div>
 							</div>
 								

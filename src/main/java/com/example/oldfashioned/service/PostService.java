@@ -10,9 +10,7 @@ import com.example.oldfashioned.form.PostRegisterForm;
 import com.example.oldfashioned.repository.PostRepository;
 
 import jakarta.transaction.Transactional;
-import software.amazon.awssdk.auth.credentials.EnvironmentVariableCredentialsProvider;
 import software.amazon.awssdk.core.sync.RequestBody;
-import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.s3.S3Client;
 import software.amazon.awssdk.services.s3.model.GetUrlRequest;
 import software.amazon.awssdk.services.s3.model.PutObjectRequest;
@@ -22,16 +20,16 @@ import software.amazon.awssdk.services.s3.model.PutObjectResponse;
 public class PostService {
 	private final PostRepository postRepository;
 	private final FileService fileService;
-	private final S3Client s3Client;
-	private final String bucketName = "old-fahioned";
-	
+//	private final S3Client s3Client;
+//	private final String bucketName = "old-fahioned";
+//	
 	public PostService(PostRepository postRepository, FileService fileService) {
 		this.postRepository = postRepository;
 		this.fileService = fileService;
-		this.s3Client = S3Client.builder()
-				.region(Region.AP_SOUTHEAST_2)
-				.credentialsProvider(EnvironmentVariableCredentialsProvider.create())
-                .build();
+//		this.s3Client = S3Client.builder()
+//				.region(Region.AP_SOUTHEAST_2)
+//				.credentialsProvider(EnvironmentVariableCredentialsProvider.create())
+//                .build();
     }
 
 	@Transactional

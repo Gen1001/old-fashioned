@@ -8,24 +8,20 @@ import com.example.oldfashioned.entity.Post;
 import com.example.oldfashioned.repository.FileRepository;
 import com.example.oldfashioned.repository.PostRepository;
 
-import software.amazon.awssdk.auth.credentials.EnvironmentVariableCredentialsProvider;
-import software.amazon.awssdk.regions.Region;
-import software.amazon.awssdk.services.s3.S3Client;
-
 @Service
 public class FileService {
 	private final FileRepository fileRepository;
 	private final PostRepository postRepository;
-	private final S3Client s3Client;
-	private final String bucketName = "old-fahioned";
+//	private final S3Client s3Client;
+//	private final String bucketName = "old-fahioned";
 	
 	public FileService(FileRepository fileRepository, PostRepository postRepository) {
 		this.fileRepository = fileRepository;
 		this.postRepository = postRepository;
-		this.s3Client = S3Client.builder()
-				.region(Region.AP_SOUTHEAST_2)
-				.credentialsProvider(EnvironmentVariableCredentialsProvider.create())
-                .build();
+//		this.s3Client = S3Client.builder()
+//				.region(Region.AP_SOUTHEAST_2)
+//				.credentialsProvider(EnvironmentVariableCredentialsProvider.create())
+//                .build();
 	}
 	
     @Transactional
