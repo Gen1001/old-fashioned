@@ -971,15 +971,15 @@ a:hover {
 }
 
  .oldfashioned-link-danger {
-     color: #95AECF;
+     color: #3641B3;
  }
  
  .oldfashioned-link-danger:hover {
-     color: #95AECF;
+     color: #3641B3;
  }
  
  .oldfashioned-btn-danger {
-     background-color: #95AECF !important;
+     background-color: #3641B3 !important;
      transition: 0.1s;
  }
  
@@ -988,7 +988,7 @@ a:hover {
  }
  
  .oldfashioned-dropdown-item:active {
-	background-color: #CFA255;
+	background-color: #3641B3;
  }
  
  .oldfashioned-card-link {
