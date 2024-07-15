@@ -49,8 +49,8 @@ public class PostService {
 		
 		post = postRepository.save(post);
 		
-		Post postId = postRepository.getReferenceById(post.getId());
-		System.out.println("Post saved with ID: " + post.getId());
+		Integer postId = post.getId();
+		System.out.println("Post saved with ID: " + postId);
 		
 		MultipartFile[] imageFiles = postRegisterForm.getImageFiles();
 		

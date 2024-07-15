@@ -6,18 +6,22 @@ import org.springframework.transaction.annotation.Transactional;
 import com.example.oldfashioned.entity.File;
 import com.example.oldfashioned.entity.Post;
 import com.example.oldfashioned.repository.FileRepository;
+import com.example.oldfashioned.repository.PostRepository;
 
 @Service
 public class FileService {
 	private final FileRepository fileRepository;
+	private final PostRepository postRepository;
 	
-	public FileService(FileRepository fileRepository) {
+	public FileService(FileRepository fileRepository, PostRepository postRepository) {
 		this.fileRepository = fileRepository;
+		this.postRepository = postRepository;
 	}
 	
     @Transactional
-    public File create(Post post, String url) {
+    public File create(Integer postId, String url) {
         File file = new File();
+        Post post = postRepository.getReferenceById(postId);
 
         file.setPost(post);
         file.setFileUrl(url);
