@@ -1,24 +1,16 @@
 package com.example.oldfashioned.service;
 
-import java.util.UUID;
-
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.multipart.MultipartFile;
 
 import com.example.oldfashioned.entity.File;
 import com.example.oldfashioned.entity.Post;
-import com.example.oldfashioned.form.PostRegisterForm;
 import com.example.oldfashioned.repository.FileRepository;
 import com.example.oldfashioned.repository.PostRepository;
 
 import software.amazon.awssdk.auth.credentials.EnvironmentVariableCredentialsProvider;
-import software.amazon.awssdk.core.sync.RequestBody;
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.s3.S3Client;
-import software.amazon.awssdk.services.s3.model.GetUrlRequest;
-import software.amazon.awssdk.services.s3.model.PutObjectRequest;
-import software.amazon.awssdk.services.s3.model.PutObjectResponse;
 
 @Service
 public class FileService {
@@ -37,29 +29,34 @@ public class FileService {
 	}
 	
     @Transactional
-    public void create(PostRegisterForm postRegisterForm, Integer postId) {
-    	MultipartFile[] imageFiles = postRegisterForm.getImageFiles();
-    	Post post = postRepository.getReferenceById(postId);
+    public File create(String fileUrl, Post post) {
+//    	MultipartFile[] imageFiles = postRegisterForm.getImageFiles();
+//    	Post post = postRepository.getReferenceById(postId);
     	
-//		Integer postId = postRepository.getReferenceById(post);
-		
-		for (MultipartFile imageFile : imageFiles) {
-			String hashedFileName = generateNewFileName(imageFile.getOriginalFilename());
-			String keyName = "clothes/" + hashedFileName;
-			String fileUrl = uploadFile(s3Client, bucketName, keyName, imageFile);
-			try {
-				File file = new File();
-				
-				file.setPost(post);
-				file.setFileUrl(fileUrl);
-				
-				fileRepository.save(file);
-			} catch(Exception e) {
-				System.out.println("error" + e.getMessage());
-				e.printStackTrace();
-				throw e;
-			}
-		}
+    	File file = new File();
+    	
+    	file.setPost(post);
+    	file.setFileUrl(fileUrl);
+    	
+    	return fileRepository.save(file);
+    	
+//		for (MultipartFile imageFile : imageFiles) {
+//			String hashedFileName = generateNewFileName(imageFile.getOriginalFilename());
+//			String keyName = "clothes/" + hashedFileName;
+//			String fileUrl = uploadFile(s3Client, bucketName, keyName, imageFile);
+//			try {
+//				File file = new File();
+//				
+//				file.setPost(post);
+//				file.setFileUrl(fileUrl);
+//				
+//				fileRepository.save(file);
+//			} catch(Exception e) {
+//				System.out.println("error" + e.getMessage());
+//				e.printStackTrace();
+//				throw e;
+//			}
+//		}
     }
     
 //    public String generateNewFileName(String fileName) {
@@ -71,33 +68,33 @@ public class FileService {
 //    }
     
  // UUIDを使って生成したファイル名を返す
-    public String generateNewFileName(String originalFileName) {
-        String extension = originalFileName.substring(originalFileName.lastIndexOf('.'));
-        String hashedFileName = UUID.randomUUID().toString() + extension;
-        return hashedFileName;
-    }
-
-    public String uploadFile(S3Client s3, String bucketName, String keyName, MultipartFile imageFile) {
-        try {
-            PutObjectRequest putObjectRequest = PutObjectRequest.builder()
-                    .bucket(bucketName)
-                    .key(keyName)
-                    .build();
-
-            PutObjectResponse response = s3.putObject(putObjectRequest,
-                    RequestBody.fromBytes(imageFile.getBytes()));
-
-            String fileUrl = s3.utilities().getUrl(GetUrlRequest.builder()
-                    .bucket(bucketName)
-                    .key(keyName)
-                    .build()).toString();
-
-            System.out.println("File uploaded successfully. ETag: " + response.eTag());
-            return fileUrl;
-        } catch (Exception e) {
-            e.printStackTrace();
-            throw new RuntimeException("Failed to upload file to S3.", e);
-        }
-    }
+//    public String generateNewFileName(String originalFileName) {
+//        String extension = originalFileName.substring(originalFileName.lastIndexOf('.'));
+//        String hashedFileName = UUID.randomUUID().toString() + extension;
+//        return hashedFileName;
+//    }
+//
+//    public String uploadFile(S3Client s3, String bucketName, String keyName, MultipartFile imageFile) {
+//        try {
+//            PutObjectRequest putObjectRequest = PutObjectRequest.builder()
+//                    .bucket(bucketName)
+//                    .key(keyName)
+//                    .build();
+//
+//            PutObjectResponse response = s3.putObject(putObjectRequest,
+//                    RequestBody.fromBytes(imageFile.getBytes()));
+//
+//            String fileUrl = s3.utilities().getUrl(GetUrlRequest.builder()
+//                    .bucket(bucketName)
+//                    .key(keyName)
+//                    .build()).toString();
+//
+//            System.out.println("File uploaded successfully. ETag: " + response.eTag());
+//            return fileUrl;
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//            throw new RuntimeException("Failed to upload file to S3.", e);
+//        }
+//    }
 
 }

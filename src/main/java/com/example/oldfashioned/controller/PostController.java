@@ -1,6 +1,7 @@
 package com.example.oldfashioned.controller;
 
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.example.oldfashioned.entity.Category;
@@ -42,6 +44,14 @@ import com.example.oldfashioned.service.FileService;
 import com.example.oldfashioned.service.PostService;
 import com.example.oldfashioned.service.StoreService;
 
+import software.amazon.awssdk.auth.credentials.EnvironmentVariableCredentialsProvider;
+import software.amazon.awssdk.core.sync.RequestBody;
+import software.amazon.awssdk.regions.Region;
+import software.amazon.awssdk.services.s3.S3Client;
+import software.amazon.awssdk.services.s3.model.GetUrlRequest;
+import software.amazon.awssdk.services.s3.model.PutObjectRequest;
+import software.amazon.awssdk.services.s3.model.PutObjectResponse;
+
 @Controller
 @RequestMapping("/posts")
 public class PostController {
@@ -60,6 +70,8 @@ public class PostController {
 	private String apiKey;
 	@Value("${google.maps.map.id}")
 	private String mapId;
+	private final S3Client s3Client;
+	private final String bucketName = "old-fahioned";
 	
 	public PostController(PostRepository postRepository, CategoryRepository categoryRepository, StoreRepository storeRepository, StoreService storeService, PostService postService, UserRepository userRepositpry, LikeRepository likeRepository, KeepRepository keepRepository, FollowRepository followRepository, FileRepository fileRepository, FileService fileService) {
 		this.postRepository = postRepository;
@@ -73,6 +85,10 @@ public class PostController {
 		this.followRepository = followRepository;
 		this.fileRepository = fileRepository;
 		this.fileService = fileService;
+		this.s3Client = S3Client.builder()
+				.region(Region.AP_SOUTHEAST_2)
+				.credentialsProvider(EnvironmentVariableCredentialsProvider.create())
+                .build();
 	}
 	@GetMapping(" ")
 	public String index(Model model, @PageableDefault(page = 0, size = 12, sort = "id", direction = Direction.ASC) Pageable pageable) {
@@ -136,8 +152,17 @@ public class PostController {
 		postRegisterForm.setUserId(user);
 		
 		Integer postId = postService.create(postRegisterForm);
+		Post post = postRepository.getReferenceById(postId);
 		
-		fileService.create(postRegisterForm, postId);
+		MultipartFile[] imageFiles = postRegisterForm.getImageFiles();
+		
+		for (MultipartFile imageFile : imageFiles) {
+			String hashedFileName = generateNewFileName(imageFile.getOriginalFilename());
+			String keyName = "clothes/" + hashedFileName;
+			String fileUrl = uploadFile(s3Client, bucketName, keyName, imageFile);
+			fileService.create(fileUrl, post);
+			}
+		
 		redirectAttributes.addFlashAttribute("successMessage", "投稿しました。");
 		
 		return "redirect:/posts/myPage";
@@ -240,4 +265,33 @@ public class PostController {
 		
 		return "posts/otherPage";
 	}
+	
+	public String generateNewFileName(String originalFileName) {
+        String extension = originalFileName.substring(originalFileName.lastIndexOf('.'));
+        String hashedFileName = UUID.randomUUID().toString() + extension;
+        return hashedFileName;
+    }
+
+    public String uploadFile(S3Client s3, String bucketName, String keyName, MultipartFile imageFile) {
+        try {
+            PutObjectRequest putObjectRequest = PutObjectRequest.builder()
+                    .bucket(bucketName)
+                    .key(keyName)
+                    .build();
+
+            PutObjectResponse response = s3.putObject(putObjectRequest,
+                    RequestBody.fromBytes(imageFile.getBytes()));
+
+            String fileUrl = s3.utilities().getUrl(GetUrlRequest.builder()
+                    .bucket(bucketName)
+                    .key(keyName)
+                    .build()).toString();
+
+            System.out.println("File uploaded successfully. ETag: " + response.eTag());
+            return fileUrl;
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException("Failed to upload file to S3.", e);
+        }
+    }
 }
