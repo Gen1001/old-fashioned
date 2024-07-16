@@ -61,6 +61,11 @@
 									<th th:text="${post.getName()}" class="text-center"></th>
 									<td th:text="${post.getContent()}" ></td>
 								</tr>
+								<tr>
+									<th>投稿日</th>
+									<td th:text="${post.getCreatedAt()}"></td>
+									
+								</tr>
 							</table>
 							
 							<h2 class="d-flex justify-content-center">購入店舗</h2>

@@ -116,6 +116,13 @@
 						<h2>MAP</h2>
 			
 		                <div id="map"></div>
+						
+						<div sec:authorize="hasRole('ROLE_GENERAL')">
+
+							<a class="post-button" th:href="@{/posts/register}">POST</a>
+							
+						</div>
+						
 						<div class="bg1 slide-bottom">
 						
 							<section>
@@ -134,6 +141,7 @@
 							</section>
 						
 						</div>
+						
                       
 										
 				                    </div>

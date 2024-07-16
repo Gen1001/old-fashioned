@@ -104,7 +104,7 @@ public class PostController {
 	
 	@GetMapping("/category/{id}")
 	public String index(Model model, @PageableDefault(page = 0, size = 12, sort = "id", direction = Direction.ASC) Pageable pageable, @PathVariable(name = "id") Integer id) {
-		Page<File> filePage = fileRepository.findAllDistinctPostIdByOrderByCreatedAtDesc(pageable);
+		Page<File> filePage = fileRepository.findFilesDistinctPostIdByCategoryId(id, pageable);
 		List<Category> category = categoryRepository.findAll();
 		
 		model.addAttribute("filePage", filePage);

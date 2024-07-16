@@ -31,12 +31,11 @@
 										<label for="categoryId" class="col-form-label text-md-left fw-bold">カテゴリ名</label>
 									</div>
 									<div class="col-md-8">
-										<div th:each="category : ${category}">
-											<div class="form-check">
-												<input class="form-check-input" type="checkbox" name="categoryIds" th:value="${category.getId()}" id="category-${category.getId()}">
-								                <label class="form-check-label" th:text="${category.getName()}"></label>
-								            </div>
-										</div>
+										<select class="form-control" th:filed="*{categoryId}" name="categoryId">
+											<option value="1">ヴィンテージ</option>
+											<option value="2">インポート</option>
+											<option value="3">ユーズド</option>
+							            </select>
 									</div>
 								</div>
 								
@@ -61,9 +60,7 @@
 									</div>
 									<div class="col-md-8">
 										<select class="form-control" th:field="*{storeId}" name="storeId">
-											<div th:each="store : ${store}">
-												<option th:value="${store.getId()}" th:text="${store.getName()}"></option>
-											</div>
+									        <option th:each="store : ${store}" th:value="${store.getId()}" th:text="${store.getName()}"></option>
 										</select>
 									</div>
 								</div>
