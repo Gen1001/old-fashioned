@@ -315,7 +315,10 @@ a.ddmenu::before {
 /*メニュー１個あたりの設定*/
 .small-screen #menubar nav ul li {
 	border: 1px solid #ccc;	/*枠線の幅、線種、色*/
-	margin: 1rem;			/*メニューの外側に空けるスペース*/
+	margin: 0.3rem;			/*メニューの外側に空けるスペース*/
+	display: flex;
+	justify-content: center;
+	width: 31%;
 	border-radius: 5px;		/*角を丸くする指定*/
 	padding: 0 2rem;		/*メニュー内の余白。上下、左右へ。*/
 }
