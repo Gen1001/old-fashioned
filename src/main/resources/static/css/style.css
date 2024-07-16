@@ -888,7 +888,7 @@ animationの行の「0.05s」が文字の出現のなめらかさで、大きい
 /*ボックス内のfigure画像*/
 .list figure img {
 	width: 100%;         /* 横幅をコンテナに合わせる */
-	height: 8rem;        /* 高さを指定 */
+	height: 15rem;        /* 高さを指定 */
 	object-fit: cover;   /* 画像の縦横比を維持しながらコンテナにフィットさせる */
 	margin-bottom: 0.5rem;	/*画像の下に空けるスペース*/
 }
