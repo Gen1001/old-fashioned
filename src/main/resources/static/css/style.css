@@ -819,7 +819,7 @@ animationの行の「0.05s」が文字の出現のなめらかさで、大きい
 	grid-template-columns: repeat(4, 1fr);	/*２列にする。３列がいいなら、(3, 1fr)とすればOKです。*/
 	gap: 1rem;	/*写真ブロック同士に空けるマージン的な要素。*/
 	margin-bottom: var(--global-space);	/*ボックスの下に空けるスペース。css冒頭で指定しているglobal-spaceを読み込みます*/
-	
+	flex-wrap: wrap;
 }
 
 	/*画面幅1400px以上の追加指定*/
@@ -853,6 +853,7 @@ animationの行の「0.05s」が文字の出現のなめらかさで、大きい
 /*リンクテキストがある場合に親要素のカラーを引き継ぐ*/
 .list a {
 	color: inherit;
+
 }
 
 .list h4 {
@@ -892,6 +893,9 @@ animationの行の「0.05s」が文字の出現のなめらかさで、大きい
 
 .post-font {
 	color: #09090A;
+	display: flex;
+	flex-direction: column;
+	height: 100%;
 }
 
 
@@ -1180,6 +1184,12 @@ a:hover {
 	max-width: 100%; /* 大きな画像の最大幅を設定 */
     max-height: 100%; /* 大きな画像の最大高さを設定 */
     object-fit: contain; /* 元の縦横比を保ちつつ、コンテナに収まるように画像を調整 */
+}
+
+.white-box {
+    display: flex;
+    flex-direction: column; /* 内部の要素が縦に並ぶように設定 */
+    justify-content: space-between; /* 内部の要素が均等に配置されるように設定 */
 }
 
 @media (max-widht: 600px) {

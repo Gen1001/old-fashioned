@@ -99,10 +99,12 @@
 								<div class="list up post-font">
 									<a th:href="@{/posts/show/__${file.getPost().getId()}__}">
 										<figure><img th:src="${file.getFileUrl()}" alt="投稿画像"></figure>
-										<div class="text">
-											<h4 th:text="${file.getPost().getName()}"></h4>
+										<div class="white-box">
+											<div class="text">
+												<h4 th:text="${file.getPost().getName()}"></h4>
+											</div>
+											<p th:text="${#dates.format(file.createdAt, 'yyyy/MM/dd')}"></p>
 										</div>
-										<p th:text="${#dates.format(file.createdAt, 'yyyy/MM/dd')}"></p>
 									</a>
 								</div>
 							</div>
