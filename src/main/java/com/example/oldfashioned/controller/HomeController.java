@@ -3,13 +3,15 @@ package com.example.oldfashioned.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import com.example.oldfashioned.entity.Category;
 import com.example.oldfashioned.entity.File;
-import com.example.oldfashioned.entity.Post;
 import com.example.oldfashioned.entity.Store;
 import com.example.oldfashioned.repository.CategoryRepository;
 import com.example.oldfashioned.repository.FileRepository;
@@ -35,14 +37,11 @@ public class HomeController {
 	}
 	@GetMapping("/")
 	public String index(Model model) {
-		List<Post> post;
 		List<Category> category = categoryRepository.findAll();
 		List<Store> store = storeRepository.findAll();
+		Pageable pageable = PageRequest.of(0, 12);
+		Page<File> file = fileRepository.findTop12DistinctPostIdByOrderByCreatedAtDesc(pageable);
 		
-		List<File> file = fileRepository.findTop12DistinctPostIdByOrderByCreatedAtDesc();
-		post = postRepository.findTop12ByOrderByCreatedAtDesc();
-		
-		model.addAttribute("postPage", post);
 		model.addAttribute("category", category);
 		model.addAttribute("store", store);
 		model.addAttribute("apiKey", apiKey);
