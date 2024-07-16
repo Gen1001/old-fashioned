@@ -40,9 +40,9 @@
 										<a th:href="@{/posts/otherPage/__${user.getId()}__}">
 										    <img th:if="${user.getUserPhoto() != null && !user.getUserPhoto().trim().isEmpty()}" th:src="${user.getUserPhoto()}" class="oldfashioned-veriticai-card-image profile" alt="プロフィール画像">
 											<img th:unless="${user.getUserPhoto() != null && !user.getUserPhoto().trim().isEmpty()}" th:src="@{/profile/noImage.png}" class="oldfashioned-veriticai-card-image profile" alt="NO IMAGE">
+											<p th:text="${user.getNickname()}" class="user-nickname"></p>
 										</a>
 									</th>
-									<td th:text="${user.getNickname()}" class="user-nickname"></td>
 									<td th:text="${user.getIntroduction()}" class="user-introduction"></td>
 								</tr>
 							</table>
@@ -58,11 +58,7 @@
 							
 							<table class="ta1 text-center showname">
 								<tr>
-									<th class="text-center">購入商品</th>
-									<td th:text="${post.getName()}" class="postname"></td>
-								</tr>
-								<tr>
-									<th	class="text-center">説明</th>
+									<th th:text="${post.getName()}" class="text-center"></th>
 									<td th:text="${post.getContent()}" ></td>
 								</tr>
 							</table>
