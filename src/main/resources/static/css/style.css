@@ -232,7 +232,6 @@ ul.icons {
 /*メニューブロック初期設定
 ---------------------------------------------------------------------------*/
 /*メニューをデフォルトで非表示*/
-#menubar {display: none;}
 #menubar ul {list-style: none;margin: 0;padding: 0;}
 #menubar a {display: block;text-decoration: none;}
 
