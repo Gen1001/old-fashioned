@@ -108,7 +108,7 @@ public class AuthController {
 		User user = userRepository.findByEmail(email);
 		if (user == null) {
 			redirectAttributes.addFlashAttribute("errorMessage", "ご入力いただいたメールアドレスが存在しません");
-			return "redirect:/auth/reset";
+			return "redirect:/forget";
 		}
 		
 		String requestUrl = new String(httpServletRequest.getRequestURL());

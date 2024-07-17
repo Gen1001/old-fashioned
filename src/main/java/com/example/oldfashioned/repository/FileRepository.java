@@ -10,6 +10,7 @@ import org.springframework.data.jpa.repository.Query;
 import com.example.oldfashioned.entity.File;
 
 public interface FileRepository extends JpaRepository<File, Integer> {
+	File findFirstByPostId(Integer id);
 	List<File> findByPostId(Long id);
 	@Query("SELECT f FROM File f WHERE f.id IN (SELECT MAX(f2.id) FROM File f2 GROUP BY f2.post.id) ORDER BY f.createdAt DESC")
 	Page<File> findTop12DistinctPostIdByOrderByCreatedAtDesc(Pageable pageable);

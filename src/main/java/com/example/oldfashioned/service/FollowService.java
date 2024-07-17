@@ -15,7 +15,6 @@ public class FollowService {
 		this.followRepository = followRepository;
 	}
 	
-	
 	@Transactional
 	public void create(FollowForm followForm) {
 		Follow follow = new Follow();

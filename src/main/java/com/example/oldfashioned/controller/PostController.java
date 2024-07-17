@@ -266,12 +266,14 @@ public class PostController {
 		return "posts/otherPage";
 	}
 	
+	//UUIDを使って生成したファイル名を返す
 	public String generateNewFileName(String originalFileName) {
         String extension = originalFileName.substring(originalFileName.lastIndexOf('.'));
         String hashedFileName = UUID.randomUUID().toString() + extension;
         return hashedFileName;
     }
 
+	//画像をawsに保存し、urlを返す
     public String uploadFile(S3Client s3, String bucketName, String keyName, MultipartFile imageFile) {
         try {
             PutObjectRequest putObjectRequest = PutObjectRequest.builder()

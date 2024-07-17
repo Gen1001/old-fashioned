@@ -33,22 +33,6 @@
 									<td th:text="${user.getIntroduction()}" class="user-introduction"></td>
 								</tr>
 							</table>
-																					
-<!--														<section class="blur">-->
-																										
-<!--															<div class="list-grid1">-->
-<!--																<div th:each="post : ${postPage}">-->
-<!--																	<div class="list image-container2">-->
-<!--																		<a th:href="@{/posts/show/__${post.getId()}__}">-->
-<!--																			<figure><img th:src="@{/clothes/__${post.getPostPhoto()}__}" alt="投稿画像"></figure>-->
-<!--																			<div class="text2 font-bebas" th:text="${post.getName()}"></div>-->
-<!--																		</a>-->
-<!--																	</div>-->
-<!--																</div>-->
-<!--															</div>-->
-																										
-<!--														</section>-->
-														
 							<div class="list-post">
 								<div th:each="file : ${filePage}">
 									<div class="list up post-font">

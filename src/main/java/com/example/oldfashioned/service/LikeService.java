@@ -15,7 +15,6 @@ public class LikeService {
 		this.likeRepository = likeRepository;
 	}
 	
-	
 	@Transactional
 	public void create(LikeForm likeForm) {
 		Like like = new Like();

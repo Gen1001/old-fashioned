@@ -15,12 +15,10 @@ import com.example.oldfashioned.entity.File;
 import com.example.oldfashioned.entity.Store;
 import com.example.oldfashioned.repository.CategoryRepository;
 import com.example.oldfashioned.repository.FileRepository;
-import com.example.oldfashioned.repository.PostRepository;
 import com.example.oldfashioned.repository.StoreRepository;
 
 @Controller
 public class HomeController {
-	private final PostRepository postRepository;
 	private final CategoryRepository categoryRepository;
 	private final StoreRepository storeRepository;
 	private final FileRepository fileRepository;
@@ -29,8 +27,7 @@ public class HomeController {
 	@Value("${google.maps.map.id}")
 	private String mapId;
 	
-	public HomeController(PostRepository postRepository, CategoryRepository categoryRepository, StoreRepository storeRepository, FileRepository fileRepository) {
-		this.postRepository = postRepository;
+	public HomeController(CategoryRepository categoryRepository, StoreRepository storeRepository, FileRepository fileRepository) {
 		this.categoryRepository = categoryRepository;
 		this.storeRepository = storeRepository;
 		this.fileRepository = fileRepository;

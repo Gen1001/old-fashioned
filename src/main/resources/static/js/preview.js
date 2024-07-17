@@ -1,8 +1,8 @@
+ /*![CDTA[*/
  const imageInput = document.getElementById('imageFile');
  const imagePreview = document.getElementById('imagePreview');
  const cropBtn = document.getElementById('crop-btn');
  const userForm = document.getElementById('userForm');
- 
  let cropper;
  
  imageInput.addEventListener('change', () => {
@@ -55,3 +55,4 @@ cropBtn.addEventListener('click', function (event) {
 	userForm.submit();
   }
 });
+/*]]>*/

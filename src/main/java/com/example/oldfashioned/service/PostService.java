@@ -19,17 +19,9 @@ import software.amazon.awssdk.services.s3.model.PutObjectResponse;
 @Service
 public class PostService {
 	private final PostRepository postRepository;
-	private final FileService fileService;
-//	private final S3Client s3Client;
-//	private final String bucketName = "old-fahioned";
-//	
-	public PostService(PostRepository postRepository, FileService fileService) {
+	
+	public PostService(PostRepository postRepository) {
 		this.postRepository = postRepository;
-		this.fileService = fileService;
-//		this.s3Client = S3Client.builder()
-//				.region(Region.AP_SOUTHEAST_2)
-//				.credentialsProvider(EnvironmentVariableCredentialsProvider.create())
-//                .build();
     }
 
 	@Transactional
@@ -45,24 +37,6 @@ public class PostService {
 		post.setLongitude(postRegisterForm.getLongitude());
 		post.setStoreName(postRegisterForm.getStoreName());
 		
-//		post = postRepository.save(post);
-		
-//		Integer postId = post.getId();
-//		System.out.println("Post saved with ID: " + postId);
-//		
-//		MultipartFile[] imageFiles = postRegisterForm.getImageFiles();
-//		
-//		for (MultipartFile imageFile : imageFiles) {
-//			String hashedFileName = generateNewFileName(imageFile.getOriginalFilename());
-//			String keyName = "clothes/" + hashedFileName;
-//			String fileUrl = uploadFile(s3Client, bucketName, keyName, imageFile);
-//			try {
-//				fileService.create(postId, fileUrl);
-//			} catch(Exception e) {
-//				System.out.println("error" + e.getMessage());
-//				e.printStackTrace();
-//			}
-//		}
 		postRepository.save(post);
 		Integer postId = post.getId();
 		return postId;

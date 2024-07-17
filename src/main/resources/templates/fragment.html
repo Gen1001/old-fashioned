@@ -63,7 +63,7 @@
 																
 								<div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownGeneral">
 									<a class="dropdown-item oldfashioned-dropdown-item" th:href="@{/user}">会員情報</a>
-									<a class="dropdown-item oldfashioned-dropdown-item" th:href="@{/follows/follow}">フォロー一覧</a>
+									<a class="dropdown-item oldfashioned-dropdown-item" th:href="@{/follows/follower}">フォロワー</a>
 									<a class="dropdown-item oldfashioned-dropdown-item" th:href="@{/posts/myPage}">マイページ</a>
 									<a class="dropdown-item oldfashioned-dropdown-item" th:href="@{/likes}">お気に入り一覧</a>
 									<a class="dropdown-item oldfashioned-dropdown-item" th:href="@{/keeps}">保存一覧</a>
@@ -77,25 +77,6 @@
 								</div>
 							</li>
 							
-							<!-- 管理者であれば表示する -->
-							<li class="nav-item dropdown" sec:authorize="hasRole('ROLE_ADMIN')">
-							    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownGeneral" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-							        管理メニュー
-							    </a>
-							    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownGeneral">
-							        <li><a class="dropdown-item oldfashioned-dropdown-item" th:href="@{/admin/user}">会員一覧</a></li>
-							        <li><a class="dropdown-item oldfashioned-dropdown-item" th:href="@{/admin/categories}">カテゴリ一覧</a></li>
-							        <li><a class="dropdown-item oldfashioned-dropdown-item" th:href="@{/admin/stores}">店舗一覧</a></li>
-							        <li><a class="dropdown-item oldfashioned-dropdown-item" th:href="@{/admin/posts}">投稿一覧</a></li>
-							        <li><hr class="dropdown-divider"></li>
-							        <li>
-							            <a class="dropdown-item oldfashioned-dropdown-item" th:href="@{/logout}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-							                ログアウト
-							            </a>
-							            <form class="d-none" id="logout-form" th:action="@{/logout}" method="post"></form>
-							        </li>
-							    </ul>
-							</li>
 						</ul>
 					</div>
 				</div>

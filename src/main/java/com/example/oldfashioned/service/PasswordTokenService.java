@@ -11,7 +11,6 @@ import com.example.oldfashioned.repository.PasswordTokenRepository;
 public class PasswordTokenService {
 	private final PasswordTokenRepository passwordTokenRepository;
     
-    
     public PasswordTokenService(PasswordTokenRepository passwordTokenRepository) {        
         this.passwordTokenRepository = passwordTokenRepository;
     } 
