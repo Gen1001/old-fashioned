@@ -62,8 +62,8 @@
 									<td th:text="${post.getContent()}" ></td>
 								</tr>
 								<tr>
-									<th >投稿日</th>
-									<td th:text="${post.getCreatedAt()}"></td>
+									<th class="text-center">投稿日</th>
+									<td th:text="${#dates.format(file.createdAt, 'yyyy/MM/dd')}"></td>
 									
 								</tr>
 							</table>
