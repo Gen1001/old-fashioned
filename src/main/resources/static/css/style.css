@@ -825,7 +825,8 @@ animationの行の「0.05s」が文字の出現のなめらかさで、大きい
 	bottom: 20px; /* 画面下からの距離 */
 	color: #fff;
 	font-size: 1.5rem;
-	background: rgb(54, 130, 179);
+	background-image: url("https://old-fahioned.s3.ap-southeast-2.amazonaws.com/top-page/pexels-bohlemedia-1884581+(1).jpg");
+	background-size: contain;
 	width: 200px; /* ボタンの幅 */
 	line-height: 60px; /* ボタンの高さ */
 	border-radius: 30px; /* 角を丸くする */
