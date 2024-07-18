@@ -139,14 +139,16 @@
                                         <label for="imageFile" class="col-form-label text-md-left fw-bold">プロフィール画像</label>
 	                                </div>                                    
                                     <div class="col-md-8">
-                                        <div th:if="${#fields.hasErrors('imageFile')}" class="text-danger small mb-2" th:errors="*{imageFile}"></div>  
                                         <input type="file" class="form-control" th:field="*{imageFile}">
                                     </div>
                                 </div>   
-			                               
-								<div th:if="${userPhoto}" class="row" id="imagePreview"><img th:src="@{/profile/__${userPhoto}__}" class="mb-3"></div>
-								<div th:unless="${userPhoto}" class="row" id="imagePreview"></div>
-								
+								<div>
+									<div class="row" id="imagePreview"></div>	
+								</div>
+								<div id="firstPreview" class="mb-4">
+								    <img th:if="${profile != null && !profile.trim().isEmpty()}" th:src="${profile}" class="oldfashioned-veriticai-card-image profile-large" alt="プロフィール画像">
+									<img th:unless="${profile != null && !profile.trim().isEmpty()}" th:src="@{/profile/noImage.png}" class="oldfashioned-veriticai-card-image profile-large" alt="NO IMAGE">
+								</div>		
 								<div class="form-group d-flex justify-content-center my-4">
 									<button id="crop-btn" type="submit" class="btn text-white shadow-sm w-50 oldfashioned-btn">更新</button>
 								</div>                            
@@ -154,7 +156,6 @@
                             </form>                                                                         
                         </div>
                     </div>
-                </div>
 				<div class="slide-bottom"></div>
             </main>
             
@@ -165,6 +166,5 @@
         <div th:replace="~{fragment :: scripts}"></div>  
 		<script th:src="@{/js/preview.js}"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.js"></script>
-
   </body>
 </html>

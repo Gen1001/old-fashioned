@@ -44,6 +44,7 @@ public class UserController {
 		String userPhoto = user.getUserPhoto();
 		UserEditForm userEditForm = new UserEditForm(user.getId(), user.getName(), user.getEmail(), user.getPostalCode(), user.getAddress(), user.getNickname(), user.getPhoneNumber(), user.getIntroduction(), null);
 		
+		model.addAttribute("profile", user.getUserPhoto());
 		model.addAttribute("userPhoto", userPhoto);
 		model.addAttribute("userEditForm", userEditForm);
 		

@@ -15,7 +15,7 @@ import com.example.oldfashioned.form.UserEditForm;
 import com.example.oldfashioned.repository.RoleRepository;
 import com.example.oldfashioned.repository.UserRepository;
 
-import software.amazon.awssdk.auth.credentials.EnvironmentVariableCredentialsProvider;
+import software.amazon.awssdk.auth.credentials.DefaultCredentialsProvider;
 import software.amazon.awssdk.core.sync.RequestBody;
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.s3.S3Client;
@@ -37,7 +37,7 @@ public class UserService {
         this.passwordEncoder = passwordEncoder;
         this.s3Client = S3Client.builder()
                 .region(Region.AP_SOUTHEAST_2)
-                .credentialsProvider(EnvironmentVariableCredentialsProvider.create())
+                .credentialsProvider(DefaultCredentialsProvider.create())
                 .build();
     }
 

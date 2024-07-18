@@ -30,30 +30,36 @@
                             </div>
                         </div>
 						
-						<aside id="mainimg">
+						<!-- マップ -->
+												<h2>MAP</h2>
+									
+								                <div id="map"></div>
+												
 						
-							<div class="slide slide1">
-								<div>
-									<h1 class="font-bebas">OLD FASHIONED</h1>
-									<p>気軽に投稿して<br>古着の魅力を共有しよう。</p>
-								</div>
-							</div>
-								
-							<div class="slide slide2">
-								<div>
-									<h1 class="font-gruppo">OLD FASHIONED</h1>
-									<p>あなたのおすすめ店を登録して<br>古着の輪を広げよう。</p>
-								</div>
-							</div>
-								
-							<div class="slide slide3">
-								<div>
-									<h1 class="font-monoton">OLD FASHIONED</h1>
-									<p>マップで簡単に検索して<br>古着探しの旅に出よう！</p>
-								</div>
-							</div>
+<!--						<aside id="mainimg">-->
 						
-						</aside>
+<!--							<div class="slide slide1">-->
+<!--								<div>-->
+<!--									<h1 class="font-bebas">OLD FASHIONED</h1>-->
+<!--									<p>気軽に投稿して<br>古着の魅力を共有しよう。</p>-->
+<!--								</div>-->
+<!--							</div>-->
+								
+<!--							<div class="slide slide2">-->
+<!--								<div>-->
+<!--									<h1 class="font-gruppo">OLD FASHIONED</h1>-->
+<!--									<p>あなたのおすすめ店を登録して<br>古着の輪を広げよう。</p>-->
+<!--								</div>-->
+<!--							</div>-->
+								
+<!--							<div class="slide slide3">-->
+<!--								<div>-->
+<!--									<h1 class="font-monoton">OLD FASHIONED</h1>-->
+<!--									<p>マップで簡単に検索して<br>古着探しの旅に出よう！</p>-->
+<!--								</div>-->
+<!--							</div>-->
+						
+<!--						</aside>-->
 						
 						<div class="bg1">
 						
@@ -111,11 +117,6 @@
 						</div>
 						
 						<a th:href="@{/posts}" class="d-flex justify-content-center">投稿を全て見る</a>
-						
-						<!-- マップ -->
-						<h2>MAP</h2>
-			
-		                <div id="map"></div>
 						
 						<div sec:authorize="hasRole('ROLE_GENERAL')">
 

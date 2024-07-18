@@ -1,11 +1,12 @@
- /*![CDTA[*/
  const imageInput = document.getElementById('imageFile');
  const imagePreview = document.getElementById('imagePreview');
  const cropBtn = document.getElementById('crop-btn');
  const userForm = document.getElementById('userForm');
+ const firstPreview = document.getElementById('firstPreview');
  let cropper;
  
  imageInput.addEventListener('change', () => {
+	firstPreview.style.display= 'none';	
    if (imageInput.files[0]) {
      let fileReader = new FileReader();
      fileReader.onload = () => {
@@ -55,4 +56,3 @@ cropBtn.addEventListener('click', function (event) {
 	userForm.submit();
   }
 });
-/*]]>*/
