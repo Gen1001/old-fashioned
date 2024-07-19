@@ -13,6 +13,7 @@ public class SignupEventPublisher {
         this.applicationEventPublisher = applicationEventPublisher;                
     }
     
+	// userとrequestUrlを引数にSignupEventクラスのコンストラクタを呼び出す
     public void publishSignupEvent(User user, String requestUrl) {
         applicationEventPublisher.publishEvent(new SignupEvent(this, user, requestUrl));
     }

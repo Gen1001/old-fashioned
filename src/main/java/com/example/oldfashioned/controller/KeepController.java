@@ -36,6 +36,7 @@ public class KeepController {
 		this.storeRepository = storeRepository;
 	}
 	
+	//店舗保存ページに遷移
 	@GetMapping("")
 	public String index(@AuthenticationPrincipal UserDetailsImpl userDetailsImpl, Model model, @PageableDefault(page = 0, size = 10, sort = "id", direction = Direction.ASC) Pageable pageable) {
 		User user = userDetailsImpl.getUser();
@@ -47,6 +48,7 @@ public class KeepController {
 		return "keeps/index";
 	}
 	
+	//店舗を保存する
 	@GetMapping("/create/{id}")
 	public String register(@AuthenticationPrincipal UserDetailsImpl userDetailsImpl, @PathVariable("id") Long id, KeepForm keepForm, RedirectAttributes redirectAttributes) {
 		Store store = storeRepository.getReferenceById(id);
@@ -54,6 +56,8 @@ public class KeepController {
 		
 		keepForm.setStoreId(store);
 		keepForm.setUserId(user);
+		
+		//DBに店舗情報を登録する
 		keepService.create(keepForm);
 		
 		String redirectUrl = String.format("redirect:/posts/storePage/%d", store.getId());
@@ -61,11 +65,13 @@ public class KeepController {
 		return redirectUrl;
 	}
 	
+	//店舗の保存ページから削除する
 	@GetMapping("/delete/{id}") 
 	public String delete(@AuthenticationPrincipal UserDetailsImpl userDetailsImpl, @PathVariable("id") Long id, KeepForm keepForm, RedirectAttributes redirectAttributes) {
 		Store store = storeRepository.getReferenceById(id);
 		User user = userDetailsImpl.getUser();
 		
+		//DBから店舗情報を削除する
 		keepRepository.deleteByStoreIdAndUserId(store.getId(), user.getId());
 		
 		String redirectUrl = String.format("redirect:/posts/storePage/%d", store.getId());

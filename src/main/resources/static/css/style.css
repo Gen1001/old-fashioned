@@ -13,6 +13,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Gruppo&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Monoton&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap');
 
 
 /*slick.cssの読み込み
@@ -147,20 +148,17 @@ a:hover {
 	font-weight: 400;
 	font-style: normal;
 }
-
 .font-monoton {
 	font-family: "Monoton", sans-serif;
 	font-weight: 400;
 	font-style: normal;
 }
 
-
 /*コンテナー（サイト全体を囲むブロック）
 ---------------------------------------------------------------------------*/
 #container {
 	padding: 0 var(--global-space);	/*上下、左右へのボックス内の余白。左右についてはcss冒頭で指定しているglobal-spaceを読み込みます。*/
 }
-
 
 /*header（ロゴが入った最上段のブロック）
 ---------------------------------------------------------------------------*/
@@ -817,6 +815,9 @@ animationの行の「0.05s」が文字の出現のなめらかさで、大きい
 }
 
 .post-button {
+	font-family: "DM Serif Display", serif;
+ 	font-weight: 400;
+  	font-style: italic;
 	display: block;
 	text-align: center;
 	z-index: 5;
@@ -825,7 +826,7 @@ animationの行の「0.05s」が文字の出現のなめらかさで、大きい
 	bottom: 20px; /* 画面下からの距離 */
 	color: #fff;
 	font-size: 1.5rem;
-	background-image: url("https://old-fahioned.s3.ap-southeast-2.amazonaws.com/top-page/pexels-bohlemedia-1884581+(1).jpg");
+	background-image: url("https://old-fahioned.s3.ap-southeast-2.amazonaws.com/top-page/Firefly+%E9%BB%92%E3%82%92%E3%83%99%E3%83%BC%E3%82%B9%E3%81%AB%E3%81%97%E3%81%9F%E3%82%B7%E3%83%B3%E3%83%97%E3%83%AB%E3%81%AA%E6%A8%A1%E6%A7%98%E3%81%8C%E5%85%A5%E3%81%A3%E3%81%9F%E8%83%8C%E6%99%AF%E7%94%BB%E5%83%8F%E3%81%A7%E3%81%99%E3%80%82+80945.jpg");
 	background-size: contain;
 	width: 200px; /* ボタンの幅 */
 	line-height: 60px; /* ボタンの高さ */

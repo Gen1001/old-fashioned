@@ -35,6 +35,7 @@ public class FollowController {
 		this.userRepository = userRepository;
 	}
 	
+	//フォローページに遷移
 	@GetMapping("/follow")
 	public String follow(@AuthenticationPrincipal UserDetailsImpl userDetailsImpl, Model model, @PageableDefault(page = 0, size = 10, sort = "id", direction = Direction.ASC) Pageable pageable) {
 		User user = userDetailsImpl.getUser();
@@ -46,6 +47,7 @@ public class FollowController {
 		return "follows/follow";
 	}
 	
+	//フォロワーページに遷移
 	@GetMapping("/follower")
 	public String follower(@AuthenticationPrincipal UserDetailsImpl userDetailsImpl, Model model, @PageableDefault(page = 0, size = 10, sort = "id", direction = Direction.ASC) Pageable pageable) {
 		User user = userDetailsImpl.getUser();
@@ -57,6 +59,7 @@ public class FollowController {
 		return "follows/follower";
 	}
 	
+	//他のユーザーをフォローする
 	@GetMapping("/create/{id}")
 	public String register(@AuthenticationPrincipal UserDetailsImpl userDetailsImpl, @PathVariable("id") Integer id, FollowForm followForm, RedirectAttributes redirectAttributes) {
 		User user = userRepository.getReferenceById(id);
@@ -64,6 +67,8 @@ public class FollowController {
 		
 		followForm.setUserId(self);
 		followForm.setFollowId(user);
+		
+		//DBにフォロー情報を登録する
 		followService.create(followForm);
 		
 		String redirectUrl = String.format("redirect:/posts/otherPage/%d", user.getId());
@@ -71,11 +76,13 @@ public class FollowController {
 		return redirectUrl;
 	}
 	
+	//フォローを解除する
 	@GetMapping("/delete/{id}") 
 	public String delete(@AuthenticationPrincipal UserDetailsImpl userDetailsImpl, @PathVariable("id") Integer id, FollowForm followForm, RedirectAttributes redirectAttributes) {
 		User user = userRepository.getReferenceById(id);
 		User self = userDetailsImpl.getUser();
 		
+		//DBからフォロー情報を削除する
 		followRepository.deleteByUserIdAndFollowId(self.getId(), user.getId());
 		
 		String redirectUrl = String.format("redirect:/posts/otherPage/%d", user.getId());

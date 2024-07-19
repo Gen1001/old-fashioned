@@ -43,6 +43,7 @@ public class LikeController {
 		this.fileRepository = fileRepository;
 	}
 	
+	//いいねページに遷移
 	@GetMapping("")
 	public String index(@AuthenticationPrincipal UserDetailsImpl userDetailsImpl, Model model, @PageableDefault(page = 0, size = 10, sort = "id", direction = Direction.ASC) Pageable pageable) {
 		User user = userDetailsImpl.getUser();
@@ -60,6 +61,7 @@ public class LikeController {
 		return "likes/index";
 	}
 	
+	//他の人の投稿をいいねする
 	@GetMapping("/create/{id}")
 	public String register(@AuthenticationPrincipal UserDetailsImpl userDetailsImpl, @PathVariable("id") Integer id, LikeForm likeForm, RedirectAttributes redirectAttributes) {
 		Post post = postRepository.getReferenceById(id);
@@ -67,6 +69,8 @@ public class LikeController {
 		
 		likeForm.setPostId(post);
 		likeForm.setUserId(user);
+		
+		//DBにいいね情報を登録する
 		likeService.create(likeForm);
 		
 		String redirectUrl = String.format("redirect:/posts/show/%d", post.getId());
@@ -74,11 +78,13 @@ public class LikeController {
 		return redirectUrl;
 	}
 	
+	//いいねを解除する
 	@GetMapping("/delete/{id}") 
 	public String delete(@AuthenticationPrincipal UserDetailsImpl userDetailsImpl, @PathVariable("id") Integer id, LikeForm likeForm, RedirectAttributes redirectAttributes) {
 		Post post = postRepository.getReferenceById(id);
 		User user = userDetailsImpl.getUser();
 		
+		//DBからいいね情報を削除する
 		likeRepository.deleteByPostIdAndUserId(post.getId(), user.getId());
 		
 		String redirectUrl = String.format("redirect:/posts/show/%d", post.getId());

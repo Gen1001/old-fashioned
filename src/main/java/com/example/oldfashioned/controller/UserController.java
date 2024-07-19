@@ -29,6 +29,7 @@ public class UserController {
 		this.userService = userService;
 	}
 	
+	//自分の会員情報を表示する
 	@GetMapping(" ")
 	public String index(@AuthenticationPrincipal UserDetailsImpl userDetailsImpl, Model model) {
 		User user = userRepository.getReferenceById(userDetailsImpl.getUser().getId());
@@ -38,6 +39,7 @@ public class UserController {
 		return "user/index";
 	}
 	
+	//会員情報の編集ページに遷移する
 	@GetMapping("/edit")
 	public String edit(@AuthenticationPrincipal UserDetailsImpl userDetailsImpl, Model model) {
 		User user = userRepository.getReferenceById(userDetailsImpl.getUser().getId());
@@ -51,18 +53,22 @@ public class UserController {
 		return "user/edit";
 	}
 	
+	//入力された会員情報をDBに登録する
 	@PostMapping("/update")
     public String update(@ModelAttribute @Validated UserEditForm userEditForm, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
+		
         // メールアドレスが変更されており、かつ登録済みであれば、BindingResultオブジェクトにエラー内容を追加する
         if (userService.isEmailChanged(userEditForm) && userService.isEmailRegisterd(userEditForm.getEmail())) {
             FieldError fieldError = new FieldError(bindingResult.getObjectName(), "email", "すでに登録済みのメールアドレスです。");
             bindingResult.addError(fieldError);                       
         }
         
+        // userEditFormで設定したエラーが発生していないか確認
         if (bindingResult.hasErrors()) {
             return "user/edit";
         }
         
+        //userEditFormに入力された会員情報の変更をDBに反映する
         userService.update(userEditForm);
         redirectAttributes.addFlashAttribute("successMessage", "会員情報を編集しました。");
         

@@ -20,17 +20,22 @@ public class SignupEventListener {
         this.javaMailSender = mailSender;
     }
 
+	//SignupEventが発生された時にトークンを作成してメールを送信する
     @EventListener
     private void onSignupEvent(SignupEvent signupEvent) {
+    	
+		//UUIDを使って生成したトークンをDBに登録する
         User user = signupEvent.getUser();
         String token = UUID.randomUUID().toString();
         verificationTokenService.create(user, token);
         
+		//送信するメールの内容を設定する
         String recipientAddress = user.getEmail();
         String subject = "メール認証";
         String confirmationUrl = signupEvent.getRequestUrl() + "/verify?token=" + token;
         String message = "以下のリンクをクリックして会員登録を完了してください。";
         
+		//メールを送信する
         SimpleMailMessage mailMessage = new SimpleMailMessage(); 
         mailMessage.setTo(recipientAddress);
         mailMessage.setSubject(subject);

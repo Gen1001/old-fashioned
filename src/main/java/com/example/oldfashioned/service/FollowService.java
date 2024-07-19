@@ -15,6 +15,7 @@ public class FollowService {
 		this.followRepository = followRepository;
 	}
 	
+	//followテーブルにフォロー情報を登録する
 	@Transactional
 	public void create(FollowForm followForm) {
 		Follow follow = new Follow();

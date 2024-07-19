@@ -14,6 +14,7 @@ public class FileService {
 		this.fileRepository = fileRepository;
 	}
 	
+	//fileテーブルに画像の情報を登録する
     @Transactional
     public File create(String fileUrl, Post post) {
     	File file = new File();

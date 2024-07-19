@@ -13,7 +13,6 @@ public class ForgetEvent extends ApplicationEvent {
 	
 	public ForgetEvent(Object source, User user, String requestUrl) {
 		super(source);
-		
 		this.user = user;
 		this.requestUrl = requestUrl;
 	}

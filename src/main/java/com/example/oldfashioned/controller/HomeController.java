@@ -22,6 +22,8 @@ public class HomeController {
 	private final CategoryRepository categoryRepository;
 	private final StoreRepository storeRepository;
 	private final FileRepository fileRepository;
+	
+	//GoogleMapのApiキーとMapIdを取得する
 	@Value("${google.maps.api.key}")
 	private String apiKey;
 	@Value("${google.maps.map.id}")
@@ -32,6 +34,8 @@ public class HomeController {
 		this.storeRepository = storeRepository;
 		this.fileRepository = fileRepository;
 	}
+	
+	//トップページに遷移
 	@GetMapping("/")
 	public String index(Model model) {
 		List<Category> category = categoryRepository.findAll();

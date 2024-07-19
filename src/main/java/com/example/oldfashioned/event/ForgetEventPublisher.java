@@ -13,6 +13,7 @@ public class ForgetEventPublisher {
 		this.applicationEventPublisher = applicationEventPublisher;
 	}
 	
+	// userとrequestUrlを引数にForgetEventクラスのコンストラクタを呼び出す
 	public void publishForgetEvent(User user, String requestUrl) {
 		applicationEventPublisher.publishEvent(new ForgetEvent(this, user, requestUrl));
 	}

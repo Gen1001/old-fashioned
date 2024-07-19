@@ -15,6 +15,7 @@ public class KeepService {
 		this.keepRepository = keepRepository;
 	}
 	
+	//keepテーブルに店舗の保存情報を登録する
 	@Transactional
 	public void create(KeepForm keepForm) {
 		Keep keep = new Keep();

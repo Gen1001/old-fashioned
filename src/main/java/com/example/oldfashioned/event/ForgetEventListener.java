@@ -20,17 +20,22 @@ public class ForgetEventListener {
 		this.passwordTokenService = passwordTokenService;
 	}
 	
+	//forgetEventが発生された時にトークンを作成してメールを送信する
 	@EventListener
 	private void onForgetEvent(ForgetEvent forgetEvent) {
+		
+		//UUIDを使って生成したトークンをDBに登録する
 		User user = forgetEvent.getUser();
 		String token = UUID.randomUUID().toString();
 		passwordTokenService.create(user, token);
 		
+		//送信するメールの内容を設定する
 		String recipientAddress = user.getEmail();
 		String subject = "パスワード再設定";
 		String confirmationUrl = forgetEvent.getRequestUrl() + "/verify?token=" + token;
 		String message = "以下のリンクをクリックしてパスワードを再設定してください。";
 		
+		//メールを送信する
 		SimpleMailMessage mailMessage = new SimpleMailMessage();
 		mailMessage.setTo(recipientAddress);
 		mailMessage.setSubject(subject);

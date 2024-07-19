@@ -66,10 +66,14 @@ public class PostController {
 	private final FollowRepository followRepository;
 	private final FileRepository fileRepository;
 	private final FileService fileService;
+	
+	//GoogleMapのApiキーとMapIdを取得する
 	@Value("${google.maps.api.key}")
 	private String apiKey;
 	@Value("${google.maps.map.id}")
 	private String mapId;
+	
+	//AWSのバケット名を取得する
 	private final S3Client s3Client;
 	private final String bucketName = "old-fahioned";
 	
@@ -85,11 +89,15 @@ public class PostController {
 		this.followRepository = followRepository;
 		this.fileRepository = fileRepository;
 		this.fileService = fileService;
+		
+		//AWSのS3クライアントを初期化する
 		this.s3Client = S3Client.builder()
 				.region(Region.AP_SOUTHEAST_2)
 				.credentialsProvider(EnvironmentVariableCredentialsProvider.create())
                 .build();
 	}
+	
+	//投稿一覧ページに遷移
 	@GetMapping(" ")
 	public String index(Model model, @PageableDefault(page = 0, size = 12, sort = "id", direction = Direction.ASC) Pageable pageable) {
 		List<Category> category = categoryRepository.findAll();
@@ -102,6 +110,7 @@ public class PostController {
 		return "posts/index";
 	}
 	
+	//各カテゴリごとの投稿一覧ページに遷移
 	@GetMapping("/category/{id}")
 	public String index(Model model, @PageableDefault(page = 0, size = 12, sort = "id", direction = Direction.ASC) Pageable pageable, @PathVariable(name = "id") Integer id) {
 		Page<File> filePage = fileRepository.findFilesDistinctPostIdByCategoryId(id, pageable);
@@ -113,6 +122,7 @@ public class PostController {
 		return "posts/index";
 	}
 	
+	//投稿ページに遷移
 	@GetMapping("/register")
 	public String register(Model model) {
 		List<Category> category = categoryRepository.findAll();
@@ -125,14 +135,18 @@ public class PostController {
 		return "posts/register";
 	}
 	
+	//画像を投稿してpostRegisterFormに入力された情報をDBに保存する
 	@PostMapping("/create")
 	public String create(@AuthenticationPrincipal UserDetailsImpl userDetailsImpl, @ModelAttribute @Validated PostRegisterForm postRegisterForm, BindingResult bindingResult, RedirectAttributes redirectAttributes, Model model) {
 		User user = userDetailsImpl.getUser();
 		String searchId = postRegisterForm.getStoreName();
 		Store storeId = postRegisterForm.getStoreId();
 		
+		//店舗名が入力された場合、入力された店舗名をDBから検索する
 		if (searchId != null) {
 			Store storeName = storeRepository.findByName(searchId);
+			
+			//店舗が空白でなく、DBから店舗名が見つからなかった場合店舗情報をDBに新しく登録する
 			if (!searchId.trim().isEmpty() && storeName == null) {
 				storeService.create(postRegisterForm);
 				Store storeSearch = storeRepository.findByName(searchId);
@@ -145,17 +159,20 @@ public class PostController {
 			
 		}
 		
+		//postRegisterFormで設定したエラーが発生してないか確認
 		if (bindingResult.hasErrors()) {
 			return "posts/register";
 		}
 		
+		//userをformに紐づけDBに投稿情報を登録する
 		postRegisterForm.setUserId(user);
-		
 		Integer postId = postService.create(postRegisterForm);
 		Post post = postRepository.getReferenceById(postId);
 		
+		//formに紐ずいたimageFilesを取得する
 		MultipartFile[] imageFiles = postRegisterForm.getImageFiles();
 		
+		//画像を一つずつAWSにアップロードする
 		for (MultipartFile imageFile : imageFiles) {
 			String hashedFileName = generateNewFileName(imageFile.getOriginalFilename());
 			String keyName = "clothes/" + hashedFileName;
@@ -168,6 +185,7 @@ public class PostController {
 		return "redirect:/posts/myPage";
 	}
 	
+	//自分の投稿一覧ページに遷移
 	@GetMapping("/myPage")
 	public String myPage(@AuthenticationPrincipal UserDetailsImpl userDetailsImpl, Model model, @PageableDefault(page = 0, size = 12, sort = "id", direction = Direction.ASC) Pageable pageable) {
 		User user = userRepository.getReferenceById(userDetailsImpl.getUser().getId());
@@ -179,20 +197,24 @@ public class PostController {
 		return "posts/myPage";
 	}
 	
+	//投稿詳細ページに遷移
 	@GetMapping("/show/{id}")
 	public String show(@AuthenticationPrincipal UserDetailsImpl userDetailsImpl, Model model, @PathVariable("id") Long id) {
 		Post post = postRepository.findById(id);
 		List<File> file = fileRepository.findByPostId(id);
 		User user = post.getUser();
 		
+		//会員登録済みかどうかを確認
 		if (userDetailsImpl != null) {
+			
+			//自分の投稿の場合いいねができないようにするため属性を付与する
 			User self = userDetailsImpl.getUser();
 			if (post.getUser().getId() == self.getId()) {
 				model.addAttribute("self", self);
 			}
 			
+			//いいね情報を取得して、いいねされていなければボタンを表示し、されていれば非表示にするため属性を付与する
 			List<Like> like = likeRepository.findByPostIdAndUserId(post.getId(), self.getId());
-			
 			if (like.isEmpty()) {
 				Boolean likeRegister = true;
 				model.addAttribute("likeRegister", likeRegister);
@@ -211,15 +233,18 @@ public class PostController {
 		return "posts/show";
 	}
 	
+	//店舗の投稿一覧ページに遷移
 	@GetMapping("/storePage/{id}")
 	public String storePage(@AuthenticationPrincipal UserDetailsImpl userDetailsImpl, Model model, @PathVariable("id") Integer id, @PageableDefault(page = 0, size = 12, sort = "id", direction = Direction.ASC) Pageable pageable) {
 		Page<File> filePage = fileRepository.findFilesDistinctPostIdByStoreId(id, pageable);
 		Store store = storeRepository.findById(id);
 		
+		//会員登録済みかどうか確認
 		if (userDetailsImpl != null) {
+			
+			//保存情報を取得し、店舗を保存していなかったらボタンを表示し、保存済みの場合非表示にするための属性を付与する
 			User self = userDetailsImpl.getUser();
 			List<Keep> keep = keepRepository.findByStoreIdAndUserId(store.getId(), self.getId());
-			
 			if (keep.isEmpty()) {
 				Boolean keepRegister = true;
 				model.addAttribute("keepRegister", keepRegister);
@@ -238,18 +263,23 @@ public class PostController {
 		return "posts/storePage";
 	}
 	
+	//他のユーザーの投稿一覧ページに遷移
 	@GetMapping("/otherPage/{id}")
 	public String otherPage(@AuthenticationPrincipal UserDetailsImpl userDetailsImpl, Model model, @PathVariable("id") Integer id, FollowForm followForm, @PageableDefault(page = 0, size = 12, sort = "id", direction = Direction.ASC) Pageable pageable) {
 		Page<File> filePage = fileRepository.findFilesDistinctPostIdByUserId(id, pageable);
 		User user = userRepository.findById(id).orElse(null);	
 		
+		//会員登録済みかどうか確認
 		if (userDetailsImpl != null) {
+			
+			//自分のページに遷移していたらフォローできなくする
 			User self = userDetailsImpl.getUser();
 			if (user.getId() == self.getId()) {
 			model.addAttribute("self", self);
 			}
 			List<Follow> follow = followRepository.findByUserIdAndFollowId(user.getId(), self.getId());
 			
+			//DBからフォロー情報を取得し、フォローしていなければボタンを表示し、フォロー済みであれば非表示にする属性を付与する
 			if (follow.isEmpty()) {
 				Boolean followRegister = true;
 				model.addAttribute("followRegister", followRegister);
@@ -273,7 +303,7 @@ public class PostController {
         return hashedFileName;
     }
 
-	//画像をawsに保存し、urlを返す
+	//画像をAWSに保存し、urlを返す
     public String uploadFile(S3Client s3, String bucketName, String keyName, MultipartFile imageFile) {
         try {
             PutObjectRequest putObjectRequest = PutObjectRequest.builder()
