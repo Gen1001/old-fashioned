@@ -15,6 +15,7 @@ public class VerificationTokenService {
 		this.verificationTokenRepository = verificationTokenRepository;
 	}
 	
+	// verificationTokenテーブルにトークン情報を登録する
 	@Transactional
 	public void create(User user, String token) {
 		VerificationToken verificationToken = new VerificationToken();
@@ -25,6 +26,7 @@ public class VerificationTokenService {
 		verificationTokenRepository.save(verificationToken);
 	}
 	
+	// tokenを引数にDBからtokenを検索した結果を返す
 	public VerificationToken getVerificationToken(String token) {
 		return verificationTokenRepository.findByToken(token);
 	}

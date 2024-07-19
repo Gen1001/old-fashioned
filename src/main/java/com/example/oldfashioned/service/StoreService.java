@@ -16,6 +16,7 @@ public class StoreService {
 		this.storeRepository = storeRepository;
 	}
 	
+	//storeテーブルに店舗情報を登録
 	@Transactional
 	public Store create(PostRegisterForm postRegisterForm) {
 		Store store = new Store();

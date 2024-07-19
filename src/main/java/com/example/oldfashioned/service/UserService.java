@@ -28,6 +28,8 @@ public class UserService {
     private final UserRepository userRepository;
     private final RoleRepository roleRepository;
     private final PasswordEncoder passwordEncoder;
+    
+	//AWSのバケット名を取得する
     private final S3Client s3Client;
     private final String bucketName = "old-fahioned";
 
@@ -35,20 +37,28 @@ public class UserService {
         this.userRepository = userRepository;
         this.roleRepository = roleRepository;
         this.passwordEncoder = passwordEncoder;
+        
+		//AWSのS3クライアントを初期化する
         this.s3Client = S3Client.builder()
                 .region(Region.AP_SOUTHEAST_2)
                 .credentialsProvider(DefaultCredentialsProvider.create())
                 .build();
     }
 
+    // userテーブルに会員情報を登録
     @Transactional
     public User create(SignupForm signupForm) {
         User user = new User();
         Role role = roleRepository.findByName("ROLE_GENERAL");
+        
+        // signupFormに紐づいたimageFileが空でなければAWSに画像をアップロードする
         MultipartFile imageFile = signupForm.getImageFile();
-
         if (!imageFile.isEmpty()) {
-            String hashedFileName = generateNewFileName(imageFile.getOriginalFilename());
+        	
+        	// imageFileをもとにUUIDを用いてファイル名を生成する
+            String hashedFileName = generateNewFileName(imageFile.getOriginalFilename()); 
+            
+            // 画像をAWSにアップロードする
             String keyName = "profile/" + hashedFileName;
             String fileUrl = uploadFile(s3Client, bucketName, keyName, imageFile);
             user.setUserPhoto(fileUrl); // URLを設定
@@ -68,14 +78,19 @@ public class UserService {
         return userRepository.save(user);
     }
 
+    // userテーブルに会員情報の変更を反映する
     @Transactional
     public User update(UserEditForm userEditForm) {
         User user = userRepository.getReferenceById(userEditForm.getId());
 
+        // signupFormに紐づいたimageFileが空でなければAWSに画像をアップロードする
         MultipartFile imageFile = userEditForm.getImageFile();
-
         if (!imageFile.isEmpty()) {
+        	
+        	// imageFileをもとにUUIDを用いてファイル名を生成する
             String hashedFileName = generateNewFileName(imageFile.getOriginalFilename());
+            
+            // 画像をAWSにアップロードする
             String keyName = "profile/" + hashedFileName;
             String fileUrl = uploadFile(s3Client, bucketName, keyName, imageFile);
             user.setUserPhoto(fileUrl); // URLを設定
