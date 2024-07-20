@@ -68,7 +68,8 @@
 								</tr>
 							</table>
 							
-							<h2 class="d-flex justify-content-center">購入店舗</h2>
+							<!-- マップ -->
+							<h2>MAP</h2>
 							<div id="map"></div>	
 							
 						</div>
@@ -84,72 +85,81 @@
 		
 		<div th:replace="~{fragment :: scripts}"></div>
 		
+		<!-- GoogleMapの表示設定 -->
 		<script type="text/javascript" th:inline="javascript">
 			/*<![CDTA[*/
+			
+					// APIキーとMAPIdを取得する
 					var apiKey = /*[[${apiKey}]]*/'[]';
 					var mapId = /*[[${mapId}]]*/'[]';
+					
+					// MAPs JavaScript APIの読み込み
 					(g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})({
 					    key: apiKey,
 					    v: "week",
 					});
 					
 					let map;
-						async function initMap() {
-							const { Map } = await google.maps.importLibrary("maps");
-							const { AdvancedMarkerElement } = await google.maps.importLibrary("marker");
+					
+					// 地図の描画
+					async function initMap() {
+						const { Map } = await google.maps.importLibrary("maps");
+						const { AdvancedMarkerElement } = await google.maps.importLibrary("marker");
 						
-							var post = /*[[${post}]]*/ '{}';
-							post = /*[[${post}]]*/ [];
-							const store = /*[[${post.getStore()}]]*/ 0;
+						// postから店舗情報を取得
+						var post = /*[[${post}]]*/ '{}';
+						post = /*[[${post}]]*/ [];
+						const store = /*[[${post.getStore()}]]*/ 0;
 
-						    //店舗の座標
-						    let coordinate = { lat: post.latitude, lng: post.longitude };
+						// 店舗の座標を取得
+						let coordinate = { lat: post.latitude, lng: post.longitude };
 							
-							//店舗の投稿ページへ遷移
-							const contentString =	
-							'<div class="">' +	
-							'<div class="mb5"><a href="/posts/storePage/' + store.id + '" class="btn btn-sm btn-default mb5">' +	
-							'店舗の投稿を見る' +	
-							'</a></div>' +	
-							'</div>';	
+						// 店舗の投稿ページへ遷移する吹き出しを設定
+						const contentString =	
+						'<div class="">' +	
+						'<div class="mb5"><a href="/posts/storePage/' + store.id + '" class="btn btn-sm btn-default mb5">' +	
+						'店舗の投稿を見る' +	
+						'</a></div>' +	
+						'</div>';	
 							
-							const infowindow = new google.maps.InfoWindow({content: contentString,
-							});
+						// 吹き出しを表示する
+						const infowindow = new google.maps.InfoWindow({content: contentString,
+						});
 
 								
-							//地図の描画
-							map = new Map(document.getElementById("map"), {
-						    center: coordinate,
-						    zoom: 8,
-						    mapId: mapId,
-						 	});
+						// 地図の設定
+						map = new Map(document.getElementById("map"), {
+					    center: coordinate,
+					    zoom: 8,
+					    mapId: mapId,
+					 	});
 								  
-							//店舗名を表示する
-						    const storeName = document.createElement("div");
-						    storeName.className = "store-name";
-						    storeName.textContent = store.name;
+						//店舗名を表示する
+					    const storeName = document.createElement("div");
+					    storeName.className = "store-name";
+					    storeName.textContent = store.name;
 							    
-						 	//マーカーの設置
-						 	let marker = new AdvancedMarkerElement({
-							map,
-							position: coordinate,
-							content: storeName,
-							title: store.name,
-							});
+					 	//マーカーの設置
+					 	let marker = new AdvancedMarkerElement({
+						map,
+						position: coordinate,
+						content: storeName,
+						title: store.name,
+						});
 							
-							//クリック時の処理
-							marker.addListener("click", function() {
-								infowindow.open({
-									anchor: marker,
-									map,
-								})
+						//クリック時に吹き出しを表示する
+						marker.addListener("click", function() {
+							infowindow.open({
+								anchor: marker,
+								map,
 							})
+						})
 								
-							}
+					}
 						
-						initMap();		
-						/*]]>*/
-					</script>
-			<script th:src="@{/js/viewPostPreview.js}"></script>
+					initMap();		
+			/*]]>*/
+		</script>
+		<script th:src="@{/js/viewPostPreview.js}"></script>
 	</body>
 </html>
