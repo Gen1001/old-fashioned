@@ -1,5 +1,3 @@
-
-
 // トップページスライドショー
 $('.mainimg-slick').slick({
 	autoplay: true,

@@ -21,6 +21,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 		this.userRepository = userRepository;
 	}
 	
+	// メールアドレスを引数として受け取り対応するユーザー情報と権限情報を返す
 	@Override
 	public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
 		try {

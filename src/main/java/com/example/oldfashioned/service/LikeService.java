@@ -15,6 +15,7 @@ public class LikeService {
 		this.likeRepository = likeRepository;
 	}
 	
+	//likeテーブルにいいね情報を登録する
 	@Transactional
 	public void create(LikeForm likeForm) {
 		Like like = new Like();

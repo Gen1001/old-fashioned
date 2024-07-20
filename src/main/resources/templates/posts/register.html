@@ -5,10 +5,11 @@
              
         <div th:replace="~{fragment :: styles}"></div>
 		
-        <title>投稿</title>       
+        <title>投稿ページ</title>       
     </head>
     <body>
         <div class="oldfashioned-wrapper">
+			
             <!-- ヘッダー -->
             <div th:replace="~{fragment :: header}"></div>
             
@@ -22,7 +23,7 @@
                                     <li class="breadcrumb-item active" aria-current="page">投稿</li>
                                 </ol>
                             </nav> 
-							<h1 class="mb-4 text-center">投稿</h1>
+							<h1 class="mb-4 text-center">投稿ページ</h1>
 							
 							<form method="post" th:action="@{/posts/create}" th:object="${postRegisterForm}" enctype="multipart/form-data">
 								
@@ -106,11 +107,12 @@
 				</div>
 			</main>
 			
+			<!-- フッター -->
 			<div th:replace="~{fragment :: footer}"></div>
 		
 		</div>
 		<div th:replace="~{fragment :: scripts}"></div>
 		<script th:src="@{/js/post.js}"></script>
-		<script th:src="@{/js/imagePreview.js}"></script>
+		<script th:src="@{/js/postPreview.js}"></script>
 	</body>
 </html>

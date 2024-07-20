@@ -8,6 +8,7 @@
 	</head>
 	<body>
 		<div class="oldfashioned-wrapper">
+			
 			<!-- ヘッダー -->
 			<div th:replace="~{fragment :: header}"></div>
 		
@@ -47,24 +48,24 @@
 								</div>
 							</div>
 
-														<div th:if="${filePage.getTotalPages() > 1}" class="d-flex justify-content-center">
-															<nav aria-label="ユーザーページ">
-																<ul class="pagination">
-																	<li class="page-item">
-																		<span th:if="${filePage.isFirst()}" class="page-link disabled">前</span>
-																		<a th:unless="${filePage.isFirst()}" th:href="@{/posts/otherPage/__${user.getId()}__(page = ${filePage.getNumber() -1})}" class="page-link oldfashioned-page-link">前</a>
-																	</li>
-																	<li th:each="i : ${#numbers.sequence(0, filePage.getTotalPages() -1)}" class="page-item">
-																		<span th:if="${i == filePage.getNumber()}" class="page-link active oldfashioned-active" th:text="${i + 1}"></span>
-																		<a th:unless="${i == filePage.getNumber()}" th:href="@{/posts/otherPage/__${user.getId()}__(page = ${i})}" class="page-link oldfashioned-page-link" th:text="${i + 1}"></a>
-																	</li>
-																	<li class="page-item">
-																		<span th:if="${filePage.isLast()}" class="page-link disabled">次</span>
-																		<a th:unless="${filePage.isLast()}" th:href="@{/posts/otherPage/__${user.getId()}__(page = ${filePage.getNumber() + 1})}" class="page-link oldfashioned-page-link">次</a>
-																	</li>
-																</ul>
-															</nav>
-														</div> 
+							<div th:if="${filePage.getTotalPages() > 1}" class="d-flex justify-content-center">
+								<nav aria-label="ユーザーページ">
+									<ul class="pagination">
+										<li class="page-item">
+											<span th:if="${filePage.isFirst()}" class="page-link disabled">前</span>
+											<a th:unless="${filePage.isFirst()}" th:href="@{/posts/otherPage/__${user.getId()}__(page = ${filePage.getNumber() -1})}" class="page-link oldfashioned-page-link">前</a>
+										</li>
+										<li th:each="i : ${#numbers.sequence(0, filePage.getTotalPages() -1)}" class="page-item">
+											<span th:if="${i == filePage.getNumber()}" class="page-link active oldfashioned-active" th:text="${i + 1}"></span>
+											<a th:unless="${i == filePage.getNumber()}" th:href="@{/posts/otherPage/__${user.getId()}__(page = ${i})}" class="page-link oldfashioned-page-link" th:text="${i + 1}"></a>
+										</li>
+										<li class="page-item">
+											<span th:if="${filePage.isLast()}" class="page-link disabled">次</span>
+											<a th:unless="${filePage.isLast()}" th:href="@{/posts/otherPage/__${user.getId()}__(page = ${filePage.getNumber() + 1})}" class="page-link oldfashioned-page-link">次</a>
+										</li>
+									</ul>
+								</nav>
+							</div> 
 							
 						</div>
 					</div>
@@ -76,6 +77,7 @@
 			
 		</div>
 		
+		<!-- フッター -->
 		<div th:replace="~{fragment :: scripts}"></div>
 		
 	</body>

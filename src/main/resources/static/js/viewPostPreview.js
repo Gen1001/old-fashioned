@@ -1,3 +1,4 @@
+// ドキュメントが読み込まれた際に、画像を表示する
 document.addEventListener('DOMContentLoaded', () => {
     const thumbnailContainer = document.querySelector('.thumbnail-container');
     const imagePreview = document.getElementById('imagePreview');
@@ -12,11 +13,10 @@ document.addEventListener('DOMContentLoaded', () => {
         imagePreview.appendChild(firstImageElement);
     }
 
-    // マウスオーバーイベントを追加
+	// サムネイル画像にマウスをホバーすると、大きな画像を表示する
     Array.from(thumbnails).forEach(thumbnail => {
         thumbnail.addEventListener('mouseover', (event) => {
             imagePreview.innerHTML = '';
-
             const previewElement = document.createElement('img');
             previewElement.src = event.target.src;
             previewElement.classList.add('preview-image');

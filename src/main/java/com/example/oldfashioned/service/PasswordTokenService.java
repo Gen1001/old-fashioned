@@ -15,7 +15,7 @@ public class PasswordTokenService {
         this.passwordTokenRepository = passwordTokenRepository;
     } 
     
-    //passwordTokenテーブルにトークン情報を登録する
+    // passwordTokenテーブルにトークン情報を登録する
     @Transactional
     public void create(User user, String token) {
         PasswordToken passwordToken = new PasswordToken();

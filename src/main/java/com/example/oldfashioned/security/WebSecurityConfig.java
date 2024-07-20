@@ -13,14 +13,19 @@ import org.springframework.security.web.SecurityFilterChain;
 @EnableWebSecurity
 @EnableMethodSecurity
 public class WebSecurityConfig {
+	
+	// HttpSecurityオブジェクトを使用してHTTPリクエストに対するセキュリティ設定を行う
 	@Bean
 	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 		http
+		
+			// 特定のURLパターンに対するアクセス許可を設定する
 			.authorizeHttpRequests((requests) -> requests
 					.requestMatchers("/css/**", "/js/**", "/storage/**", "/**", "/signup/**", "/auth/**", "/passwordReset/**", "/mailsend/**", "/login/**", "/search/**", "/store/**", "/user/**", "/posts/category/1").permitAll()
-					.requestMatchers("/admin/**").hasRole("ADMIN")
 					.anyRequest().authenticated()
 			)
+			
+			// フォームベースのログイン設定を行う
 			.formLogin((form) -> form
 					.loginPage("/login")
 					.loginProcessingUrl("/login")
@@ -28,6 +33,8 @@ public class WebSecurityConfig {
 					.failureUrl("/login?error")
 					.permitAll()
 			)
+			
+			// ログアウト設定を行う
 			.logout((logout) -> logout
 					.logoutSuccessUrl("/login?loggedOut")
 					.permitAll()
@@ -36,6 +43,7 @@ public class WebSecurityConfig {
 		return http.build();
 	}
 	
+	//パスワードをハッシュ化する
 	@Bean
 	public PasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder();
