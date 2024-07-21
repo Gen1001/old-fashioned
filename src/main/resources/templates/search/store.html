@@ -37,9 +37,9 @@
 								<div th:each="store : ${storePage}">
 									<tr>
 										<th>
-											<a th:href="@{/posts/storePage/__${store.getId()}__}" th:text="${store.getName()}"></a>
+											<a class="d-flex justify-content-center" th:href="@{/posts/storePage/__${store.getId()}__}" th:text="${store.getName()}"></a>
 										</th>
-										<td th:text="${store.getAddress()}"></td>
+										<td th:utext="${store.getAddress()}"></td>
 									</tr>
 								</div>
 							</table>

@@ -8,8 +8,11 @@ import org.springframework.stereotype.Service;
 import com.example.oldfashioned.entity.Store;
 import com.example.oldfashioned.form.PostRegisterForm;
 import com.example.oldfashioned.repository.StoreRepository;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.google.maps.GeoApiContext;
 import com.google.maps.GeocodingApi;
+import com.google.maps.GeocodingApiRequest;
 import com.google.maps.errors.ApiException;
 import com.google.maps.errors.RequestDeniedException;
 import com.google.maps.model.GeocodingResult;
@@ -38,62 +41,30 @@ public class StoreService {
 									.apiKey(apiKey)
 									.build();
 		
+		
 		// 逆ジオコーディングリクエストを作成して、言語を日本語に設定
-        GeocodingResult[] results;
-        String address = null;
-        try {
-        	results = GeocodingApi.reverseGeocode(context, latlng).language("ja").await();
-            if (results != null && results.length > 0) {
-                address = formatAddress(results[0]);
-            }
-        } catch (ApiException | InterruptedException | IOException e) {
-        	 if (e instanceof RequestDeniedException) {
-                 throw (RequestDeniedException) e;
-             }
-             e.printStackTrace();
-        } finally {
-            context.shutdown();
-        }
-        return address;
-	}
-	
-	// 住所をフォーマットするメソッド
-    private String formatAddress(GeocodingResult result) {
-        String[] addressComponents = new String[5];
-        
-        for (int i = 0; i < result.addressComponents.length; i++) {
-            String type = result.addressComponents[i].types[0].toString();
-            switch (type) {
-                case "administrative_area_level_1":
-                    addressComponents[0] = result.addressComponents[i].longName; // 都道府県
-                    break;
-                case "locality":
-                    addressComponents[1] = result.addressComponents[i].longName; // 市区町村
-                    break;
-                case "sublocality_level_1":
-                    addressComponents[2] = result.addressComponents[i].longName; // 区
-                    break;
-                case "neighborhood":
-                    addressComponents[3] = result.addressComponents[i].longName; // 町名
-                    break;
-                case "premise":
-                    addressComponents[4] = result.addressComponents[i].longName; // 建物名など
-                    break;
-                default:
-                    break;
-            }
-        }
-        StringBuilder formattedAddress = new StringBuilder();
-        for (String component : addressComponents) {
-            if (component != null) {
-                if (formattedAddress.length() > 0) {
-                    formattedAddress.append(" ");
-                }
-                formattedAddress.append(component);
-            }
-        }
-        return formattedAddress.toString();
-    }
+	        GeocodingApiRequest request = GeocodingApi.reverseGeocode(context, latlng).language("ja");
+	        GeocodingResult[] results;
+	        String address = null;
+	        try {
+	            results = request.await();
+	            Gson gson = new GsonBuilder().setPrettyPrinting().create();
+	            address = gson.toJson(results[0].formattedAddress);
+	            
+	            // JSON形式の文字列から「""」と「日本、」を取り除く
+	            address = address.replaceAll("\"", "");
+	            address = address.replaceFirst("^日本、", "");
+	            
+	            // 郵便番号の後に改行を追加
+	            address = address.replaceFirst("(〒\\d{3}-\\d{4})", "$1<br/>");
+
+	        } catch (ApiException | InterruptedException | IOException e) {
+	            e.printStackTrace();
+	        } finally {
+	            context.shutdown();
+	        }
+	        return address;
+	    }
 	
 	//storeテーブルに店舗情報を登録
 	@Transactional
@@ -114,7 +85,6 @@ public class StoreService {
             String address = getAddressFromCoordinates(postRegisterForm.getLatitude(), postRegisterForm.getLongitude());
             store.setAddress(address);
         } catch (RequestDeniedException e) {
-            System.out.println("API key restrictions are not properly set: " + e.getMessage());
             throw new IllegalStateException("Failed to retrieve address due to API key restrictions.", e);
         }
 		return storeRepository.save(store);

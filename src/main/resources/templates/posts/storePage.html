@@ -26,17 +26,23 @@
 							
 							<div th:if="${#authorization.expression('hasRole(''ROLE_GENERAL'')')}" class="text-align">
 								<div th:if="${keepDelete}">
-									<a th:href="@{/keeps/delete/__${store.getId()}__}">&#128190; 保存</a>
+									<a th:href="@{/keeps/delete/__${store.getId()}__}">
+										<img class="delete-store" th:src="@{/images/save-marke.png}"><span>店舗登録を解除する</span>
+									</a>
 								</div>
 								<div th:if="${keepRegister}">
-									<a th:href="@{/keeps/create/__${store.getId()}__}">&#128190; 保存</a>
+									<a th:href="@{/keeps/create/__${store.getId()}__}">
+										<img class="register-store" th:src="@{/images/save-marke.png}"><span>店舗を保存する</span>
+									</a>
 								</div>
 							</div>
 								
-							<table class="ta1 showpage">
+							<table class="ta1">
 								<tr>
-									<th th:text="${store.getName()}"></th>
-									<td th:text="${store.getAddress()}"></td>
+									<th>
+										<a class="d-flex justify-content-center th-arrange" th:href="@{/posts/storePage/__${store.getId()}__}" th:text="${store.getName()}"></a>
+									</th>
+									<td th:utext="${store.getAddress()}"></td>
 								</tr>
 							</table>
 						   

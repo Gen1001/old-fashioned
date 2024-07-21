@@ -34,37 +34,4 @@ public class PostService {
 		Integer postId = post.getId();
 		return postId;
 	}
-//	
-//	//
-//	public String generateNewFileName(String fileName) {
-//        String[] fileNames = fileName.split("\\.");
-//        for (int i = 0; i < fileNames.length - 1; i++) {
-//            fileNames[i] = UUID.randomUUID().toString();
-//        }
-//        return String.join(".", fileNames);
-//    }
-//
-//    public String uploadFile(S3Client s3, String bucketName, String keyName, MultipartFile imageFile) {
-//        try {
-//            PutObjectRequest putObjectRequest = PutObjectRequest.builder()
-//                    .bucket(bucketName)
-//                    .key(keyName)
-//                    .build();
-//
-//            PutObjectResponse response = s3.putObject(putObjectRequest,
-//                    RequestBody.fromBytes(imageFile.getBytes()));
-//
-//            String fileUrl = s3.utilities().getUrl(GetUrlRequest.builder()
-//                    .bucket(bucketName)
-//                    .key(keyName)
-//                    .build()).toString();
-//
-//            System.out.println("File uploaded successfully. ETag: " + response.eTag());
-//            return fileUrl;
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//            throw new RuntimeException("Failed to upload file to S3.", e);
-//        }
-//    }
-//    
 }

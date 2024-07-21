@@ -17,6 +17,7 @@
 
 
 /*slick.cssの読み込み
+
 ---------------------------------------------------------------------------*/
 @import url("https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css");
 
@@ -487,7 +488,7 @@ footer .pr {display: block;}
 ---------------------------------------------------------------------------*/
 .pagetop-show {display: block;}
 
-/*ボタンの設定*/
+/*ボタンの外見設定*/
 .pagetop a {
 	display: block;text-decoration: none;text-align: center;z-index: 99;
 	position: fixed;	/*スクロールに追従しない(固定で表示)為の設定*/
@@ -501,6 +502,7 @@ footer .pr {display: block;}
 	border-radius: 50%;	/*円形にする*/
 }
 
+/*ボタンの中身の設定*/
 .post-button {
 	font-family: "DM Serif Display", serif;
  	font-weight: 400;
@@ -513,19 +515,13 @@ footer .pr {display: block;}
 	bottom: 20px; /* 画面下からの距離 */
 	color: #F6F6F6;
 	font-size: 1.5rem;
-	background-image: url("https://old-fahioned.s3.ap-southeast-2.amazonaws.com/top-page/Firefly+%E9%BB%92%E3%82%92%E3%83%99%E3%83%BC%E3%82%B9%E3%81%AB%E3%81%97%E3%81%9F%E3%82%B7%E3%83%B3%E3%83%97%E3%83%AB%E3%81%AA%E6%A8%A1%E6%A7%98%E3%81%8C%E5%85%A5%E3%81%A3%E3%81%9F%E8%83%8C%E6%99%AF%E7%94%BB%E5%83%8F%E3%81%A7%E3%81%99%E3%80%82+80945.jpg");
-	background-size: contain;
+	background-image: url("https://old-fahioned.s3.ap-southeast-2.amazonaws.com/top-page/post-backImage.jpg");
+	background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
 	width: 200px; /* ボタンの幅 */
 	line-height: 60px; /* ボタンの高さ */
 	border-radius: 30px; /* 角を丸くする */
-}
-
-.post-button a {
-	color: #F6F6F6;
-	text-decoration: none;
-	display: block;
-	width: 100%;
-	height: 100%;
 }
 
 .list-post {
@@ -771,7 +767,6 @@ footer .pr {display: block;}
 /*会員のニックネームの表示設定*/
 .user-nickname {
 	font-weight: bold;
-	font-size: 1.2rem;
 	text-align: center;
 	margin-bottom: -5px;
 }
@@ -799,7 +794,8 @@ footer .pr {display: block;}
 
 /*下の要素とのmarginを無くす*/
 .showpage {
-	margin-bottom: 0;
+	margin-bottom: 20px;
+	text-align: center;
 }
 
 /*上の要素とmarginを開ける*/
@@ -865,6 +861,23 @@ footer .pr {display: block;}
     display: flex;
     flex-direction: column; /* 内部の要素が縦に並ぶように設定 */
     justify-content: space-between; /* 内部の要素が均等に配置されるように設定 */
+}
+
+/*th属性を中央揃えにする*/
+.th-arrange {
+    	font-weight: bold;
+}
+
+/*店舗を登録する保存マーク*/
+.register-store {
+	height: 2rem;
+	margin-bottom: 5px;
+}
+
+/*店舗登録を解除するマーク*/
+.delete-store {
+	height: 2rem;
+	margin-bottom: 5px;
 }
 
 /*画面幅が600px以下の時のサムネイルを縦方向に並べる*/
