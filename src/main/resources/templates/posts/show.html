@@ -25,12 +25,12 @@
 								</ol>
 							</nav>
 							
-							<div th:if="${#authorization.expression('hasRole(''ROLE_GENERAL'')') and self == null}" class="text-align">
+							<div th:if="${#authorization.expression('hasRole(''ROLE_GENERAL'')') and self == null}" class="like">
 								<div th:if="${likeDelete}">
-									<a th:href="@{/likes/delete/__${post.getId()}__}">&#9829; いいね</a>
+									<a th:href="@{/likes/delete/__${post.getId()}__}">&#9829; <span th:text="${sum}"></span></a>
 								</div>
 								<div th:if="${likeRegister}">
-									<a th:href="@{/likes/create/__${post.getId()}__}">&#9825; いいね</a>
+									<a th:href="@{/likes/create/__${post.getId()}__}">&#9825; <span th:text="${sum}"></span></a>
 								</div>
 							</div>
 							

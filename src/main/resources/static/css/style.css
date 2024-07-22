@@ -871,13 +871,30 @@ footer .pr {display: block;}
 /*店舗を登録する保存マーク*/
 .register-store {
 	height: 2rem;
-	margin-bottom: 5px;
 }
 
 /*店舗登録を解除するマーク*/
 .delete-store {
 	height: 2rem;
-	margin-bottom: 5px;
+}
+
+/*店舗保存の文字設定*/
+.keep {
+	display: flex;
+	justify-content: end;
+	margin-bottom: 15px;
+	height: 2rem;
+}
+
+/*いいねの表示設定*/
+.like {
+	text-align: end;
+	font-size: 1.5rem;
+}
+
+/*フォローの表示設定*/
+.follow {
+	text-align: end;
 }
 
 /*画面幅が600px以下の時のサムネイルを縦方向に並べる*/

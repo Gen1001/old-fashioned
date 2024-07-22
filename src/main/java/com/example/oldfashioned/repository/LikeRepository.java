@@ -10,6 +10,7 @@ import com.example.oldfashioned.entity.Like;
 
 public interface LikeRepository extends JpaRepository<Like, Integer>{
 	public List<Like> findByPostIdAndUserId(Integer postId, Integer userId); 
+	public List<Like> findByPostId(Long id);
 	public Page<Like> findByUserId(Integer id, Pageable pageable);
 	public void deleteByPostIdAndUserId(Integer postId, Integer userId);
 }

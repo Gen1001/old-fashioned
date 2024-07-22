@@ -24,10 +24,10 @@
 								</ol>
 							</nav>
 							
-							<div th:if="${#authorization.expression('hasRole(''ROLE_GENERAL'')')}" class="text-align">
+							<div th:if="${#authorization.expression('hasRole(''ROLE_GENERAL'')')}" class="keep">
 								<div th:if="${keepDelete}">
 									<a th:href="@{/keeps/delete/__${store.getId()}__}">
-										<img class="delete-store" th:src="@{/images/save-marke.png}"><span>店舗登録を解除する</span>
+										<img class="delete-store" th:src="@{/images/save-marke.png}"><span>保存を解除する</span>
 									</a>
 								</div>
 								<div th:if="${keepRegister}">

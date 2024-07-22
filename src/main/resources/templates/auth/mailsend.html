@@ -26,8 +26,6 @@
 								<span th:text="${errorMessage}"></span>
 							</div>
 							
-							<h1 class="text-center">メールアドレス確認</h1>
-							
 							<form th:action="@{/reset}" method="post">
 								<div class="form-group mb-3">
 									<input type="text" class="form-control" name="email" autocomplete="email" placeholder="登録済みのメールアドレスを入力してください" autofocus>								

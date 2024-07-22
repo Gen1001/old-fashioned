@@ -115,9 +115,11 @@ public class PostController {
 	public String index(Model model, @PageableDefault(page = 0, size = 12, sort = "id", direction = Direction.ASC) Pageable pageable, @PathVariable(name = "id") Integer id) {
 		Page<File> filePage = fileRepository.findFilesDistinctPostIdByCategoryId(id, pageable);
 		List<Category> category = categoryRepository.findAll();
+		Category one = categoryRepository.getReferenceById(id);
 		
 		model.addAttribute("filePage", filePage);
 		model.addAttribute("category", category);
+		model.addAttribute("one", one);
 		
 		return "posts/index";
 	}
@@ -202,6 +204,7 @@ public class PostController {
 	public String show(@AuthenticationPrincipal UserDetailsImpl userDetailsImpl, Model model, @PathVariable("id") Long id) {
 		Post post = postRepository.findById(id);
 		List<File> file = fileRepository.findByPostId(id);
+		List<Like> likeSum = likeRepository.findByPostId(id);
 		User user = post.getUser();
 		
 		//会員登録済みかどうかを確認
@@ -224,9 +227,13 @@ public class PostController {
 			}
 		}
 		
+//		いいね数を取得する
+		Integer sum = likeSum.size();
+		
 		model.addAttribute("file", file);
 		model.addAttribute("post", post);
 		model.addAttribute("user", user);
+		model.addAttribute("sum", sum);
 		model.addAttribute("apiKey", apiKey);
 		model.addAttribute("mapId", mapId);
 		

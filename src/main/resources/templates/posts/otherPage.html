@@ -23,12 +23,12 @@
 								</ol>
 							</nav>
 							
-							<div th:if="${#authorization.expression('hasRole(''ROLE_GENERAL'')') and self == null}" class="text-align">
+							<div th:if="${#authorization.expression('hasRole(''ROLE_GENERAL'')') and self == null}" class="follow">
 								<div th:if="${followDelete}">
-									<a th:href="@{/follows/delete/__${user.getId()}__}">フォローを外す</a>
+									<a th:href="@{/follows/delete/__${user.getId()}__}">フォロー</a>
 								</div>
 								<div th:if="${followRegister}">
-									<a th:href="@{/follows/create/__${user.getId()}__}">フォローする</a>
+									<a th:href="@{/follows/create/__${user.getId()}__}">フォロー中</a>
 								</div>
 							</div>
 							
