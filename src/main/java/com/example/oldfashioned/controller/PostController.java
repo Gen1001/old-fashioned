@@ -284,7 +284,7 @@ public class PostController {
 			if (user.getId() == self.getId()) {
 			model.addAttribute("self", self);
 			}
-			List<Follow> follow = followRepository.findByUserIdAndFollowId(user.getId(), self.getId());
+			List<Follow> follow = followRepository.findByUserIdAndFollowId(self.getId(), user.getId());
 			
 			//DBからフォロー情報を取得し、フォローしていなければボタンを表示し、フォロー済みであれば非表示にする属性を付与する
 			if (follow.isEmpty()) {

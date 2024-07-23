@@ -79,14 +79,21 @@ public class FollowController {
 	//フォローを解除する
 	@GetMapping("/delete/{id}") 
 	public String delete(@AuthenticationPrincipal UserDetailsImpl userDetailsImpl, @PathVariable("id") Integer id, FollowForm followForm, RedirectAttributes redirectAttributes) {
-		User user = userRepository.getReferenceById(id);
-		User self = userDetailsImpl.getUser();
-		
-		//DBからフォロー情報を削除する
-		followRepository.deleteByUserIdAndFollowId(self.getId(), user.getId());
-		
-		String redirectUrl = String.format("redirect:/posts/otherPage/%d", user.getId());
-		
-		return redirectUrl;
+		try {
+	        User user = userRepository.getReferenceById(id);
+	        User self = userDetailsImpl.getUser();
+	        System.out.println(user);
+	        System.out.println(self);
+
+	        // DBからフォロー情報を削除する
+	        followRepository.deleteByUserIdAndFollowId(self.getId(), user.getId());
+
+	        String redirectUrl = String.format("redirect:/posts/otherPage/%d", user.getId());
+	        return redirectUrl;
+	    } catch (Exception e) {
+	        e.printStackTrace(); // 例外の詳細を出力
+	        redirectAttributes.addFlashAttribute("error", "フォロー解除に失敗しました。");
+	        return "redirect:/errorPage"; // エラー時のリダイレクト先を指定
+	    }
 	}
 }
