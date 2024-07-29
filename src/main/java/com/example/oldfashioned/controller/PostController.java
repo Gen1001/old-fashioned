@@ -98,7 +98,7 @@ public class PostController {
 	}
 	
 	//投稿一覧ページに遷移
-	@GetMapping(" ")
+	@GetMapping("")
 	public String index(Model model, @PageableDefault(page = 0, size = 12, sort = "id", direction = Direction.ASC) Pageable pageable) {
 		List<Category> category = categoryRepository.findAll();
 		
