@@ -14,7 +14,7 @@ OLD FASHIONED
 google.mapをAPIを用いることでDBに登録してある店舗情報から位置情報を取得し、マップ上に表示することが出来ました。
 
 ## アプリURL
-https://old-fashioned-4a7f0a0b92a1.herokuapp.com/
+https://limitless-sea-95495-b1d441851f7c.herokuapp.com/
 
 ## テストユーザー
 メールアドレス:taro.yamada@example.com
